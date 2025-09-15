@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aero Digital – CRM Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/metisMenu.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/swiper.min.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/crm-base.css">
+</head>
+<body>
+  <nav class="nav glass">
+    <div class="brand">Aero Digital CRM</div>
+    <ul class="nav-links">
+      <li><a href="#">Leady</a></li>
+      <li><a href="#">Kampanie</a></li>
+      <li><a href="#">Zadania</a></li>
+      <li><a href="#">Raporty</a></li>
+    </ul>
+    <button class="btn btn-primary-pill">Dodaj kampanię</button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner container">
+      <h1>Panel wzrostu klientów</h1>
+      <p>Monitoruj pozyskiwanie leadów, wydatki reklamowe i ROI w jednym miejscu.</p>
+      <div class="actions">
+        <a class="btn btn-primary-pill">Nowy lead</a>
+        <a class="btn btn-ghost">Eksport danych</a>
+      </div>
+    </div>
+    <svg class="orbits" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <radialGradient id="g" cx="50%" cy="0%" r="100%">
+          <stop offset="0%" stop-color="#2E6CFF" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#2E6CFF" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#g)"/>
+    </svg>
+  </header>
+
+  <main class="container grid">
+    <section class="card kpi">
+      <div class="kpi-number">+327%</div>
+      <div class="kpi-label">Wzrost konwersji</div>
+      <canvas class="spark" height="56"></canvas>
+    </section>
+
+    <section class="card kpi">
+      <div class="kpi-number">12,480</div>
+      <div class="kpi-label">Leady (30 dni)</div>
+      <canvas class="spark" height="56"></canvas>
+    </section>
+
+    <section class="card kpi">
+      <div class="kpi-number">3.8x</div>
+      <div class="kpi-label">Zwrot z kampanii</div>
+      <canvas class="spark" height="56"></canvas>
+    </section>
+
+    <section class="card wide">
+      <div class="card-head">
+        <h3>Aktywne kampanie</h3>
+        <button class="btn btn-ghost sm">Zarządzaj</button>
+      </div>
+      <table class="table table-dark table-sm">
+        <thead><tr><th>Nazwa</th><th>Status</th><th>Budżet</th><th>CPC</th><th>Leady</th><th>Konwersja</th></tr></thead>
+        <tbody id="campaigns"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h3>Zadania zespołu</h3>
+      <ul class="tasks" id="tasks"></ul>
+    </section>
+
+    <section class="card">
+      <h3>Pliki</h3>
+      <div class="files">
+        <div class="file folder"><span class="icon">📁</span><b>Assets</b><small>62 items</small></div>
+        <div class="file"><span class="badge pdf">PDF</span> Raport Q3.pdf</div>
+        <div class="file"><span class="badge fig">FIG</span> Landing.fig</div>
+        <div class="file"><span class="badge ai">AI</span> Logo.ai</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Opinie klientów</h3>
+      <div class="testimonials">
+        <div class="tm"><img src="assets/img/avatar/tm_avatar1.jpg"/><div><b>Anna</b><small>„Świetne wyniki po 3 tygodniach.”</small></div></div>
+        <div class="tm"><img src="assets/img/avatar/tm_avatar2.jpg"/><div><b>Marek</b><small>„Lepszy CPL o 42%.”</small></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cta">
+    <div class="container">
+      <h2>Skaluj markę z Aero Digital</h2>
+      <a class="btn btn-primary-pill">Umów audyt</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/crm-app.js"></script>
+</body>
+</html>
