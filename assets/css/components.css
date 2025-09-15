@@ -45,7 +45,6 @@
     color: #0B0F15;
     font-weight: 600;
     box-shadow: 0 4px 16px rgba(46, 108, 255, 0.3);
-    backdrop-filter: blur(10px);
 }
 
 .btn-primary:hover {
@@ -63,7 +62,6 @@
     background: rgba(255, 255, 255, 0.05);
     color: #FFFFFF;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -101,8 +99,7 @@
    ======================================== */
 
 .card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 24px;
@@ -127,7 +124,7 @@
 
 .card:hover {
     transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 24px rgba(46, 108, 255, 0.3);
     border-color: rgba(46, 108, 255, 0.3);
 }
@@ -138,8 +135,7 @@
 
 /* Elevated Card */
 .card-elevated {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
@@ -149,7 +145,6 @@
 
 .folder-card {
     background: linear-gradient(135deg, rgba(59, 102, 255, 0.8) 0%, rgba(91, 139, 255, 0.8) 100%);
-    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: 32px;
@@ -217,8 +212,7 @@
    ======================================== */
 
 .file-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 20px;
@@ -233,7 +227,7 @@
 
 .file-card:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 16px rgba(46, 108, 255, 0.2);
     border-color: rgba(46, 108, 255, 0.3);
 }
@@ -302,8 +296,7 @@
    ======================================== */
 
 .testimonial-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 32px;
@@ -314,7 +307,7 @@
 
 .testimonial-card:hover {
     transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(46, 108, 255, 0.15);
     border-color: rgba(46, 108, 255, 0.2);
 }
@@ -379,8 +372,7 @@
     align-items: center;
     gap: 16px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     transition: all 0.3s ease;
@@ -389,7 +381,7 @@
 
 .team-member:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 16px rgba(46, 108, 255, 0.1);
     border-color: rgba(46, 108, 255, 0.2);
 }
@@ -436,8 +428,7 @@
    ======================================== */
 
 .metric-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 32px;
@@ -462,7 +453,7 @@
 
 .metric-card:hover {
     transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(46, 108, 255, 0.15);
     border-color: rgba(46, 108, 255, 0.2);
 }
@@ -516,8 +507,7 @@
    ======================================== */
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 32px;
@@ -542,7 +532,7 @@
 
 .feature-card:hover {
     transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(46, 108, 255, 0.1);
     border-color: rgba(46, 108, 255, 0.2);
 }

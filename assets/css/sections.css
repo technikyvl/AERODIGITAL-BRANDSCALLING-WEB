@@ -14,12 +14,11 @@
     transform: translateX(-50%);
     z-index: 1000;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 30px;
     padding: 8px 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     max-width: 85%;
     width: fit-content;
 }
@@ -125,7 +124,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #0A0D12 0%, #0E1430 50%, #0A0D12 100%);
+    background: transparent;
     overflow: hidden;
 }
 
@@ -270,8 +269,7 @@
     align-items: flex-start;
     gap: 24px;
     padding: 24px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     transition: all 0.3s ease;
@@ -281,14 +279,13 @@
 
 .process-step:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 16px rgba(46, 108, 255, 0.1);
     border-color: rgba(46, 108, 255, 0.2);
 }
 
 .process-step.active {
     background: rgba(46, 108, 255, 0.08);
-    backdrop-filter: blur(25px);
     border-color: #2E6CFF;
     box-shadow: 0 0 20px rgba(46, 108, 255, 0.2);
 }

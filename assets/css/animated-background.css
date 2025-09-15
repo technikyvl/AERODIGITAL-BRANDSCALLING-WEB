@@ -1,0 +1,163 @@
+/* ========================================
+   ANIMATED MESH BACKGROUND - Aero Digital
+   Dark Veil Animated Mesh Background in Blue
+   ======================================== */
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(46, 108, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 184, 240, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(46, 108, 255, 0.06) 0%, transparent 50%);
+    z-index: -1;
+    animation: meshFlow 20s ease-in-out infinite;
+}
+
+@keyframes meshFlow {
+    0%, 100% {
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateX(-20px) translateY(-10px) scale(1.05);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateX(20px) translateY(10px) scale(0.95);
+        opacity: 0.9;
+    }
+    75% {
+        transform: translateX(-10px) translateY(20px) scale(1.02);
+        opacity: 0.7;
+    }
+}
+
+/* Additional animated elements */
+.animated-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.mesh-wave {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(ellipse at 30% 20%, rgba(46, 108, 255, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(0, 184, 240, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 50%, rgba(46, 108, 255, 0.08) 0%, transparent 70%);
+    animation: waveMotion 25s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.mesh-wave:nth-child(2) {
+    animation-delay: -8s;
+    animation-duration: 30s;
+    opacity: 0.6;
+}
+
+.mesh-wave:nth-child(3) {
+    animation-delay: -15s;
+    animation-duration: 35s;
+    opacity: 0.4;
+}
+
+@keyframes waveMotion {
+    0%, 100% {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translateX(-45%) translateY(-55%) rotate(90deg) scale(1.1);
+    }
+    50% {
+        transform: translateX(-55%) translateY(-45%) rotate(180deg) scale(0.9);
+    }
+    75% {
+        transform: translateX(-50%) translateY(-50%) rotate(270deg) scale(1.05);
+    }
+}
+
+/* Floating particles */
+.mesh-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(46, 108, 255, 0.6);
+    border-radius: 50%;
+    animation: particleFloat 15s linear infinite;
+}
+
+.mesh-particle:nth-child(odd) {
+    background: rgba(0, 184, 240, 0.4);
+    animation-duration: 20s;
+}
+
+.mesh-particle:nth-child(3n) {
+    width: 2px;
+    height: 2px;
+    animation-duration: 25s;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body::after {
+        animation-duration: 15s;
+    }
+    
+    .mesh-wave {
+        animation-duration: 20s;
+    }
+    
+    .mesh-wave:nth-child(2) {
+        animation-duration: 25s;
+    }
+    
+    .mesh-wave:nth-child(3) {
+        animation-duration: 30s;
+    }
+}
