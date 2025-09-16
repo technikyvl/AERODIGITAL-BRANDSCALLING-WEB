@@ -5930,22 +5930,14 @@ Pricing controller
 --------------------------------------------------------------*/
 .cs_ruixen_dashboard {
   margin-top: 60px;
-  width: 100vw !important;
+  width: 100%;
   padding: 0;
-  margin-left: calc(-50vw + 50%) !important;
-  margin-right: calc(-50vw + 50%) !important;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
 }
 
 .cs_ruixen_dashboard .container {
-  max-width: none !important;
-  width: 100% !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 15px;
 }
 
 .cs_ruixen_dashboard .container-fluid {
@@ -5964,7 +5956,6 @@ Pricing controller
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  max-width: none !important;
 }
 
 .cs_chart_container {
@@ -5975,13 +5966,13 @@ Pricing controller
 
 /* Ensure chart takes full width */
 #ruixenChart {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
 }
 
-/* Override any Bootstrap width constraints */
+/* Ensure dashboard elements respect container width */
 .cs_ruixen_dashboard * {
-  max-width: none !important;
+  max-width: 100%;
 }
 
 .cs_chart_overlay {
