@@ -432,117 +432,10 @@ body {
 
 /* Animations */
 
-@keyframes textShadowGlow {
-  0% {
-    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-}
-
-@keyframes textShadowGlowBlue {
-  0% {
-    text-shadow: 0 0 0 rgba(46, 108, 255, 0);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(46, 108, 255, 0.4), 0 0 40px rgba(46, 108, 255, 0.2);
-  }
-  100% {
-    text-shadow: 0 0 0 rgba(46, 108, 255, 0);
-  }
-}
-
-@keyframes textShadowGlowOrange {
-  0% {
-    text-shadow: 0 0 0 rgba(255, 87, 34, 0);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(255, 87, 34, 0.4), 0 0 40px rgba(255, 87, 34, 0.2);
-  }
-  100% {
-    text-shadow: 0 0 0 rgba(255, 87, 34, 0);
-  }
-}
-
-@keyframes cardShadowGlow {
-  0% {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-  50% {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05);
-  }
-  100% {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-}
-
-@keyframes cardShadowGlowBlue {
-  0% {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-  50% {
-    box-shadow: 0 20px 25px -5px rgba(46, 108, 255, 0.1), 0 10px 10px -5px rgba(46, 108, 255, 0.04), 0 0 0 1px rgba(46, 108, 255, 0.1);
-  }
-  100% {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-}
-
-@keyframes cardShadowGlowOrange {
-  0% {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-  50% {
-    box-shadow: 0 20px 25px -5px rgba(255, 87, 34, 0.1), 0 10px 10px -5px rgba(255, 87, 34, 0.04), 0 0 0 1px rgba(255, 87, 34, 0.1);
-  }
-  100% {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-}
 
 
-/* Text shadow animations */
-.animate-text-glow {
-  animation: textShadowGlow 3s ease-in-out infinite;
-}
 
-.animate-text-glow-blue {
-  animation: textShadowGlowBlue 3s ease-in-out infinite;
-}
 
-.animate-text-glow-orange {
-  animation: textShadowGlowOrange 3s ease-in-out infinite;
-}
-
-/* Card shadow animations */
-.animate-card-glow {
-  animation: cardShadowGlow 4s ease-in-out infinite;
-}
-
-.animate-card-glow-blue {
-  animation: cardShadowGlowBlue 4s ease-in-out infinite;
-}
-
-.animate-card-glow-orange {
-  animation: cardShadowGlowOrange 4s ease-in-out infinite;
-}
-
-/* Hover effects with shadow animations */
-.service-card:hover {
-  animation: cardShadowGlowBlue 2s ease-in-out infinite;
-}
-
-.value-card:hover {
-  animation: cardShadowGlow 2s ease-in-out infinite;
-}
-
-.value-card-featured:hover {
-  animation: cardShadowGlowOrange 2s ease-in-out infinite;
-}
 
 
 /* Chart Section Styles */
@@ -567,11 +460,14 @@ body {
   border: 1px solid #e5e5e5;
   overflow: hidden;
   height: 400px;
+  min-height: 400px;
 }
 
 #heroChart {
   width: 100% !important;
   height: 100% !important;
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .chart-overlay {
@@ -581,7 +477,7 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
   pointer-events: none;
-  z-index: 10;
+  z-index: 5;
 }
 
 .chart-hero-number {

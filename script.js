@@ -76,11 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize animated chart after a short delay to ensure Chart.js is loaded
   setTimeout(() => {
     initializeChart()
-  }, 100)
+  }, 500)
 })
 
 // Chart initialization and animation
 function initializeChart() {
+  console.log('Initializing chart...')
   const ctx = document.getElementById('heroChart')
   if (!ctx) {
     console.log('Chart canvas not found')
@@ -92,6 +93,8 @@ function initializeChart() {
     console.log('Chart.js not loaded')
     return
   }
+
+  console.log('Chart.js loaded, creating chart...')
 
   // Chart data
   const data = [
@@ -109,6 +112,7 @@ function initializeChart() {
   gradient.addColorStop(1, 'rgba(59, 130, 246, 0)')
 
   // Chart configuration
+  console.log('Creating chart with data:', data)
   const chart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -158,8 +162,20 @@ function initializeChart() {
     }
   })
 
+  console.log('Chart created successfully')
+  
   // Animate counter numbers
   animateCounters()
+  
+  // Force chart to resize
+  setTimeout(() => {
+    if (chart && chart.resize) {
+      chart.resize()
+    }
+  }, 100)
+  
+  // Return chart for debugging
+  window.heroChart = chart
 }
 
 // Animate counter numbers
