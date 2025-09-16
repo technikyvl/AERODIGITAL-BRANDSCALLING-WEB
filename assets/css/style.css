@@ -5926,7 +5926,170 @@ Pricing controller
 }
 
 /*--------------------------------------------------------------
-19. RuixenStats Dashboard Section
+19. Floating Navbar Section
+--------------------------------------------------------------*/
+.cs_floating_nav {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5000;
+  transition: all 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cs_floating_nav.visible {
+  top: 40px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.cs_floating_nav_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  padding: 8px 32px 8px 16px;
+  box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.1), 
+              0px 1px 0px 0px rgba(25, 28, 33, 0.02), 
+              0px 0px 0px 1px rgba(25, 28, 33, 0.08);
+  backdrop-filter: blur(10px);
+  max-width: fit-content;
+}
+
+.cs_nav_item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.cs_nav_item:hover {
+  color: #374151;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.cs_nav_icon {
+  font-size: 16px;
+  display: block;
+}
+
+.cs_nav_text {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .cs_nav_icon {
+    display: none;
+  }
+  
+  .cs_nav_text {
+    display: block;
+  }
+}
+
+.cs_login_btn {
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.cs_login_btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.cs_btn_underline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #3b82f6, transparent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cs_login_btn:hover .cs_btn_underline {
+  opacity: 1;
+}
+
+/* About Section */
+.cs_about_section {
+  background: #f8f9fa;
+}
+
+.cs_about_content h2 {
+  color: var(--heading-color);
+}
+
+.cs_about_content p {
+  color: var(--body-color);
+  line-height: 1.6;
+}
+
+.cs_about_image img {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Section */
+.cs_contact_section {
+  background: white;
+}
+
+.cs_contact_item {
+  padding: 30px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.cs_contact_item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cs_contact_icon {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cs_contact_item h4 {
+  color: var(--heading-color);
+}
+
+.cs_contact_item p {
+  color: var(--body-color);
+  margin: 0;
+}
+
+/*--------------------------------------------------------------
+20. RuixenStats Dashboard Section
 --------------------------------------------------------------*/
 .cs_ruixen_dashboard {
   margin-top: 60px;
