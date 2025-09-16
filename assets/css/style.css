@@ -5975,9 +5975,12 @@ Pricing controller
 }
 
 .cs_island_logo img {
-  height: 50px;
+  height: 60px;
   width: auto;
-  max-width: 300px;
+  max-width: 400px;
+  object-fit: cover;
+  object-position: center;
+  margin: -10px 0;
 }
 
 .cs_island_header_center {
