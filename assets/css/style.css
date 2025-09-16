@@ -5932,6 +5932,11 @@ Pricing controller
   margin-top: 60px;
 }
 
+.cs_ruixen_dashboard .container {
+  max-width: 100%;
+  padding: 0 15px;
+}
+
 .cs_ruixen_chart_card {
   position: relative;
   width: 100%;
