@@ -1,6 +1,5 @@
 import { Rubik } from "next/font/google";
-import './assets/css/tailwind.css'
-import './assets/css/materialdesignicons.min.css'
+import './globals.css'
 
 const rubic = Rubik({
   subsets: ["latin"],
