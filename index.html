@@ -83,10 +83,10 @@
                   <canvas id="ruixenChart" width="100%" height="400"></canvas>
                 </div>
                 
-                <!-- Overlay Hero Number -->
-                <div class="cs_chart_overlay">
+                <!-- Hero Number Above Chart -->
+                <div class="cs_hero_number_above">
                   <h3 class="cs_hero_number" id="pln-counter">
-                    <span class="cs_counter" data-count="40000">40 000</span> PLN
+                    <span class="cs_counter" data-count="50000">50 000</span> PLN
                   </h3>
                   <p class="cs_hero_label">Wygenerowanych dla naszych klientów</p>
                 </div>
@@ -94,32 +94,16 @@
                 <!-- Side Stats -->
       <div class="cs_side_stats">
         <div class="cs_stat_item">
-          <p class="cs_stat_value">60k+</p>
-          <p class="cs_stat_label">Active Users</p>
-        </div>
-        <div class="cs_stat_item">
           <p class="cs_stat_value">50+</p>
           <p class="cs_stat_label">Wykonanych Projektów</p>
-        </div>
-        <div class="cs_stat_item">
-          <p class="cs_stat_value">2.5M</p>
-          <p class="cs_stat_label">Tasks Done</p>
         </div>
         <div class="cs_stat_item">
           <p class="cs_stat_value">x5 ROI</p>
           <p class="cs_stat_label">Z każdym projektem</p>
         </div>
         <div class="cs_stat_item">
-          <p class="cs_stat_value">~209+</p>
-          <p class="cs_stat_label">Integrations</p>
-        </div>
-        <div class="cs_stat_item">
           <p class="cs_stat_value">~1 000</p>
           <p class="cs_stat_label">Godzin Doświadczenia</p>
-        </div>
-        <div class="cs_stat_item">
-          <p class="cs_stat_value">100%</p>
-          <p class="cs_stat_label">Productivity</p>
         </div>
         <div class="cs_stat_item">
           <p class="cs_stat_value">100%</p>
@@ -1070,7 +1054,7 @@
         function startPLNGrowth() {
           const plnCounter = document.getElementById('pln-counter');
           const counterElement = plnCounter.querySelector('.cs_counter');
-          let currentValue = 40000;
+          let currentValue = 50000;
           
           function updatePLN() {
             // Add random increment between 20-30 PLN
