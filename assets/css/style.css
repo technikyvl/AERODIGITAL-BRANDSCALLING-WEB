@@ -5961,6 +5961,8 @@ Pricing controller
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  overflow: hidden;
+  height: 100%;
 }
 
 .cs_island_logo {
