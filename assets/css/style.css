@@ -6361,6 +6361,20 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   margin: 0;
 }
 
+/* Visual Empty Placeholder */
+.visual-empty {
+  min-height: 420px;
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .visual-empty {
+    min-height: 280px;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .cs_ruixen_chart_card {
