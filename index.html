@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@1.8.2/dist/countUp.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -33,18 +35,41 @@
                     Organize & Launch<br>
                     Campaigns Effortlessly
                 </h1>
-                <p class="hero-description animate-text-glow">
-                    MailMaster Pro Empowers Your Business To Streamline Email Management 
-                    And Execute Impactful Marketing Campaigns With Ease
-                </p>
-                <div class="hero-buttons">
-                    <button class="btn btn-black">Get Started</button>
-                    <button class="btn btn-outline">Upgrade Now</button>
-                </div>
                 
-                <div class="hero-card">
-                    <div class="dashboard-card animate-card-glow">
-                        <p class="animate-text-glow">Join thousands transforming their<br>email strategy today.</p>
+                <!-- Animated Chart Section -->
+                <div class="chart-section">
+                    <div class="chart-container">
+                        <div class="chart-wrapper">
+                            <canvas id="heroChart"></canvas>
+                            
+                            <!-- Overlay Hero Number -->
+                            <div class="chart-overlay">
+                                <h3 class="chart-hero-number">
+                                    <span id="countUpNumber">0</span>M
+                                </h3>
+                                <p class="chart-hero-label">Revenue this year</p>
+                            </div>
+
+                            <!-- Side Stats -->
+                            <div class="chart-stats">
+                                <div class="stat-item">
+                                    <p class="stat-value" data-count="60">0</p>
+                                    <p class="stat-label">Active Users</p>
+                                </div>
+                                <div class="stat-item">
+                                    <p class="stat-value" data-count="2.5">0</p>
+                                    <p class="stat-label">Tasks Done</p>
+                                </div>
+                                <div class="stat-item">
+                                    <p class="stat-value" data-count="36">0</p>
+                                    <p class="stat-label">Productivity</p>
+                                </div>
+                                <div class="stat-item">
+                                    <p class="stat-value" data-count="95">0</p>
+                                    <p class="stat-label">Integrations</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

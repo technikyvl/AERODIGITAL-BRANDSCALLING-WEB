@@ -97,4 +97,115 @@ document.addEventListener("DOMContentLoaded", () => {
     const randomDelay = Math.random() * 3 // 0-3 seconds
     card.style.animationDelay = `${randomDelay}s`
   })
+
+  // Initialize animated chart
+  initializeChart()
 })
+
+// Chart initialization and animation
+function initializeChart() {
+  const ctx = document.getElementById('heroChart')
+  if (!ctx) return
+
+  // Chart data
+  const data = [
+    { month: "Jan", value: 50 },
+    { month: "Feb", value: 90 },
+    { month: "Mar", value: 140 },
+    { month: "Apr", value: 200 },
+    { month: "May", value: 240 },
+    { month: "Jun", value: 300 },
+  ]
+
+  // Create gradient
+  const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 400)
+  gradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)')
+  gradient.addColorStop(1, 'rgba(59, 130, 246, 0)')
+
+  // Chart configuration
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: data.map(d => d.month),
+      datasets: [{
+        label: 'Revenue',
+        data: data.map(d => d.value),
+        borderColor: '#3b82f6',
+        backgroundColor: gradient,
+        borderWidth: 2,
+        fill: true,
+        tension: 0.4,
+        pointBackgroundColor: '#3b82f6',
+        pointBorderColor: '#ffffff',
+        pointBorderWidth: 2,
+        pointRadius: 6,
+        pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          enabled: false
+        }
+      },
+      scales: {
+        x: {
+          display: false
+        },
+        y: {
+          display: false
+        }
+      },
+      animation: {
+        duration: 2000,
+        easing: 'easeInOutQuart'
+      },
+      interaction: {
+        intersect: false,
+        mode: 'index'
+      }
+    }
+  })
+
+  // Animate counter numbers
+  animateCounters()
+}
+
+// Animate counter numbers
+function animateCounters() {
+  // Main hero number
+  const heroNumber = document.getElementById('countUpNumber')
+  if (heroNumber) {
+    const countUp = new CountUp(heroNumber, 125, {
+      duration: 2.5,
+      useEasing: true,
+      useGrouping: true,
+      separator: ',',
+      decimal: '.',
+    })
+    countUp.start()
+  }
+
+  // Side stats
+  const statValues = document.querySelectorAll('.stat-value')
+  statValues.forEach((stat, index) => {
+    const targetValue = parseFloat(stat.getAttribute('data-count'))
+    const countUp = new CountUp(stat, targetValue, {
+      duration: 2.5 + (index * 0.2),
+      useEasing: true,
+      useGrouping: true,
+      separator: ',',
+      decimal: '.',
+    })
+    
+    // Start animation with delay
+    setTimeout(() => {
+      countUp.start()
+    }, 500 + (index * 200))
+  })
+}
