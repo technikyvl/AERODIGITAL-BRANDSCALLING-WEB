@@ -49,18 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Enhanced text shadow animations on hover
-  const textElements = document.querySelectorAll('h1, h2, h3, p')
-  textElements.forEach((element) => {
-    element.addEventListener('mouseenter', function() {
-      this.style.transition = 'text-shadow 0.3s ease-in-out'
-      this.style.textShadow = '0 0 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.2)'
-    })
-
-    element.addEventListener('mouseleave', function() {
-      this.style.textShadow = ''
-    })
-  })
 
   // Card hover effects with enhanced shadows
   const cards = document.querySelectorAll('.service-card, .value-card, .dashboard-card')
@@ -84,28 +72,26 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Add random delay to text shadow animations for more organic feel
-  const animatedTexts = document.querySelectorAll('.animate-text-glow, .animate-text-glow-blue, .animate-text-glow-orange')
-  animatedTexts.forEach((text, index) => {
-    const randomDelay = Math.random() * 2 // 0-2 seconds
-    text.style.animationDelay = `${randomDelay}s`
-  })
 
-  // Add random delay to card shadow animations
-  const animatedCards = document.querySelectorAll('.animate-card-glow, .animate-card-glow-blue, .animate-card-glow-orange')
-  animatedCards.forEach((card, index) => {
-    const randomDelay = Math.random() * 3 // 0-3 seconds
-    card.style.animationDelay = `${randomDelay}s`
-  })
-
-  // Initialize animated chart
-  initializeChart()
+  // Initialize animated chart after a short delay to ensure Chart.js is loaded
+  setTimeout(() => {
+    initializeChart()
+  }, 100)
 })
 
 // Chart initialization and animation
 function initializeChart() {
   const ctx = document.getElementById('heroChart')
-  if (!ctx) return
+  if (!ctx) {
+    console.log('Chart canvas not found')
+    return
+  }
+
+  // Check if Chart is available
+  if (typeof Chart === 'undefined') {
+    console.log('Chart.js not loaded')
+    return
+  }
 
   // Chart data
   const data = [
@@ -181,31 +167,37 @@ function animateCounters() {
   // Main hero number
   const heroNumber = document.getElementById('countUpNumber')
   if (heroNumber) {
-    const countUp = new CountUp(heroNumber, 125, {
-      duration: 2.5,
-      useEasing: true,
-      useGrouping: true,
-      separator: ',',
-      decimal: '.',
-    })
-    countUp.start()
+    animateNumber(heroNumber, 0, 125, 2500)
   }
 
   // Side stats
   const statValues = document.querySelectorAll('.stat-value')
   statValues.forEach((stat, index) => {
     const targetValue = parseFloat(stat.getAttribute('data-count'))
-    const countUp = new CountUp(stat, targetValue, {
-      duration: 2.5 + (index * 0.2),
-      useEasing: true,
-      useGrouping: true,
-      separator: ',',
-      decimal: '.',
-    })
-    
-    // Start animation with delay
     setTimeout(() => {
-      countUp.start()
+      animateNumber(stat, 0, targetValue, 2000)
     }, 500 + (index * 200))
   })
+}
+
+// Simple number animation function
+function animateNumber(element, start, end, duration) {
+  const startTime = performance.now()
+  
+  function updateNumber(currentTime) {
+    const elapsed = currentTime - startTime
+    const progress = Math.min(elapsed / duration, 1)
+    
+    // Easing function
+    const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+    const currentValue = start + (end - start) * easeOutQuart
+    
+    element.textContent = Math.floor(currentValue)
+    
+    if (progress < 1) {
+      requestAnimationFrame(updateNumber)
+    }
+  }
+  
+  requestAnimationFrame(updateNumber)
 }

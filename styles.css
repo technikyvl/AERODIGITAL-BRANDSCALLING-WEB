@@ -544,26 +544,6 @@ body {
   animation: cardShadowGlowOrange 2s ease-in-out infinite;
 }
 
-/* Text elements with shadow animations */
-.hero-title {
-  animation: textShadowGlow 4s ease-in-out infinite;
-}
-
-.section-title {
-  animation: textShadowGlow 4s ease-in-out infinite;
-}
-
-.service-card h3 {
-  animation: textShadowGlowBlue 3s ease-in-out infinite;
-}
-
-.value-card h3 {
-  animation: textShadowGlow 3s ease-in-out infinite;
-}
-
-.value-card-featured h3 {
-  animation: textShadowGlowOrange 3s ease-in-out infinite;
-}
 
 /* Chart Section Styles */
 .chart-section {
@@ -610,7 +590,6 @@ body {
   color: #000000;
   margin: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  animation: textShadowGlow 3s ease-in-out infinite;
 }
 
 .chart-hero-label {
@@ -645,7 +624,6 @@ body {
   font-weight: 700;
   color: #000000;
   margin: 0;
-  animation: textShadowGlow 3s ease-in-out infinite;
 }
 
 .stat-label {
