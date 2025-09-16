@@ -6225,20 +6225,20 @@ body {
 .hero--compact .cs_side_stats {
   top: 12px;
   right: 12px;
-  padding: 24px;
-  gap: 16px;
+  padding: 20px;
+  gap: 12px;
 }
 
 .hero--compact .cs_stat_value {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  transition: color 0.3s ease;
 }
 
 .hero--compact .cs_stat_label {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 12px;
   color: #6b7280;
   margin: 0;
 }
@@ -6376,13 +6376,17 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .overlay-visual {
+  position: absolute;
   bottom: 16px;
   right: 16px;
-  width: 60%;
+  width: 50%;
   height: auto;
+  z-index: 2;
 }
 
 .overlay-image {
@@ -6396,7 +6400,7 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   .overlay-visual {
     bottom: 12px;
     right: 12px;
-    width: 65%;
+    width: 55%;
   }
 }
 
@@ -6404,7 +6408,7 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   .overlay-visual {
     bottom: 8px;
     right: 8px;
-    width: 70%;
+    width: 60%;
   }
 }
 
