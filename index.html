@@ -1105,7 +1105,7 @@
         initWorldMap();
       });
       
-      // World Map Initialization with Framer Motion
+      // WorldMap Component Implementation (React to Static HTML/CSS/JS conversion)
       function initWorldMap() {
         const worldMapContainer = document.getElementById('worldMap');
         if (!worldMapContainer) return;
@@ -1116,7 +1116,7 @@
           return;
         }
         
-        // Create dots array with Poland connections
+        // Props equivalent to React component
         const dots = [
           {
             start: { lat: 52.2297, lng: 21.0122 }, // Poland (Warsaw)
@@ -1138,51 +1138,53 @@
         
         const lineColor = '#0ea5e9';
         
-        // Create DottedMap
+        // Create DottedMap instance (equivalent to React component)
         const map = new DottedMap({ height: 100, grid: 'diagonal' });
         
-        // Get SVG map
+        // Get SVG map (equivalent to theme-based logic)
         const svgMap = map.getSVG({
           radius: 0.22,
-          color: '#00000040',
+          color: '#00000040', // Light theme color
           shape: 'circle',
-          backgroundColor: 'white',
+          backgroundColor: 'white', // Light theme background
         });
         
-        // Project coordinates to SVG space
+        // Project coordinates to SVG space (identical to React component)
         function projectPoint(lat, lng) {
           const x = (lng + 180) * (800 / 360);
           const y = (90 - lat) * (400 / 180);
           return { x, y };
         }
         
-        // Create curved path
+        // Create curved path (identical to React component)
         function createCurvedPath(start, end) {
           const midX = (start.x + end.x) / 2;
           const midY = Math.min(start.y, end.y) - 50;
           return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
         }
         
-        // Create main container
+        // Create main container (equivalent to React JSX)
         const mapContainer = document.createElement('div');
         mapContainer.className = 'w-full aspect-[2/1] bg-white rounded-lg relative font-sans';
         
-        // Add background map image
+        // Add background map image (equivalent to Next.js Image component)
         const mapImage = document.createElement('img');
         mapImage.src = `data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`;
         mapImage.className = 'h-full w-full pointer-events-none select-none';
         mapImage.style.maskImage = 'linear-gradient(to bottom, transparent, white 10%, white 90%, transparent)';
         mapImage.alt = 'world map';
+        mapImage.height = 495;
+        mapImage.width = 1056;
         mapImage.draggable = false;
         
         mapContainer.appendChild(mapImage);
         
-        // Create SVG overlay
+        // Create SVG overlay (equivalent to React SVG)
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('viewBox', '0 0 800 400');
         svg.className = 'w-full h-full absolute inset-0 pointer-events-none select-none';
         
-        // Add gradient definition
+        // Add gradient definition (identical to React component)
         const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
         const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
         gradient.setAttribute('id', 'path-gradient');
@@ -1218,7 +1220,7 @@
         defs.appendChild(gradient);
         svg.appendChild(defs);
         
-        // Add paths with Framer Motion-like animation
+        // Add paths with Framer Motion animation (equivalent to motion.path)
         dots.forEach((dot, i) => {
           const startPoint = projectPoint(dot.start.lat, dot.start.lng);
           const endPoint = projectPoint(dot.end.lat, dot.end.lng);
@@ -1233,11 +1235,11 @@
           path.setAttribute('stroke-width', '1');
           path.setAttribute('key', `start-upper-${i}`);
           
-          // Framer Motion-like animation: pathLength from 0 to 1
+          // Framer Motion animation: pathLength from 0 to 1
           path.style.strokeDasharray = '1000';
           path.style.strokeDashoffset = '1000';
           
-          // Animate with easeOut timing
+          // Animate with easeOut timing (equivalent to Framer Motion transition)
           setTimeout(() => {
             path.style.transition = 'stroke-dashoffset 1s ease-out';
             path.style.strokeDashoffset = '0';
@@ -1247,7 +1249,7 @@
           svg.appendChild(pathGroup);
         });
         
-        // Add dots with pulsing animation
+        // Add dots with pulsing animation (identical to React component)
         dots.forEach((dot, i) => {
           const pointsGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
           pointsGroup.setAttribute('key', `points-group-${i}`);
