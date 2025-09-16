@@ -6424,65 +6424,63 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
 .cs_world_map {
   width: 100%;
   height: 500px;
-  background: #f8f9fa;
-  border-radius: 16px;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.cs_world_map svg {
+.cs_world_map .w-full {
   width: 100%;
+}
+
+.cs_world_map .aspect-\[2\/1\] {
+  aspect-ratio: 2 / 1;
+}
+
+.cs_world_map .bg-white {
+  background-color: white;
+}
+
+.cs_world_map .rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.cs_world_map .relative {
+  position: relative;
+}
+
+.cs_world_map .font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+.cs_world_map .h-full {
   height: 100%;
 }
 
-.cs_world_map .map-path {
-  fill: none;
-  stroke: #3b82f6;
-  stroke-width: 2;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: drawPath 2s ease-in-out forwards;
+.cs_world_map .w-full {
+  width: 100%;
 }
 
-.cs_world_map .map-dot {
-  fill: #3b82f6;
-  r: 4;
-  animation: pulse 2s infinite;
+.cs_world_map .pointer-events-none {
+  pointer-events: none;
 }
 
-.cs_world_map .map-dot-pulse {
-  fill: #3b82f6;
-  r: 4;
-  opacity: 0.5;
-  animation: pulseRing 2s infinite;
+.cs_world_map .select-none {
+  user-select: none;
+}
+
+.cs_world_map .absolute {
+  position: absolute;
+}
+
+.cs_world_map .inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 @keyframes drawPath {
   to {
     stroke-dashoffset: 0;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    r: 4;
-    opacity: 1;
-  }
-  50% {
-    r: 6;
-    opacity: 0.8;
-  }
-}
-
-@keyframes pulseRing {
-  0% {
-    r: 4;
-    opacity: 0.5;
-  }
-  100% {
-    r: 12;
-    opacity: 0;
   }
 }
 

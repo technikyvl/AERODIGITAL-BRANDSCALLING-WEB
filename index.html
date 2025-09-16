@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="assets/css/slick.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- DottedMap -->
+    <script src="https://cdn.jsdelivr.net/npm/dotted-map@2.1.2/dist/dotted-map.min.js"></script>
   </head>
   <body class="cs_live_chat">
     <!-- Start Preloader -->
@@ -1106,27 +1108,44 @@
         const worldMapContainer = document.getElementById('worldMap');
         if (!worldMapContainer) return;
         
-        // Coordinates for cities
-        const cities = {
-          poland: { lat: 52.2297, lng: 21.0122, name: 'Warszawa' },
-          italy: { lat: 41.9028, lng: 12.4964, name: 'Rzym' },
-          france: { lat: 48.8566, lng: 2.3522, name: 'Paryż' },
-          belgium: { lat: 50.8503, lng: 4.3517, name: 'Bruksela' },
-          slovakia: { lat: 48.1486, lng: 17.1077, name: 'Bratysława' }
-        };
+        // Wait for DottedMap to load
+        if (typeof DottedMap === 'undefined') {
+          setTimeout(initWorldMap, 100);
+          return;
+        }
         
-        // Create SVG
-        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('viewBox', '0 0 800 400');
-        svg.setAttribute('class', 'w-full h-full');
-        
-        // Create paths for connections
-        const connections = [
-          { from: cities.poland, to: cities.italy },
-          { from: cities.poland, to: cities.france },
-          { from: cities.poland, to: cities.belgium },
-          { from: cities.poland, to: cities.slovakia }
+        // Create dots array with Poland connections
+        const dots = [
+          {
+            start: { lat: 52.2297, lng: 21.0122 }, // Poland (Warsaw)
+            end: { lat: 41.9028, lng: 12.4964 }, // Italy (Rome)
+          },
+          {
+            start: { lat: 52.2297, lng: 21.0122 }, // Poland (Warsaw)
+            end: { lat: 48.8566, lng: 2.3522 }, // France (Paris)
+          },
+          {
+            start: { lat: 52.2297, lng: 21.0122 }, // Poland (Warsaw)
+            end: { lat: 50.8503, lng: 4.3517 }, // Belgium (Brussels)
+          },
+          {
+            start: { lat: 52.2297, lng: 21.0122 }, // Poland (Warsaw)
+            end: { lat: 48.1486, lng: 17.1077 }, // Slovakia (Bratislava)
+          }
         ];
+        
+        const lineColor = '#0ea5e9';
+        
+        // Create DottedMap
+        const map = new DottedMap({ height: 100, grid: 'diagonal' });
+        
+        // Get SVG map
+        const svgMap = map.getSVG({
+          radius: 0.22,
+          color: '#00000040',
+          shape: 'circle',
+          backgroundColor: 'white',
+        });
         
         // Project coordinates to SVG space
         function projectPoint(lat, lng) {
@@ -1142,68 +1161,179 @@
           return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
         }
         
-        // Add connections
-        connections.forEach((conn, i) => {
-          const startPoint = projectPoint(conn.from.lat, conn.from.lng);
-          const endPoint = projectPoint(conn.to.lat, conn.to.lng);
+        // Create main container
+        const mapContainer = document.createElement('div');
+        mapContainer.className = 'w-full aspect-[2/1] bg-white rounded-lg relative font-sans';
+        
+        // Add background map image
+        const mapImage = document.createElement('img');
+        mapImage.src = `data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`;
+        mapImage.className = 'h-full w-full pointer-events-none select-none';
+        mapImage.style.maskImage = 'linear-gradient(to bottom, transparent, white 10%, white 90%, transparent)';
+        mapImage.alt = 'world map';
+        mapImage.draggable = false;
+        
+        mapContainer.appendChild(mapImage);
+        
+        // Create SVG overlay
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 800 400');
+        svg.className = 'w-full h-full absolute inset-0 pointer-events-none select-none';
+        
+        // Add gradient definition
+        const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+        gradient.setAttribute('id', 'path-gradient');
+        gradient.setAttribute('x1', '0%');
+        gradient.setAttribute('y1', '0%');
+        gradient.setAttribute('x2', '100%');
+        gradient.setAttribute('y2', '0%');
+        
+        const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stop1.setAttribute('offset', '0%');
+        stop1.setAttribute('stop-color', 'white');
+        stop1.setAttribute('stop-opacity', '0');
+        
+        const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stop2.setAttribute('offset', '5%');
+        stop2.setAttribute('stop-color', lineColor);
+        stop2.setAttribute('stop-opacity', '1');
+        
+        const stop3 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stop3.setAttribute('offset', '95%');
+        stop3.setAttribute('stop-color', lineColor);
+        stop3.setAttribute('stop-opacity', '1');
+        
+        const stop4 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+        stop4.setAttribute('offset', '100%');
+        stop4.setAttribute('stop-color', 'white');
+        stop4.setAttribute('stop-opacity', '0');
+        
+        gradient.appendChild(stop1);
+        gradient.appendChild(stop2);
+        gradient.appendChild(stop3);
+        gradient.appendChild(stop4);
+        defs.appendChild(gradient);
+        svg.appendChild(defs);
+        
+        // Add paths
+        dots.forEach((dot, i) => {
+          const startPoint = projectPoint(dot.start.lat, dot.start.lng);
+          const endPoint = projectPoint(dot.end.lat, dot.end.lng);
           
-          // Create path group
           const pathGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-          pathGroup.setAttribute('class', 'path-group');
+          pathGroup.setAttribute('key', `path-group-${i}`);
           
-          // Create curved path
           const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
           path.setAttribute('d', createCurvedPath(startPoint, endPoint));
-          path.setAttribute('class', 'map-path');
-          path.setAttribute('stroke', '#3b82f6');
-          path.setAttribute('stroke-width', '2');
           path.setAttribute('fill', 'none');
+          path.setAttribute('stroke', 'url(#path-gradient)');
+          path.setAttribute('stroke-width', '1');
+          path.setAttribute('key', `start-upper-${i}`);
+          
+          // Animate path drawing
           path.style.strokeDasharray = '1000';
           path.style.strokeDashoffset = '1000';
-          path.style.animation = `drawPath 2s ease-in-out ${i * 0.5}s forwards`;
+          path.style.animation = `drawPath 1s ease-out ${0.5 * i}s forwards`;
           
           pathGroup.appendChild(path);
           svg.appendChild(pathGroup);
         });
         
-        // Add city dots
-        Object.values(cities).forEach((city, i) => {
-          const point = projectPoint(city.lat, city.lng);
+        // Add dots
+        dots.forEach((dot, i) => {
+          const pointsGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          pointsGroup.setAttribute('key', `points-group-${i}`);
           
-          // Create dot group
-          const dotGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-          dotGroup.setAttribute('class', 'dot-group');
+          // Start point
+          const startGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          startGroup.setAttribute('key', `start-${i}`);
           
-          // Main dot
-          const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-          dot.setAttribute('cx', point.x);
-          dot.setAttribute('cy', point.y);
-          dot.setAttribute('r', '4');
-          dot.setAttribute('class', 'map-dot');
-          dot.setAttribute('fill', '#3b82f6');
+          const startPoint = projectPoint(dot.start.lat, dot.start.lng);
           
-          // Pulse ring
-          const pulseRing = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-          pulseRing.setAttribute('cx', point.x);
-          pulseRing.setAttribute('cy', point.y);
-          pulseRing.setAttribute('r', '4');
-          pulseRing.setAttribute('class', 'map-dot-pulse');
-          pulseRing.setAttribute('fill', '#3b82f6');
+          const startDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          startDot.setAttribute('cx', startPoint.x);
+          startDot.setAttribute('cy', startPoint.y);
+          startDot.setAttribute('r', '2');
+          startDot.setAttribute('fill', lineColor);
           
-          dotGroup.appendChild(dot);
-          dotGroup.appendChild(pulseRing);
-          svg.appendChild(dotGroup);
+          const startPulse = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          startPulse.setAttribute('cx', startPoint.x);
+          startPulse.setAttribute('cy', startPoint.y);
+          startPulse.setAttribute('r', '2');
+          startPulse.setAttribute('fill', lineColor);
+          startPulse.setAttribute('opacity', '0.5');
+          
+          const animate1 = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+          animate1.setAttribute('attributeName', 'r');
+          animate1.setAttribute('from', '2');
+          animate1.setAttribute('to', '8');
+          animate1.setAttribute('dur', '1.5s');
+          animate1.setAttribute('begin', '0s');
+          animate1.setAttribute('repeatCount', 'indefinite');
+          
+          const animate2 = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+          animate2.setAttribute('attributeName', 'opacity');
+          animate2.setAttribute('from', '0.5');
+          animate2.setAttribute('to', '0');
+          animate2.setAttribute('dur', '1.5s');
+          animate2.setAttribute('begin', '0s');
+          animate2.setAttribute('repeatCount', 'indefinite');
+          
+          startPulse.appendChild(animate1);
+          startPulse.appendChild(animate2);
+          
+          startGroup.appendChild(startDot);
+          startGroup.appendChild(startPulse);
+          
+          // End point
+          const endGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          endGroup.setAttribute('key', `end-${i}`);
+          
+          const endPoint = projectPoint(dot.end.lat, dot.end.lng);
+          
+          const endDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          endDot.setAttribute('cx', endPoint.x);
+          endDot.setAttribute('cy', endPoint.y);
+          endDot.setAttribute('r', '2');
+          endDot.setAttribute('fill', lineColor);
+          
+          const endPulse = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          endPulse.setAttribute('cx', endPoint.x);
+          endPulse.setAttribute('cy', endPoint.y);
+          endPulse.setAttribute('r', '2');
+          endPulse.setAttribute('fill', lineColor);
+          endPulse.setAttribute('opacity', '0.5');
+          
+          const animate3 = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+          animate3.setAttribute('attributeName', 'r');
+          animate3.setAttribute('from', '2');
+          animate3.setAttribute('to', '8');
+          animate3.setAttribute('dur', '1.5s');
+          animate3.setAttribute('begin', '0s');
+          animate3.setAttribute('repeatCount', 'indefinite');
+          
+          const animate4 = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+          animate4.setAttribute('attributeName', 'opacity');
+          animate4.setAttribute('from', '0.5');
+          animate4.setAttribute('to', '0');
+          animate4.setAttribute('dur', '1.5s');
+          animate4.setAttribute('begin', '0s');
+          animate4.setAttribute('repeatCount', 'indefinite');
+          
+          endPulse.appendChild(animate3);
+          endPulse.appendChild(animate4);
+          
+          endGroup.appendChild(endDot);
+          endGroup.appendChild(endPulse);
+          
+          pointsGroup.appendChild(startGroup);
+          pointsGroup.appendChild(endGroup);
+          svg.appendChild(pointsGroup);
         });
         
-        // Add world map background (simplified)
-        const worldMapBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        worldMapBg.setAttribute('width', '800');
-        worldMapBg.setAttribute('height', '400');
-        worldMapBg.setAttribute('fill', '#f8f9fa');
-        worldMapBg.setAttribute('rx', '16');
-        svg.insertBefore(worldMapBg, svg.firstChild);
-        
-        worldMapContainer.appendChild(svg);
+        mapContainer.appendChild(svg);
+        worldMapContainer.appendChild(mapContainer);
       }
     </script>
     
