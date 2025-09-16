@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio - Modern Minimalist Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="logo">Studio</div>
+                <div class="nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#values">Values</a>
+                    <a href="#clients">Clients</a>
+                </div>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-in-up">
+                    Organize & Launch<br>
+                    Campaigns Effortlessly
+                </h1>
+                <p class="hero-description animate-fade-in-up animate-delay-200">
+                    MailMaster Pro Empowers Your Business To Streamline Email Management 
+                    And Execute Impactful Marketing Campaigns With Ease
+                </p>
+                <div class="hero-buttons animate-fade-in-up animate-delay-300">
+                    <button class="btn btn-black">Get Started</button>
+                    <button class="btn btn-outline">Upgrade Now</button>
+                </div>
+                
+                <div class="hero-card animate-fade-in-up animate-delay-400">
+                    <div class="dashboard-card">
+                        <p>Join thousands transforming their<br>email strategy today.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">What we do</h2>
+                <p class="section-description animate-on-scroll animate-delay-100">
+                    We offer a comprehensive range of services to help your business thrive in the digital world.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll animate-delay-200">
+                    <div class="service-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a4 4 0 004-4V5z"/>
+                        </svg>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive and beautiful user experiences that engage your audience and drive conversions.</p>
+                </div>
+
+                <div class="service-card animate-on-scroll animate-delay-300">
+                    <div class="service-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Development</h3>
+                    <p>Building robust, scalable applications using the latest technologies and best practices.</p>
+                </div>
+
+                <div class="service-card animate-on-scroll animate-delay-400">
+                    <div class="service-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3>Branding</h3>
+                    <p>Developing strong brand identities that resonate with your target audience and stand out in the market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section - 2x2 Grid -->
+    <section id="values" class="values">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Our Values</h2>
+                <p class="section-description animate-on-scroll animate-delay-100">
+                    The principles that guide everything we do and shape our interactions with clients and projects.
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <!-- Featured Value - Orange Background -->
+                <div class="value-card value-card-featured animate-on-scroll animate-delay-200">
+                    <div class="value-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Quality First</h3>
+                    <p>We never compromise on quality. Every project receives our full attention to detail and commitment to excellence.</p>
+                </div>
+
+                <div class="value-card animate-on-scroll animate-delay-300">
+                    <div class="value-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We work closely with our clients as partners, ensuring transparent communication throughout every project.</p>
+                </div>
+
+                <div class="value-card animate-on-scroll animate-delay-400">
+                    <div class="value-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We stay ahead of trends and technologies to deliver cutting-edge solutions that give you a competitive edge.</p>
+                </div>
+
+                <div class="value-card animate-on-scroll animate-delay-500">
+                    <div class="value-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Reliability</h3>
+                    <p>You can count on us to deliver on time, within budget, and exceed your expectations every single time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section id="clients" class="clients">
+        <div class="container">
+            <div class="clients-grid">
+                <div class="client-logo animate-on-scroll animate-delay-200">Springfield</div>
+                <div class="client-logo animate-on-scroll animate-delay-300">Swiss</div>
+                <div class="client-logo animate-on-scroll animate-delay-400">Monaco</div>
+                <div class="client-logo animate-on-scroll animate-delay-500">Hamilton</div>
+                <div class="client-logo animate-on-scroll animate-delay-600">Delaware</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Studio</div>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
