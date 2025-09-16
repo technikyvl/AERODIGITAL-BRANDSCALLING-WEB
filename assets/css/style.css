@@ -6230,11 +6230,17 @@ body {
 }
 
 .hero--compact .cs_stat_value {
-  font-size: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
 }
 
 .hero--compact .cs_stat_label {
-  font-size: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b7280;
+  margin: 0;
 }
 
 .cs_ruixen_dashboard .container {
