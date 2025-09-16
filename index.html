@@ -21,6 +21,190 @@
     <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Zmiana kolorystyki na niebieską */
+        :root {
+            --primary-color: #2E6CFF;
+            --accent-color: #00B8F0;
+            --gradient-primary: linear-gradient(135deg, #2E6CFF 0%, #00B8F0 100%);
+            --gradient-secondary: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+        }
+        
+        /* Przyciski gradientowe */
+        .thm-btn--gradient {
+            background: var(--gradient-primary) !important;
+            border: none !important;
+        }
+        
+        .thm-btn--gradient:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 108, 255, 0.4) !important;
+        }
+        
+        /* Przyciski outline */
+        .thm-btn--outline {
+            border: 2px solid var(--primary-color) !important;
+            color: var(--primary-color) !important;
+            background: transparent !important;
+        }
+        
+        .thm-btn--outline:hover {
+            background: var(--primary-color) !important;
+            color: white !important;
+        }
+        
+        /* Akcenty i podkreślenia */
+        .xb-title--typewriter span {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Ikony i elementy interaktywne */
+        .crm-feature__item .icon img,
+        .process__app-item .icon img {
+            filter: hue-rotate(200deg) saturate(1.5);
+        }
+        
+        /* Hover efekty */
+        .crm-feature__item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(46, 108, 255, 0.2) !important;
+        }
+        
+        .process__app-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 108, 255, 0.15) !important;
+        }
+        
+        /* Testimonialy */
+        .crm-testimonial__item {
+            border-left: 4px solid var(--primary-color) !important;
+        }
+        
+        /* Footer */
+        .footer__cta-social a:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Animacje */
+        @keyframes pulse-blue {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(46, 108, 255, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(46, 108, 255, 0);
+            }
+        }
+        
+        .thm-btn--gradient {
+            animation: pulse-blue 2s infinite;
+        }
+        
+        /* Tło gradientowe */
+        .hero {
+            background: var(--gradient-secondary) !important;
+        }
+        
+        /* Efekty glow */
+        .crm-feature__item,
+        .process__app-item,
+        .crm-testimonial__item {
+            transition: all 0.3s ease;
+        }
+        
+        .crm-feature__item:hover,
+        .process__app-item:hover,
+        .crm-testimonial__item:hover {
+            box-shadow: 0 0 20px rgba(46, 108, 255, 0.3) !important;
+        }
+        
+        /* Dodatkowe niebieskie akcenty */
+        .crm-title__heading {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .crm-feature__item h3 {
+            color: var(--primary-color) !important;
+        }
+        
+        .process__title h3 {
+            color: var(--primary-color) !important;
+        }
+        
+        .crm-testimonial__author h4 {
+            color: var(--primary-color) !important;
+        }
+        
+        .footer__cta h4 {
+            color: var(--primary-color) !important;
+        }
+        
+        .footer__cta .title {
+            color: var(--accent-color) !important;
+        }
+        
+        /* Linki i elementy interaktywne */
+        a:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .main-menu ul li a:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Rating i ikony */
+        .rating img {
+            filter: hue-rotate(200deg) saturate(1.2);
+        }
+        
+        .quote img {
+            filter: hue-rotate(200deg) saturate(1.2);
+        }
+        
+        /* Social media ikony */
+        .footer__social a:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        .crm-community__social a:hover {
+            transform: translateY(-3px) scale(1.1);
+            filter: hue-rotate(200deg) saturate(1.5);
+        }
+        
+        /* Newsletter input focus */
+        .footer__newsletter input:focus {
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 0 0 2px rgba(46, 108, 255, 0.2) !important;
+        }
+        
+        /* Cursor i loading */
+        .xb-cursor--follower {
+            background: var(--primary-color) !important;
+        }
+        
+        .xb-dual-ring {
+            border-color: var(--primary-color) transparent var(--primary-color) transparent !important;
+        }
+        
+        /* Progress bar */
+        .progress-circle svg path {
+            stroke: var(--primary-color) !important;
+        }
+        
+        /* Hamburger menu */
+        .header__bar-icon span {
+            background: var(--primary-color) !important;
+        }
+        
+        /* Scrollspy active */
+        .scrollspy-btn.active {
+            color: var(--primary-color) !important;
+        }
+    </style>
 </head>
 
 <body class="home-dark">
