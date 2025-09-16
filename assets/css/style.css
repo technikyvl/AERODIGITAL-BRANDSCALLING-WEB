@@ -5980,12 +5980,12 @@ Pricing controller
 }
 
 .cs_island_logo img {
-  height: 70px;
+  height: 90px;
   width: auto;
-  max-width: 500px;
+  max-width: 600px;
   object-fit: cover;
   object-position: center;
-  margin: -15px 0;
+  margin: -20px 0;
 }
 
 .cs_island_header_center {
@@ -6131,11 +6131,11 @@ Pricing controller
   }
   
   .cs_island_logo img {
-    height: 65px;
-    max-width: 450px;
+    height: 80px;
+    max-width: 550px;
     object-fit: cover;
     object-position: center;
-    margin: -12px 0;
+    margin: -15px 0;
   }
 }
 
@@ -6151,28 +6151,28 @@ Pricing controller
   }
   
   .cs_island_logo img {
-    height: 60px;
-    max-width: 400px;
+    height: 70px;
+    max-width: 500px;
     object-fit: cover;
     object-position: center;
-    margin: -10px 0;
+    margin: -12px 0;
   }
 }
 
 /* Add top padding to body to account for fixed header */
 body {
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 @media (max-width: 768px) {
   body {
-    padding-top: 90px;
+    padding-top: 70px;
   }
 }
 
 @media (max-width: 480px) {
   body {
-    padding-top: 80px;
+    padding-top: 60px;
   }
 }
 
@@ -6180,7 +6180,7 @@ body {
 20. RuixenStats Dashboard Section
 --------------------------------------------------------------*/
 .cs_ruixen_dashboard {
-  margin-top: 60px;
+  margin-top: 20px;
   width: 100%;
   padding: 0;
 }
@@ -6280,6 +6280,12 @@ body {
   font-weight: 600;
   color: #111827;
   margin: 0;
+  transition: color 0.3s ease;
+}
+
+.cs_stat_value.animating {
+  color: #00C853 !important;
+  transform: scale(1.05);
 }
 
 .cs_stat_label {
