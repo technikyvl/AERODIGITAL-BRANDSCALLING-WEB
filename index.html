@@ -21,6 +21,95 @@
     <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            justify-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            border-radius: 14px;
+            z-index: 1111;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+        }
+
+        .bg {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 190px;
+            height: 240px;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(24px);
+            border-radius: 10px;
+            overflow: hidden;
+            outline: 2px solid white;
+        }
+
+        .blob {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            opacity: 1;
+            filter: blur(12px);
+            animation: blob-bounce 0s infinite ease;
+        }
+
+        @keyframes blob-bounce {
+            0% {
+                transform: translate(-100%, -100%) translate3d(0, 0, 0);
+            }
+
+            25% {
+                transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+            }
+
+            50% {
+                transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+            }
+
+            75% {
+                transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+            }
+
+            100% {
+                transform: translate(-100%, -100%) translate3d(0, 0, 0);
+            }
+        }
+        
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 
 <body class="home-dark">
@@ -216,72 +305,22 @@
                     <div class="crm-feature__title text-center mb-60">
                         Powerful features
                     </div>
-                    <div class="row justify-content-center mt-none-20">
-                        <div class="col-lg-3 col-md-6 mt-20">
-                            <div class="crm-feature__item">
-                                <div class="icon mb-40">
-                                    <img src="assets/img/icon/ft_01.svg" alt="">
-                                </div>
-                                <h3>User Information</h3>
-                                <p>Hey there, fellow employees! Welcome to our</p>
-                            </div>
+                    <div class="features-grid">
+                        <div class="card">
+                            <div class="bg"></div>
+                            <div class="blob"></div>
                         </div>
-                        <div class="col-lg-3 col-md-6 mt-20">
-                            <div class="crm-feature__item">
-                                <div class="icon mb-40">
-                                    <img src="assets/img/icon/ft_02.svg" alt="">
-                                </div>
-                                <h3>Deal Tracking</h3>
-                                <p>Hey there, fellow employees! Welcome to our</p>
-                            </div>
+                        <div class="card">
+                            <div class="bg"></div>
+                            <div class="blob"></div>
                         </div>
-                        <div class="col-lg-3 col-md-6 mt-20">
-                            <div class="crm-feature__item">
-                                <div class="icon mb-40">
-                                    <img src="assets/img/icon/ft_03.svg" alt="">
-                                </div>
-                                <h3>Pipeline Management</h3>
-                                <p>Hey there, fellow employees! Welcome to our</p>
-                            </div>
+                        <div class="card">
+                            <div class="bg"></div>
+                            <div class="blob"></div>
                         </div>
-                        <div class="col-lg-3 col-md-6 mt-20">
-                            <div class="crm-feature__item">
-                                <div class="icon mb-40">
-                                    <img src="assets/img/icon/ft_04.svg" alt="">
-                                </div>
-                                <h3>Reporting Dashboard</h3>
-                                <p>Hey there, fellow employees! Welcome to our</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mt-20">
-                            <div class="crm-feature__item">
-                                <div class="icon mb-40">
-                                    <img src="assets/img/icon/ft_05.svg" alt="">
-                                </div>
-                                <h3>Meeting Scheduling</h3>
-                                <p>Hey there, fellow employees! Welcome to our</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mt-20">
-                            <div class="crm-feature__item">
-                                <div class="icon mb-40">
-                                    <img src="assets/img/icon/ft_06.svg" alt="">
-                                </div>
-                                <h3>Email Tracking</h3>
-                                <p>Hey there, fellow employees! Welcome to our</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 mt-20">
-                            <div class="crm-feature__item">
-                                <div class="icon mb-40">
-                                    <img src="assets/img/icon/ft_07.svg" alt="">
-                                </div>
-                                <h3>Deal and Tech Data Tracking</h3>
-                                <p>Hey there, fellow employees! Welcome to our</p>
-                                <div class="ft_icon">
-                                    <img src="assets/img/icon/ft_icon.png" alt="">
-                                </div>
-                            </div>
+                        <div class="card">
+                            <div class="bg"></div>
+                            <div class="blob"></div>
                         </div>
                     </div>
                 </div>
