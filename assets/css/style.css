@@ -5935,7 +5935,7 @@ Pricing controller
   transform: translateX(-50%);
   z-index: 1000;
   width: 70%;
-  max-width: 800px;
+  max-width: 980px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -5980,12 +5980,12 @@ Pricing controller
 }
 
 .cs_island_logo img {
-  height: 85px;
+  height: 100px;
   width: auto;
-  max-width: 580px;
+  max-width: 680px;
   object-fit: cover;
   object-position: center;
-  margin: -25px 0;
+  margin: -30px 0;
 }
 
 .cs_island_header_center {
@@ -5993,6 +5993,7 @@ Pricing controller
   align-items: center;
   flex: 1;
   justify-content: center;
+  gap: 12px;
 }
 
 .cs_island_nav {
@@ -6004,10 +6005,10 @@ Pricing controller
 .cs_island_nav_item {
   display: flex;
   align-items: center;
-  padding: 3px 8px;
+  padding: 3px 10px;
   text-decoration: none;
   color: var(--heading-color);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   border-radius: 15px;
   transition: all 0.2s ease;
@@ -6035,10 +6036,10 @@ Pricing controller
 }
 
 .cs_island_login {
-  padding: 3px 8px;
+  padding: 3px 10px;
   text-decoration: none;
   color: var(--heading-color);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   border-radius: 15px;
   transition: all 0.2s ease;
@@ -6050,11 +6051,11 @@ Pricing controller
 }
 
 .cs_island_signup {
-  padding: 4px 12px;
+  padding: 4px 14px;
   text-decoration: none;
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: white;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   border-radius: 15px;
   transition: all 0.2s ease;
@@ -6131,11 +6132,11 @@ Pricing controller
   }
   
   .cs_island_logo img {
-    height: 78px;
-    max-width: 520px;
+    height: 90px;
+    max-width: 600px;
     object-fit: cover;
     object-position: center;
-    margin: -20px 0;
+    margin: -25px 0;
   }
 }
 
@@ -6151,11 +6152,11 @@ Pricing controller
   }
   
   .cs_island_logo img {
-    height: 73px;
-    max-width: 460px;
+    height: 85px;
+    max-width: 540px;
     object-fit: cover;
     object-position: center;
-    margin: -18px 0;
+    margin: -22px 0;
   }
 }
 
@@ -6187,13 +6188,13 @@ body {
 
 /* Compact Hero Section */
 .hero--compact {
-  padding-top: 5px;
+  padding-top: -20px;
 }
 
 .hero--compact h1 {
   font-size: 3.5rem !important;
   line-height: 1.1 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 2rem !important;
 }
 
 .hero--compact .cs_mb_25 {
@@ -6202,7 +6203,7 @@ body {
 }
 
 .hero--compact .cs_ruixen_dashboard {
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .hero--compact .cs_ruixen_chart_card {
@@ -6218,13 +6219,14 @@ body {
 
 .hero--compact .cs_hero_label {
   font-size: 12px;
+  margin-top: 12px;
 }
 
 .hero--compact .cs_side_stats {
   top: 12px;
   right: 12px;
-  padding: 16px;
-  gap: 12px;
+  padding: 20px;
+  gap: 10px;
 }
 
 .hero--compact .cs_stat_value {
@@ -6361,17 +6363,42 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   margin: 0;
 }
 
-/* Visual Empty Placeholder */
-.visual-empty {
-  min-height: 420px;
+/* Visual Images for REALNY ZWROT Section */
+.main-visual {
+  width: 100%;
+  height: auto;
   border-radius: 16px;
-  background: transparent;
-  box-shadow: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.overlay-visual {
+  bottom: 16px;
+  right: 16px;
+  width: 60%;
+  height: auto;
+}
+
+.overlay-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+@media (max-width: 992px) {
+  .overlay-visual {
+    bottom: 12px;
+    right: 12px;
+    width: 65%;
+  }
 }
 
 @media (max-width: 768px) {
-  .visual-empty {
-    min-height: 280px;
+  .overlay-visual {
+    bottom: 8px;
+    right: 8px;
+    width: 70%;
   }
 }
 
