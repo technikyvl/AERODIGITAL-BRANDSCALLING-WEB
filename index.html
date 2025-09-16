@@ -94,55 +94,37 @@
           <!-- RuixenStats Dashboard Section -->
           <div class="cs_ruixen_dashboard cs_mb_60 wow fadeInUp">
             <div class="container">
-              <div class="cs_ruixen_wrapper">
-                <!-- Left: Text & CTA -->
-                <div class="cs_ruixen_left">
-                  <div class="cs_ruixen_content">
-                    <h3 class="cs_ruixen_title">
-                      Intuitive Dashboard Experience <span class="cs_accent_color">Ruixen UI</span>
-                      <span class="cs_ruixen_subtitle">Experience an analytics UI that blends speed, clarity, and design precision—giving your team everything they need to make decisions faster.</span>
-                    </h3>
-                    <a href="https://ruixen.com/" target="_blank" class="cs_ruixen_btn">
-                      Get Started ↗
-                    </a>
-                  </div>
+              <div class="cs_ruixen_chart_card">
+                <!-- Chart Container -->
+                <div class="cs_chart_container">
+                  <canvas id="ruixenChart" width="100%" height="400"></canvas>
                 </div>
                 
-                <!-- Right: Chart + Stats -->
-                <div class="cs_ruixen_right">
-                  <div class="cs_ruixen_chart_card">
-                    <!-- Chart Container -->
-                    <div class="cs_chart_container">
-                      <canvas id="ruixenChart" width="100%" height="400"></canvas>
-                    </div>
-                    
-                    <!-- Overlay Hero Number -->
-                    <div class="cs_chart_overlay">
-                      <h3 class="cs_hero_number">
-                        <span class="cs_counter" data-count="125">0</span>M
-                      </h3>
-                      <p class="cs_hero_label">Revenue this year</p>
-                    </div>
-                    
-                    <!-- Side Stats -->
-                    <div class="cs_side_stats">
-                      <div class="cs_stat_item">
-                        <p class="cs_stat_value">60k+</p>
-                        <p class="cs_stat_label">Active Users</p>
-                      </div>
-                      <div class="cs_stat_item">
-                        <p class="cs_stat_value">2.5M</p>
-                        <p class="cs_stat_label">Tasks Done</p>
-                      </div>
-                      <div class="cs_stat_item">
-                        <p class="cs_stat_value">36%</p>
-                        <p class="cs_stat_label">Productivity</p>
-                      </div>
-                      <div class="cs_stat_item">
-                        <p class="cs_stat_value">~95+</p>
-                        <p class="cs_stat_label">Integrations</p>
-                      </div>
-                    </div>
+                <!-- Overlay Hero Number -->
+                <div class="cs_chart_overlay">
+                  <h3 class="cs_hero_number">
+                    <span class="cs_counter" data-count="125">0</span>M
+                  </h3>
+                  <p class="cs_hero_label">Revenue this year</p>
+                </div>
+                
+                <!-- Side Stats -->
+                <div class="cs_side_stats">
+                  <div class="cs_stat_item">
+                    <p class="cs_stat_value">60k+</p>
+                    <p class="cs_stat_label">Active Users</p>
+                  </div>
+                  <div class="cs_stat_item">
+                    <p class="cs_stat_value">2.5M</p>
+                    <p class="cs_stat_label">Tasks Done</p>
+                  </div>
+                  <div class="cs_stat_item">
+                    <p class="cs_stat_value">36%</p>
+                    <p class="cs_stat_label">Productivity</p>
+                  </div>
+                  <div class="cs_stat_item">
+                    <p class="cs_stat_value">~95+</p>
+                    <p class="cs_stat_label">Integrations</p>
                   </div>
                 </div>
               </div>
