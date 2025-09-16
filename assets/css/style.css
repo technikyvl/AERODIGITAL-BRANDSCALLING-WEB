@@ -5935,13 +5935,13 @@ Pricing controller
 .cs_ruixen_chart_card {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 600px;
   background: white;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1400px;
 }
 
 .cs_chart_container {
@@ -5966,10 +5966,10 @@ Pricing controller
 }
 
 .cs_hero_number {
-  font-size: 60px;
+  font-size: 80px;
   font-weight: 800;
   color: #111827;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -5981,15 +5981,15 @@ Pricing controller
 
 .cs_side_stats {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 24px;
+  right: 24px;
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  padding: 16px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   z-index: 3;
 }
 
@@ -6000,14 +6000,14 @@ Pricing controller
 }
 
 .cs_stat_value {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   color: #111827;
   margin: 0;
 }
 
 .cs_stat_label {
-  font-size: 12px;
+  font-size: 14px;
   color: #6b7280;
   margin: 0;
 }
@@ -6015,30 +6015,34 @@ Pricing controller
 /* Responsive Design */
 @media (max-width: 768px) {
   .cs_ruixen_chart_card {
-    height: 300px;
+    height: 500px;
   }
   
   .cs_hero_number {
-    font-size: 48px;
+    font-size: 60px;
   }
   
   .cs_side_stats {
     position: static;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 16px;
-    gap: 12px;
+    margin-top: 20px;
+    gap: 16px;
   }
   
   .cs_stat_item {
     flex: 1;
-    min-width: calc(50% - 6px);
+    min-width: calc(50% - 8px);
   }
 }
 
 @media (max-width: 480px) {
+  .cs_ruixen_chart_card {
+    height: 400px;
+  }
+  
   .cs_hero_number {
-    font-size: 36px;
+    font-size: 48px;
   }
   
   .cs_stat_item {
