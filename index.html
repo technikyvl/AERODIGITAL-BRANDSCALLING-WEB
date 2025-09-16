@@ -52,6 +52,61 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.1),
                 inset 0 -1px 0 rgba(0, 0, 0, 0.1);
         }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            border-radius: 22px;
+            z-index: -1;
+            background: linear-gradient(45deg, 
+                transparent 0%, 
+                transparent 30%, 
+                #2E6CFF 50%, 
+                transparent 70%, 
+                transparent 100%);
+            background-size: 200% 200%;
+            animation: neon-border 3s linear infinite;
+            box-shadow: 
+                0 0 20px rgba(46, 108, 255, 0.6),
+                inset 0 0 20px rgba(46, 108, 255, 0.3);
+        }
+        
+        @keyframes neon-border {
+            0% {
+                background-position: 0% 0%;
+                box-shadow: 
+                    0 0 20px rgba(46, 108, 255, 0.6),
+                    inset 0 0 20px rgba(46, 108, 255, 0.3);
+            }
+            25% {
+                background-position: 100% 0%;
+                box-shadow: 
+                    0 0 30px rgba(46, 108, 255, 0.8),
+                    inset 0 0 30px rgba(46, 108, 255, 0.5);
+            }
+            50% {
+                background-position: 100% 100%;
+                box-shadow: 
+                    0 0 40px rgba(46, 108, 255, 1),
+                    inset 0 0 40px rgba(46, 108, 255, 0.7);
+            }
+            75% {
+                background-position: 0% 100%;
+                box-shadow: 
+                    0 0 30px rgba(46, 108, 255, 0.8),
+                    inset 0 0 30px rgba(46, 108, 255, 0.5);
+            }
+            100% {
+                background-position: 0% 0%;
+                box-shadow: 
+                    0 0 20px rgba(46, 108, 255, 0.6),
+                    inset 0 0 20px rgba(46, 108, 255, 0.3);
+            }
+        }
 
         .bg {
             position: absolute;
