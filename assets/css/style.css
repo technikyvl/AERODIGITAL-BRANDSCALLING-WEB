@@ -5932,96 +5932,218 @@ Pricing controller
   margin-top: 60px;
 }
 
-.cs_ruixen_content h3 {
-  line-height: 1.2;
+.cs_ruixen_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-.cs_ruixen_chart_wrapper {
-  margin-top: 30px;
+.cs_ruixen_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
 }
 
-.cs_ruixen_chart {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e5e5;
+.cs_ruixen_title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #111827;
+  margin: 0;
+}
+
+.cs_ruixen_title .cs_accent_color {
+  color: #3b82f6;
+}
+
+.cs_ruixen_subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  display: block;
+  margin-top: 8px;
+}
+
+.cs_ruixen_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  height: 44px;
+  padding: 0 32px;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.cs_ruixen_btn:hover {
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+}
+
+.cs_ruixen_right {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.cs_ruixen_chart_card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.cs_chart_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .cs_chart_overlay {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
   z-index: 2;
 }
 
+.cs_hero_number {
+  font-size: 60px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cs_hero_label {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
 .cs_side_stats {
-  top: 20px;
-  right: 20px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   z-index: 3;
-  max-width: 150px;
 }
 
 .cs_stat_item {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e5e5;
-  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.cs_stat_item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.cs_stat_value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
 }
 
-.cs_stat_item p:first-child {
-  color: var(--heading-color);
-}
-
-.cs_stat_item p:last-child {
-  color: var(--body-color);
+.cs_stat_label {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
 }
 
 /* Responsive Design */
-@media (max-width: 991px) {
-  .cs_ruixen_dashboard {
-    margin-top: 40px;
+@media (max-width: 1024px) {
+  .cs_ruixen_wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
   
-  .cs_ruixen_content {
+  .cs_ruixen_left {
     text-align: center;
-    margin-bottom: 40px;
+  }
+  
+  .cs_ruixen_title {
+    font-size: 16px;
+  }
+  
+  .cs_ruixen_subtitle {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cs_ruixen_wrapper {
+    padding: 0 8px;
+  }
+  
+  .cs_ruixen_right {
+    height: 300px;
+  }
+  
+  .cs_hero_number {
+    font-size: 48px;
   }
   
   .cs_side_stats {
     position: static;
-    max-width: 100%;
-    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
+    margin-top: 16px;
+    gap: 12px;
   }
   
   .cs_stat_item {
     flex: 1;
-    min-width: calc(50% - 7.5px);
-    margin-bottom: 0;
-  }
-  
-  .cs_chart_overlay {
-    background: rgba(255, 255, 255, 0.95);
+    min-width: calc(50% - 6px);
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 480px) {
+  .cs_ruixen_title {
+    font-size: 14px;
+  }
+  
+  .cs_ruixen_subtitle {
+    font-size: 12px;
+  }
+  
+  .cs_ruixen_btn {
+    height: 40px;
+    padding: 0 24px;
+    font-size: 13px;
+  }
+  
+  .cs_hero_number {
+    font-size: 36px;
+  }
+  
   .cs_stat_item {
     min-width: 100%;
-  }
-  
-  .cs_ruixen_content h3 {
-    font-size: 28px;
-  }
-  
-  .cs_chart_overlay h3 {
-    font-size: 48px;
   }
 }/*# sourceMappingURL=style.css.map */
