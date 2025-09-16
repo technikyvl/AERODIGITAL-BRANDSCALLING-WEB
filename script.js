@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize animated chart after a short delay to ensure Chart.js is loaded
   setTimeout(() => {
     initializeChart()
-  }, 500)
+  }, 1000)
 })
 
 // Chart initialization and animation
@@ -90,7 +90,10 @@ function initializeChart() {
 
   // Check if Chart is available
   if (typeof Chart === 'undefined') {
-    console.log('Chart.js not loaded')
+    console.log('Chart.js not loaded, retrying...')
+    setTimeout(() => {
+      initializeChart()
+    }, 1000)
     return
   }
 
@@ -113,6 +116,7 @@ function initializeChart() {
 
   // Chart configuration
   console.log('Creating chart with data:', data)
+  console.log('Canvas context:', ctx.getContext('2d'))
   const chart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -163,6 +167,7 @@ function initializeChart() {
   })
 
   console.log('Chart created successfully')
+  console.log('Chart instance:', chart)
   
   // Animate counter numbers
   animateCounters()
