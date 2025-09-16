@@ -199,6 +199,26 @@
       <div class="cs_height_140 cs_height_lg_80"></div>
     </section>
     <!-- End AI Assistant Card Section -->
+    <!-- Start World Map Section -->
+    <section class="cs_white_bg position-relative">
+      <div class="cs_height_140 cs_height_lg_80"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="cs_section_heading cs_style_1 cs_mb_50 text-center">
+              <p class="cs_section_text cs_fs_16 cs_semibold cs_mb_11">GLOBALNY ZASIĘG</p>
+              <h2 class="cs_section_title cs_fs_50 cs_mb_16 wow fadeInDown">Zaufali nam klienci z całego świata</h2>
+              <p class="cs_section_text mb-0 max-w-2xl mx-auto">Współpracujemy z firmami z różnych rynków — między innymi z Włoch, Francji, Belgii i Słowacji. Łączymy zespoły, procesy i dane bez względu na lokalizację, dostarczając spójne wyniki.</p>
+            </div>
+            <div class="cs_world_map_container wow fadeInUp">
+              <div id="worldMap" class="cs_world_map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs_height_140 cs_height_lg_80"></div>
+    </section>
+    <!-- End World Map Section -->
     <!-- Start Auto Spelling Check Section -->
     <section>
       <div class="cs_height_140 cs_height_lg_80"></div>
@@ -1078,7 +1098,113 @@
         // Initialize animations
         startPLNGrowth();
         initHeadingReveal();
+        initWorldMap();
       });
+      
+      // World Map Initialization
+      function initWorldMap() {
+        const worldMapContainer = document.getElementById('worldMap');
+        if (!worldMapContainer) return;
+        
+        // Coordinates for cities
+        const cities = {
+          poland: { lat: 52.2297, lng: 21.0122, name: 'Warszawa' },
+          italy: { lat: 41.9028, lng: 12.4964, name: 'Rzym' },
+          france: { lat: 48.8566, lng: 2.3522, name: 'Paryż' },
+          belgium: { lat: 50.8503, lng: 4.3517, name: 'Bruksela' },
+          slovakia: { lat: 48.1486, lng: 17.1077, name: 'Bratysława' }
+        };
+        
+        // Create SVG
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 800 400');
+        svg.setAttribute('class', 'w-full h-full');
+        
+        // Create paths for connections
+        const connections = [
+          { from: cities.poland, to: cities.italy },
+          { from: cities.poland, to: cities.france },
+          { from: cities.poland, to: cities.belgium },
+          { from: cities.poland, to: cities.slovakia }
+        ];
+        
+        // Project coordinates to SVG space
+        function projectPoint(lat, lng) {
+          const x = (lng + 180) * (800 / 360);
+          const y = (90 - lat) * (400 / 180);
+          return { x, y };
+        }
+        
+        // Create curved path
+        function createCurvedPath(start, end) {
+          const midX = (start.x + end.x) / 2;
+          const midY = Math.min(start.y, end.y) - 50;
+          return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
+        }
+        
+        // Add connections
+        connections.forEach((conn, i) => {
+          const startPoint = projectPoint(conn.from.lat, conn.from.lng);
+          const endPoint = projectPoint(conn.to.lat, conn.to.lng);
+          
+          // Create path group
+          const pathGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          pathGroup.setAttribute('class', 'path-group');
+          
+          // Create curved path
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', createCurvedPath(startPoint, endPoint));
+          path.setAttribute('class', 'map-path');
+          path.setAttribute('stroke', '#3b82f6');
+          path.setAttribute('stroke-width', '2');
+          path.setAttribute('fill', 'none');
+          path.style.strokeDasharray = '1000';
+          path.style.strokeDashoffset = '1000';
+          path.style.animation = `drawPath 2s ease-in-out ${i * 0.5}s forwards`;
+          
+          pathGroup.appendChild(path);
+          svg.appendChild(pathGroup);
+        });
+        
+        // Add city dots
+        Object.values(cities).forEach((city, i) => {
+          const point = projectPoint(city.lat, city.lng);
+          
+          // Create dot group
+          const dotGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          dotGroup.setAttribute('class', 'dot-group');
+          
+          // Main dot
+          const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          dot.setAttribute('cx', point.x);
+          dot.setAttribute('cy', point.y);
+          dot.setAttribute('r', '4');
+          dot.setAttribute('class', 'map-dot');
+          dot.setAttribute('fill', '#3b82f6');
+          
+          // Pulse ring
+          const pulseRing = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          pulseRing.setAttribute('cx', point.x);
+          pulseRing.setAttribute('cy', point.y);
+          pulseRing.setAttribute('r', '4');
+          pulseRing.setAttribute('class', 'map-dot-pulse');
+          pulseRing.setAttribute('fill', '#3b82f6');
+          
+          dotGroup.appendChild(dot);
+          dotGroup.appendChild(pulseRing);
+          svg.appendChild(dotGroup);
+        });
+        
+        // Add world map background (simplified)
+        const worldMapBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        worldMapBg.setAttribute('width', '800');
+        worldMapBg.setAttribute('height', '400');
+        worldMapBg.setAttribute('fill', '#f8f9fa');
+        worldMapBg.setAttribute('rx', '16');
+        svg.insertBefore(worldMapBg, svg.firstChild);
+        
+        worldMapContainer.appendChild(svg);
+      }
     </script>
     
     <!-- Island Header JavaScript -->

@@ -6412,6 +6412,90 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   }
 }
 
+/*--------------------------------------------------------------
+21. World Map Section
+--------------------------------------------------------------*/
+.cs_world_map_container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cs_world_map {
+  width: 100%;
+  height: 500px;
+  background: #f8f9fa;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.cs_world_map svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cs_world_map .map-path {
+  fill: none;
+  stroke: #3b82f6;
+  stroke-width: 2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 2s ease-in-out forwards;
+}
+
+.cs_world_map .map-dot {
+  fill: #3b82f6;
+  r: 4;
+  animation: pulse 2s infinite;
+}
+
+.cs_world_map .map-dot-pulse {
+  fill: #3b82f6;
+  r: 4;
+  opacity: 0.5;
+  animation: pulseRing 2s infinite;
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    r: 4;
+    opacity: 1;
+  }
+  50% {
+    r: 6;
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    r: 4;
+    opacity: 0.5;
+  }
+  100% {
+    r: 12;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .cs_world_map {
+    height: 400px;
+  }
+  
+  .cs_world_map_container {
+    padding: 0 15px;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .cs_ruixen_chart_card {
