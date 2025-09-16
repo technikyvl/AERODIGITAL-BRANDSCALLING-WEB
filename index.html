@@ -26,8 +26,9 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            justify-items: center;
-            max-width: 1000px;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
@@ -50,8 +51,6 @@
                 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1),
                 inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            text-align: center;
         }
 
         .bg {
@@ -64,34 +63,6 @@
             background: transparent;
             border-radius: 20px;
             overflow: hidden;
-        }
-        
-        .card-content {
-            position: relative;
-            z-index: 3;
-            color: #FFFFFF;
-        }
-        
-        .card-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .card-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #FFFFFF;
-            font-variant-caps: all-small-caps;
-            letter-spacing: 0.5px;
-        }
-        
-        .card-description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #B0B8C8;
-            margin: 0;
         }
 
         @keyframes blob-bounce {
@@ -431,35 +402,15 @@
                     <div class="features-grid">
                         <div class="card">
                             <div class="bg"></div>
-                            <div class="card-content">
-                                <div class="card-icon">📈</div>
-                                <h3 class="card-title">Brand Scaling</h3>
-                                <p class="card-description">Skalujemy marki na globalnym rynku poprzez strategiczne kampanie reklamowe i budowanie rozpoznawalności.</p>
-                            </div>
                         </div>
                         <div class="card">
                             <div class="bg"></div>
-                            <div class="card-content">
-                                <div class="card-icon">🎯</div>
-                                <h3 class="card-title">Ad Campaigns</h3>
-                                <p class="card-description">Tworzymy skuteczne kampanie reklamowe na wszystkich platformach, które generują realne wyniki i ROI.</p>
-                            </div>
                         </div>
                         <div class="card">
                             <div class="bg"></div>
-                            <div class="card-content">
-                                <div class="card-icon">💻</div>
-                                <h3 class="card-title">Web Development</h3>
-                                <p class="card-description">Budujemy nowoczesne strony internetowe i sklepy online, które konwertują odwiedzających w klientów.</p>
-                            </div>
                         </div>
                         <div class="card">
                             <div class="bg"></div>
-                            <div class="card-content">
-                                <div class="card-icon">🔍</div>
-                                <h3 class="card-title">SEO Optimization</h3>
-                                <p class="card-description">Optymalizujemy strony pod kątem wyszukiwarek, zwiększając widoczność i ruch organiczny.</p>
-                            </div>
                         </div>
                     </div>
                 </div>
