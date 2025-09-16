@@ -20,6 +20,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- DottedMap -->
     <script src="https://cdn.jsdelivr.net/npm/dotted-map@2.1.2/dist/dotted-map.min.js"></script>
+    <!-- Framer Motion -->
+    <script src="https://cdn.jsdelivr.net/npm/framer-motion@11.0.0/dist/framer-motion.min.js"></script>
   </head>
   <body class="cs_live_chat">
     <!-- Start Preloader -->
@@ -90,24 +92,24 @@
                 </div>
                 
                 <!-- Side Stats -->
-                <div class="cs_side_stats">
-                  <div class="cs_stat_item">
-                    <p class="cs_stat_value">60k+</p>
-                    <p class="cs_stat_label">Active Users</p>
-                  </div>
-                  <div class="cs_stat_item">
-                    <p class="cs_stat_value">2.5M</p>
-                    <p class="cs_stat_label">Tasks Done</p>
-                  </div>
-                  <div class="cs_stat_item">
-                    <p class="cs_stat_value">36%</p>
-                    <p class="cs_stat_label">Productivity</p>
-                  </div>
-                  <div class="cs_stat_item">
-                    <p class="cs_stat_value">~95+</p>
-                    <p class="cs_stat_label">Integrations</p>
-                  </div>
-                </div>
+      <div class="cs_side_stats">
+        <div class="cs_stat_item">
+          <p class="cs_stat_value">50+</p>
+          <p class="cs_stat_label">Wykonanych Projektów</p>
+        </div>
+        <div class="cs_stat_item">
+          <p class="cs_stat_value">x5 ROI</p>
+          <p class="cs_stat_label">Z każdym projektem</p>
+        </div>
+        <div class="cs_stat_item">
+          <p class="cs_stat_value">~1 000</p>
+          <p class="cs_stat_label">Godzin Doświadczenia</p>
+        </div>
+        <div class="cs_stat_item">
+          <p class="cs_stat_value">100%</p>
+          <p class="cs_stat_label">Satysfakcji klientów</p>
+        </div>
+      </div>
               </div>
             </div>
           </div>
@@ -1103,7 +1105,7 @@
         initWorldMap();
       });
       
-      // World Map Initialization
+      // World Map Initialization with Framer Motion
       function initWorldMap() {
         const worldMapContainer = document.getElementById('worldMap');
         if (!worldMapContainer) return;
@@ -1216,7 +1218,7 @@
         defs.appendChild(gradient);
         svg.appendChild(defs);
         
-        // Add paths
+        // Add paths with Framer Motion-like animation
         dots.forEach((dot, i) => {
           const startPoint = projectPoint(dot.start.lat, dot.start.lng);
           const endPoint = projectPoint(dot.end.lat, dot.end.lng);
@@ -1231,16 +1233,21 @@
           path.setAttribute('stroke-width', '1');
           path.setAttribute('key', `start-upper-${i}`);
           
-          // Animate path drawing
+          // Framer Motion-like animation: pathLength from 0 to 1
           path.style.strokeDasharray = '1000';
           path.style.strokeDashoffset = '1000';
-          path.style.animation = `drawPath 1s ease-out ${0.5 * i}s forwards`;
+          
+          // Animate with easeOut timing
+          setTimeout(() => {
+            path.style.transition = 'stroke-dashoffset 1s ease-out';
+            path.style.strokeDashoffset = '0';
+          }, 500 * i);
           
           pathGroup.appendChild(path);
           svg.appendChild(pathGroup);
         });
         
-        // Add dots
+        // Add dots with pulsing animation
         dots.forEach((dot, i) => {
           const pointsGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
           pointsGroup.setAttribute('key', `points-group-${i}`);

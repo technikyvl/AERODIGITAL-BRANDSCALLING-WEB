@@ -6204,6 +6204,10 @@ body {
 
 .hero--compact .cs_ruixen_dashboard {
   margin-top: 100px;
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero--compact .cs_ruixen_chart_card {
