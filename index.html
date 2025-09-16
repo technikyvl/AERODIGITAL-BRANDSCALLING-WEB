@@ -21,177 +21,6 @@
     <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <style>
-        /* From Uiverse.io by dylanharriscameron */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            justify-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .card {
-            position: relative;
-            width: 300px;
-            height: 400px;
-            border-radius: 20px;
-            z-index: 1111;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .bg {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 290px;
-            height: 390px;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(24px);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .blob {
-            position: absolute;
-            z-index: 1;
-            top: 50%;
-            left: 50%;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: #2E6CFF;
-            opacity: 0.1;
-            filter: blur(20px);
-            animation: blob-bounce 5s infinite ease;
-        }
-        
-        .neon-border {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            z-index: 3;
-            pointer-events: none;
-            background: linear-gradient(45deg, 
-                transparent 0%, 
-                transparent 30%, 
-                #2E6CFF 50%, 
-                transparent 70%, 
-                transparent 100%);
-            background-size: 200% 200%;
-            animation: neon-glow 5s infinite ease;
-            box-shadow: 
-                0 0 20px #2E6CFF,
-                inset 0 0 20px rgba(46, 108, 255, 0.3);
-        }
-        
-        @keyframes neon-glow {
-            0% {
-                background-position: 0% 0%;
-                box-shadow: 
-                    0 0 20px #2E6CFF,
-                    inset 0 0 20px rgba(46, 108, 255, 0.3);
-            }
-            25% {
-                background-position: 100% 0%;
-                box-shadow: 
-                    0 0 30px #2E6CFF,
-                    inset 0 0 30px rgba(46, 108, 255, 0.5);
-            }
-            50% {
-                background-position: 100% 100%;
-                box-shadow: 
-                    0 0 40px #2E6CFF,
-                    inset 0 0 40px rgba(46, 108, 255, 0.7);
-            }
-            75% {
-                background-position: 0% 100%;
-                box-shadow: 
-                    0 0 30px #2E6CFF,
-                    inset 0 0 30px rgba(46, 108, 255, 0.5);
-            }
-            100% {
-                background-position: 0% 0%;
-                box-shadow: 
-                    0 0 20px #2E6CFF,
-                    inset 0 0 20px rgba(46, 108, 255, 0.3);
-            }
-        }
-
-        @keyframes blob-bounce {
-            0% {
-                transform: translate(-100%, -100%) translate3d(0, 0, 0);
-            }
-
-            25% {
-                transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-            }
-
-            50% {
-                transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-            }
-
-            75% {
-                transform: translate(-100%, -100%) translate3d(0, 100%, 0);
-            }
-
-            100% {
-                transform: translate(-100%, -100%) translate3d(0, 0, 0);
-            }
-        }
-        
-        /* Responsywność */
-        @media (max-width: 1200px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-            
-            .card {
-                width: 250px;
-                height: 320px;
-            }
-            
-            .bg {
-                width: 240px;
-                height: 310px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .card {
-                width: 280px;
-                height: 350px;
-            }
-            
-            .bg {
-                width: 270px;
-                height: 340px;
-            }
-        }
-    </style>
 </head>
 
 <body class="home-dark">
@@ -387,28 +216,81 @@
                     <div class="crm-feature__title text-center mb-60">
                         Powerful features
                     </div>
-                    <div class="features-grid">
-                        <!-- From Uiverse.io by dylanharriscameron -->
-                        <div class="card">
-                            <div class="bg"></div>
-                            <div class="blob"></div>
-                            <div class="neon-border"></div>
+                    <div class="row justify-content-center mt-none-20">
+                        <div class="col-lg-3 col-md-6 mt-20">
+                            <div class="crm-feature__item">
+                                <div class="icon mb-40">
+                                    <img src="assets/img/icon/ft_01.svg" alt="">
+                                </div>
+                                <h3>User Information</h3>
+                                <p>Hey there, fellow employees! Welcome to our</p>
+                            </div>
                         </div>
-                        <div class="card">
-                            <div class="bg"></div>
-                            <div class="blob"></div>
-                            <div class="neon-border"></div>
+                        <div class="col-lg-3 col-md-6 mt-20">
+                            <div class="crm-feature__item">
+                                <div class="icon mb-40">
+                                    <img src="assets/img/icon/ft_02.svg" alt="">
+                                </div>
+                                <h3>Deal Tracking</h3>
+                                <p>Hey there, fellow employees! Welcome to our</p>
+                            </div>
                         </div>
-                        <div class="card">
-                            <div class="bg"></div>
-                            <div class="blob"></div>
-                            <div class="neon-border"></div>
+                        <div class="col-lg-3 col-md-6 mt-20">
+                            <div class="crm-feature__item">
+                                <div class="icon mb-40">
+                                    <img src="assets/img/icon/ft_03.svg" alt="">
+                                </div>
+                                <h3>Pipeline Management</h3>
+                                <p>Hey there, fellow employees! Welcome to our</p>
+                            </div>
                         </div>
-                        <div class="card">
-                            <div class="bg"></div>
-                            <div class="blob"></div>
-                            <div class="neon-border"></div>
+                        <div class="col-lg-3 col-md-6 mt-20">
+                            <div class="crm-feature__item">
+                                <div class="icon mb-40">
+                                    <img src="assets/img/icon/ft_04.svg" alt="">
+                                </div>
+                                <h3>Reporting Dashboard</h3>
+                                <p>Hey there, fellow employees! Welcome to our</p>
+                            </div>
                         </div>
+                        <div class="col-lg-3 col-md-6 mt-20">
+                            <div class="crm-feature__item">
+                                <div class="icon mb-40">
+                                    <img src="assets/img/icon/ft_05.svg" alt="">
+                                </div>
+                                <h3>Meeting Scheduling</h3>
+                                <p>Hey there, fellow employees! Welcome to our</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mt-20">
+                            <div class="crm-feature__item">
+                                <div class="icon mb-40">
+                                    <img src="assets/img/icon/ft_06.svg" alt="">
+                                </div>
+                                <h3>Email Tracking</h3>
+                                <p>Hey there, fellow employees! Welcome to our</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mt-20">
+                            <div class="crm-feature__item">
+                                <div class="icon mb-40">
+                                    <img src="assets/img/icon/ft_07.svg" alt="">
+                                </div>
+                                <h3>Deal and Tech Data Tracking</h3>
+                                <p>Hey there, fellow employees! Welcome to our</p>
+                                <div class="ft_icon">
+                                    <img src="assets/img/icon/ft_icon.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="crm-feature__shape">
+                    <div class="shape shape--1" data-parallax='{"y" : 70}'>
+                        <img src="assets/img/shape/ft_shape1.png" alt="">
+                    </div>
+                    <div class="shape shape--2" data-parallax='{"y" : 80}'>
+                        <img src="assets/img/shape/ft_shape2.png" alt="">
                     </div>
                 </div>
             </section>
