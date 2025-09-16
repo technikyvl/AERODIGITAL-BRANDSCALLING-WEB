@@ -6126,8 +6126,11 @@ Pricing controller
   }
   
   .cs_island_logo img {
-    height: 45px;
-    max-width: 250px;
+    height: 55px;
+    max-width: 350px;
+    object-fit: cover;
+    object-position: center;
+    margin: -8px 0;
   }
 }
 
@@ -6143,8 +6146,11 @@ Pricing controller
   }
   
   .cs_island_logo img {
-    height: 40px;
-    max-width: 200px;
+    height: 50px;
+    max-width: 300px;
+    object-fit: cover;
+    object-position: center;
+    margin: -6px 0;
   }
 }
 
