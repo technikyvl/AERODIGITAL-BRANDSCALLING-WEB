@@ -5953,8 +5953,8 @@ Pricing controller
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
-  min-height: 120px;
+  padding: 12px 24px;
+  min-height: 60px;
 }
 
 .cs_island_header_left {
@@ -5975,9 +5975,9 @@ Pricing controller
 }
 
 .cs_island_logo img {
-  height: 90px;
+  height: 50px;
   width: auto;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .cs_island_header_center {
@@ -6106,8 +6106,8 @@ Pricing controller
   }
   
   .cs_island_header_content {
-    padding: 16px 20px;
-    min-height: 100px;
+    padding: 10px 16px;
+    min-height: 50px;
   }
   
   .cs_island_header_center {
@@ -6123,8 +6123,8 @@ Pricing controller
   }
   
   .cs_island_logo img {
-    height: 75px;
-    max-width: 320px;
+    height: 45px;
+    max-width: 250px;
   }
 }
 
@@ -6135,30 +6135,30 @@ Pricing controller
   }
   
   .cs_island_header_content {
-    padding: 14px 16px;
-    min-height: 90px;
+    padding: 8px 12px;
+    min-height: 45px;
   }
   
   .cs_island_logo img {
-    height: 65px;
-    max-width: 280px;
+    height: 40px;
+    max-width: 200px;
   }
 }
 
 /* Add top padding to body to account for fixed header */
 body {
-  padding-top: 160px;
+  padding-top: 100px;
 }
 
 @media (max-width: 768px) {
   body {
-    padding-top: 140px;
+    padding-top: 90px;
   }
 }
 
 @media (max-width: 480px) {
   body {
-    padding-top: 130px;
+    padding-top: 80px;
   }
 }
 
