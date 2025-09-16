@@ -5934,8 +5934,8 @@ Pricing controller
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  width: 90%;
-  max-width: 1200px;
+  width: 70%;
+  max-width: 800px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -6109,7 +6109,7 @@ Pricing controller
 /* Mobile Styles */
 @media (max-width: 768px) {
   .cs_island_header {
-    width: 95%;
+    width: 85%;
     top: 15px;
   }
   
@@ -6141,7 +6141,7 @@ Pricing controller
 
 @media (max-width: 480px) {
   .cs_island_header {
-    width: 98%;
+    width: 90%;
     top: 10px;
   }
   
@@ -6187,13 +6187,13 @@ body {
 
 /* Compact Hero Section */
 .hero--compact {
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .hero--compact h1 {
   font-size: 3.5rem !important;
   line-height: 1.1 !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 1.5rem !important;
 }
 
 .hero--compact .cs_mb_25 {
@@ -6202,7 +6202,7 @@ body {
 }
 
 .hero--compact .cs_ruixen_dashboard {
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .hero--compact .cs_ruixen_chart_card {
