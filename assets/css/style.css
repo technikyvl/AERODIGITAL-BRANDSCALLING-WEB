@@ -6516,6 +6516,13 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   }
 }
 
+/* Empty Left Column Styling */
+.cs_empty_left_column {
+  background: transparent;
+  border-radius: 15px;
+  position: relative;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .cs_ruixen_chart_card {
