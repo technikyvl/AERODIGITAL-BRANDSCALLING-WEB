@@ -1,55 +1,5 @@
-// Intersection Observer for scroll animations
+// Initialize page
 document.addEventListener("DOMContentLoaded", () => {
-  // Create intersection observer
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-in")
-          
-          // Add text shadow animations to text elements
-          if (entry.target.classList.contains('hero-title') || 
-              entry.target.classList.contains('section-title')) {
-            entry.target.classList.add('animate-text-glow')
-          }
-          
-          // Add card shadow animations to cards
-          if (entry.target.classList.contains('service-card')) {
-            entry.target.classList.add('animate-card-glow-blue')
-          } else if (entry.target.classList.contains('value-card-featured')) {
-            entry.target.classList.add('animate-card-glow-orange')
-          } else if (entry.target.classList.contains('value-card')) {
-            entry.target.classList.add('animate-card-glow')
-          }
-          
-          // Add text shadow animations to card titles
-          const cardTitle = entry.target.querySelector('h3')
-          if (cardTitle) {
-            if (entry.target.classList.contains('service-card')) {
-              cardTitle.classList.add('animate-text-glow-blue')
-            } else if (entry.target.classList.contains('value-card-featured')) {
-              cardTitle.classList.add('animate-text-glow-orange')
-            } else if (entry.target.classList.contains('value-card')) {
-              cardTitle.classList.add('animate-text-glow')
-            }
-          }
-          
-          // Unobserve the element after animation
-          observer.unobserve(entry.target)
-        }
-      })
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    },
-  )
-
-  // Observe all elements with animate-on-scroll class
-  const elementsToAnimate = document.querySelectorAll(".animate-on-scroll")
-  elementsToAnimate.forEach((el) => {
-    observer.observe(el)
-  })
 
   // Smooth scrolling for navigation links
   const navLinks = document.querySelectorAll('a[href^="#"]')
