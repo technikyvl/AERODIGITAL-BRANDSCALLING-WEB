@@ -81,8 +81,8 @@
                 
                 <!-- Overlay Hero Number -->
                 <div class="cs_chart_overlay">
-                  <h3 class="cs_hero_number">
-                    <span class="cs_counter" data-count="40000">0</span> PLN
+                  <h3 class="cs_hero_number" id="pln-counter">
+                    <span class="cs_counter" data-count="40000">40 000</span> PLN
                   </h3>
                   <p class="cs_hero_label">Wygenerowanych dla naszych klientów</p>
                 </div>
@@ -90,19 +90,35 @@
                 <!-- Side Stats -->
                 <div class="cs_side_stats">
                   <div class="cs_stat_item">
-                    <p class="cs_stat_value stat" data-target="57" data-suffix="+">0+</p>
+                    <p class="cs_stat_value">60k+</p>
+                    <p class="cs_stat_label">Active Users</p>
+                  </div>
+                  <div class="cs_stat_item">
+                    <p class="cs_stat_value">50+</p>
                     <p class="cs_stat_label">Wykonanych Projektów</p>
                   </div>
                   <div class="cs_stat_item">
-                    <p class="cs_stat_value stat stat--roi" data-target="10.3" data-prefix="x" data-suffix=" ROI" data-decimals="1">x0.0 ROI</p>
-                    <p class="cs_stat_label"></p>
+                    <p class="cs_stat_value">2.5M</p>
+                    <p class="cs_stat_label">Tasks Done</p>
                   </div>
                   <div class="cs_stat_item">
-                    <p class="cs_stat_value stat" data-target="1011" data-prefix="~">~0</p>
+                    <p class="cs_stat_value">x5</p>
+                    <p class="cs_stat_label">ROI Z każdym projektem</p>
+                  </div>
+                  <div class="cs_stat_item">
+                    <p class="cs_stat_value">~209+</p>
+                    <p class="cs_stat_label">Integrations</p>
+                  </div>
+                  <div class="cs_stat_item">
+                    <p class="cs_stat_value">~1 000</p>
                     <p class="cs_stat_label">Godzin Doświadczenia</p>
                   </div>
                   <div class="cs_stat_item">
-                    <p class="cs_stat_value stat" data-target="100" data-suffix="%" data-decimals="1">0.0%</p>
+                    <p class="cs_stat_value">100%</p>
+                    <p class="cs_stat_label">Productivity</p>
+                  </div>
+                  <div class="cs_stat_item">
+                    <p class="cs_stat_value">100%</p>
                     <p class="cs_stat_label">Satysfakcji klientów</p>
                   </div>
                 </div>
@@ -1029,40 +1045,58 @@
           }, 20);
         }
         
-        // Count-up Animation for Side Stats
-        function formatNumber(n) {
-          return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        // PLN Growing Animation
+        function startPLNGrowth() {
+          const plnCounter = document.getElementById('pln-counter');
+          const counterElement = plnCounter.querySelector('.cs_counter');
+          let currentValue = 40000;
+          
+          function updatePLN() {
+            // Add random increment between 20-30 PLN
+            const increment = Math.floor(Math.random() * 11) + 20; // 20-30
+            currentValue += increment;
+            
+            // Add growing animation class
+            plnCounter.classList.add('growing');
+            
+            // Update display with Polish formatting
+            counterElement.textContent = currentValue.toLocaleString('pl-PL').replace(/,/g, ' ');
+            
+            // Remove growing animation class after 300ms
+            setTimeout(() => {
+              plnCounter.classList.remove('growing');
+            }, 300);
+            
+            // Schedule next update with random delay (3-7 seconds)
+            const nextDelay = Math.random() * 4000 + 3000;
+            setTimeout(updatePLN, nextDelay);
+          }
+          
+          // Start animation after initial delay
+          setTimeout(updatePLN, Math.random() * 2000 + 1000);
         }
         
-        function animateCount(el, target, {duration=1000, prefix='', suffix='', decimals=0} = {}) {
-          const start = performance.now();
-          const from = 0;
-          const to = target;
-          const step = (t) => {
-            const p = Math.min((t - start) / duration, 1);
-            const val = from + (to - from) * (1 - Math.pow(1 - p, 3)); // easeOutCubic
-            const fixed = val.toFixed(decimals);
-            const shown = decimals ? fixed : Math.round(val).toString();
-            el.textContent = `${prefix}${decimals ? fixed : formatNumber(shown)}${suffix}`;
-            if (p < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-        }
-        
-        const io = new IntersectionObserver((entries, obs) => {
-          entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target;
-            const target = parseFloat(el.dataset.target);
-            const prefix = el.dataset.prefix || '';
-            const suffix = el.dataset.suffix || '';
-            const decimals = (el.dataset.decimals ? parseInt(el.dataset.decimals, 10) : (suffix.includes('%') || prefix==='x') ? 1 : 0);
-            animateCount(el, target, { duration: 1000, prefix, suffix, decimals });
-            obs.unobserve(el);
+        // Heading Reveal Animation
+        function initHeadingReveal() {
+          const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+          
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          
+          headings.forEach(heading => {
+            observer.observe(heading);
           });
-        }, { threshold: 0.2 });
+        }
         
-        document.querySelectorAll('.stat').forEach(el => io.observe(el));
+        // Initialize animations
+        startPLNGrowth();
+        initHeadingReveal();
       });
     </script>
     

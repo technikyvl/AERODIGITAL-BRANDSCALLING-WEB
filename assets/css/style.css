@@ -5953,8 +5953,8 @@ Pricing controller
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2px 20px;
-  min-height: 35px;
+  padding: 1px 16px;
+  min-height: 20px;
 }
 
 .cs_island_header_left {
@@ -5980,12 +5980,12 @@ Pricing controller
 }
 
 .cs_island_logo img {
-  height: 75px;
+  height: 85px;
   width: auto;
-  max-width: 520px;
+  max-width: 580px;
   object-fit: cover;
   object-position: center;
-  margin: -18px 0;
+  margin: -25px 0;
 }
 
 .cs_island_header_center {
@@ -6004,12 +6004,12 @@ Pricing controller
 .cs_island_nav_item {
   display: flex;
   align-items: center;
-  padding: 6px 12px;
+  padding: 3px 8px;
   text-decoration: none;
   color: var(--heading-color);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  border-radius: 20px;
+  border-radius: 15px;
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
@@ -6035,12 +6035,12 @@ Pricing controller
 }
 
 .cs_island_login {
-  padding: 6px 12px;
+  padding: 3px 8px;
   text-decoration: none;
   color: var(--heading-color);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  border-radius: 20px;
+  border-radius: 15px;
   transition: all 0.2s ease;
 }
 
@@ -6050,13 +6050,13 @@ Pricing controller
 }
 
 .cs_island_signup {
-  padding: 8px 16px;
+  padding: 4px 12px;
   text-decoration: none;
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  border-radius: 20px;
+  border-radius: 15px;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
@@ -6114,8 +6114,8 @@ Pricing controller
   }
   
   .cs_island_header_content {
-    padding: 2px 14px;
-    min-height: 32px;
+    padding: 1px 12px;
+    min-height: 18px;
   }
   
   .cs_island_header_center {
@@ -6131,11 +6131,11 @@ Pricing controller
   }
   
   .cs_island_logo img {
-    height: 68px;
-    max-width: 460px;
+    height: 78px;
+    max-width: 520px;
     object-fit: cover;
     object-position: center;
-    margin: -14px 0;
+    margin: -20px 0;
   }
 }
 
@@ -6146,33 +6146,33 @@ Pricing controller
   }
   
   .cs_island_header_content {
-    padding: 2px 10px;
-    min-height: 28px;
+    padding: 1px 8px;
+    min-height: 16px;
   }
   
   .cs_island_logo img {
-    height: 63px;
-    max-width: 400px;
+    height: 73px;
+    max-width: 460px;
     object-fit: cover;
     object-position: center;
-    margin: -12px 0;
+    margin: -18px 0;
   }
 }
 
 /* Add top padding to body to account for fixed header */
 body {
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 @media (max-width: 768px) {
   body {
-    padding-top: 45px;
+    padding-top: 28px;
   }
 }
 
 @media (max-width: 480px) {
   body {
-    padding-top: 40px;
+    padding-top: 25px;
   }
 }
 
@@ -6187,22 +6187,22 @@ body {
 
 /* Compact Hero Section */
 .hero--compact {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .hero--compact h1 {
   font-size: 3.5rem !important;
   line-height: 1.1 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .hero--compact .cs_mb_25 {
   font-size: 0.9rem !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 .hero--compact .cs_ruixen_dashboard {
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .hero--compact .cs_ruixen_chart_card {
@@ -6333,7 +6333,27 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Removed live animation classes - using count-up instead */
+/* PLN Counter Animation */
+.cs_hero_number.growing {
+  color: #00C853 !important;
+  transition: color 0.3s ease;
+}
+
+.cs_hero_number {
+  transition: color 0.3s ease;
+}
+
+/* Heading Reveal Animation */
+h1:not(.revealed), h2:not(.revealed), h3:not(.revealed), h4:not(.revealed), h5:not(.revealed), h6:not(.revealed) {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .cs_stat_label {
   font-size: 12px;
