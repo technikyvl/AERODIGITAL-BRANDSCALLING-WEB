@@ -34,7 +34,8 @@ class MeteorsEffect {
     const meteor = document.createElement('div');
     meteor.className = 'meteor';
     
-    // Random vertical position
+    // Random position across the entire hero section
+    const randomX = Math.floor(Math.random() * 100) - 50; // -50% to 50% from center
     const randomY = Math.floor(Math.random() * 400) - 200; // -200 to 200
     
     // Random animation properties
@@ -42,7 +43,7 @@ class MeteorsEffect {
     const duration = Math.random() * (this.options.maxDuration - this.options.minDuration) + this.options.minDuration;
     
     // Apply styles
-    meteor.style.left = '50%';
+    meteor.style.left = `calc(50% + ${randomX}%)`;
     meteor.style.top = randomY + 'px';
     meteor.style.animationDelay = delay + 's';
     meteor.style.animationDuration = duration + 's';
