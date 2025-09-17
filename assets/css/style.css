@@ -2605,6 +2605,17 @@ hr {
   margin: 0 37px;
   animation: slider-left 30s linear infinite;
 }
+
+/* Make brand logos white */
+.cs_horizontal_slider_wrapper .cs_brands_list img {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.cs_horizontal_slider_wrapper .cs_brands_list img:hover {
+  opacity: 1;
+}
 .cs_horizontal_slider_wrapper:hover .cs_brands_list,
 .cs_horizontal_slider_wrapper:hover .cs_tools_wrapper {
   animation-play-state: paused;
