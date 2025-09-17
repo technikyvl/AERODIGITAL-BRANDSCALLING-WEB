@@ -39,9 +39,9 @@ class MeteorsEffect {
     const meteor = document.createElement('div');
     meteor.className = 'meteor';
     
-    // Random position - wider range
-    const randomX = Math.floor(Math.random() * 800) - 400; // -400 to 400
-    const randomY = Math.floor(Math.random() * 200) - 100; // -100 to 100
+    // Random position - full screen coverage
+    const randomX = Math.floor(Math.random() * 1200) - 600; // -600 to 600
+    const randomY = Math.floor(Math.random() * 400) - 200; // -200 to 200
     
     // Random animation properties
     const delay = Math.random() * 0.6 + 0.2; // 0.2 to 0.8

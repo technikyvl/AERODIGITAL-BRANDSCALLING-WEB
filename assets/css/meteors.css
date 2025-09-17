@@ -17,8 +17,8 @@
   height: 2px;
   width: 2px;
   border-radius: 9999px;
-  background: #64748b;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: #000000;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
   transform: rotate(215deg);
   animation: meteor-fly 5s linear infinite;
 }
@@ -31,7 +31,7 @@
   transform: translateY(-50%);
   width: 50px;
   height: 1px;
-  background: linear-gradient(to right, #64748b, transparent);
+  background: linear-gradient(to right, #000000, transparent);
 }
 
 /* Meteor animation */
@@ -44,12 +44,12 @@
     opacity: 1;
   }
   100% {
-    transform: rotate(215deg) translateX(-500px);
+    transform: rotate(215deg) translateX(-800px);
     opacity: 0;
   }
 }
 
-/* Hero section with meteors - Dark theme */
+/* Hero section with meteors - Light theme */
 .hero-meteors {
   position: relative;
   overflow: hidden;
@@ -57,7 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0b0b16;
+  background: #ffffff;
   isolation: isolate;
 }
 
@@ -68,9 +68,9 @@
   inset: 0;
   pointer-events: none;
   background: radial-gradient(circle at 50% 0%, 
-    rgba(100, 100, 100, 0.1) 0%, 
-    rgba(255, 255, 255, 0.05) 50%, 
-    rgba(100, 100, 100, 0.1) 100%);
+    rgba(0, 0, 0, 0.05) 0%, 
+    rgba(0, 0, 0, 0.02) 50%, 
+    rgba(0, 0, 0, 0.05) 100%);
   filter: blur(48px);
 }
 
@@ -89,9 +89,9 @@
   letter-spacing: -0.02em;
   line-height: 1.1;
   background: linear-gradient(135deg, 
-    #a1a1aa 0%, 
-    #ffffff 50%, 
-    #71717a 100%
+    #1f2937 0%, 
+    #000000 50%, 
+    #374151 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -102,7 +102,7 @@
 
 /* Hero subtitle */
 .hero-meteors-subtitle {
-  color: #a1a1aa;
+  color: #6b7280;
   font-size: 1.125rem;
   line-height: 1.6;
   max-width: 36rem;
