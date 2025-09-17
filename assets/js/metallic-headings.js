@@ -60,8 +60,8 @@ class MetallicHeadings {
         heading.classList.add('large');
       }
       
-      // Add reveal animation class
-      heading.classList.add('reveal-from-shadow');
+      // Add reveal animation class with subtle blur for better readability
+      heading.classList.add('reveal-from-shadow', 'subtle');
       
       // Add staggered delay based on position
       heading.style.setProperty('--animation-delay', `${index * 0.1}s`);

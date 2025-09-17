@@ -60,9 +60,9 @@
 /* Pre-reveal state - hidden in shadow - Bytetown style */
 .metallic-heading.reveal-from-shadow {
   opacity: 0;
-  transform: translateY(20px) scale(0.98);
-  filter: blur(4px) brightness(0.4) saturate(0.8);
-  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(15px) scale(0.99);
+  filter: blur(1px) brightness(0.6) saturate(0.9);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Revealed state - emerges from shadow */
@@ -138,6 +138,16 @@
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+/* Subtle blur option - minimal blur for better readability */
+.metallic-heading.reveal-from-shadow.subtle {
+  filter: blur(0.5px) brightness(0.7) saturate(0.95);
+}
+
+/* No blur option - completely clear text */
+.metallic-heading.reveal-from-shadow.no-blur {
+  filter: brightness(0.5) saturate(0.9);
 }
 
 /* Reduced motion support */
