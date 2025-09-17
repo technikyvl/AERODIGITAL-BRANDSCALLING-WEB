@@ -8,7 +8,7 @@
   width: 68vw;
   min-height: 55vh;
   border-radius: 1rem;
-  border: none !important;
+  border: none;
   background: #000000;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.4),
@@ -146,7 +146,7 @@
   );
   border-radius: 0 0 1rem 1rem;
   overflow: hidden;
-  border: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0 1rem;
 }
 

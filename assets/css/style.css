@@ -2622,62 +2622,6 @@ hr {
   background-color: #000000 !important;
 }
 
-/* Remove all lines and borders globally */
-* {
-  border: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-width: 0 !important;
-  border-style: none !important;
-  border-color: transparent !important;
-}
-
-/* Remove specific line elements */
-hr, .cs_line, .cs_divider, .cs_border_line {
-  display: none !important;
-}
-
-/* Remove borders from specific elements */
-.cs_btn, .cs_card, .cs_form_field, table th, table td {
-  border: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  border-left: none !important;
-  border-right: none !important;
-}
-
-/* Remove underlines from text */
-.cs_section_text, .cs_section_title, .cs_section_subtitle {
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-/* Remove borders from cards and containers */
-.cs_card, .cs_pricing_table, .cs_iconbox {
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Remove borders from forms */
-input, textarea, select, .cs_form_field {
-  border: none !important;
-  outline: none !important;
-}
-
-/* Remove borders from tables */
-table, th, td {
-  border: none !important;
-  border-collapse: separate !important;
-}
-
-/* Remove borders from buttons */
-button, .cs_btn {
-  border: none !important;
-  outline: none !important;
-}
-
 /* Brands section title styling */
 .brands-section-title {
   color: #ffffff !important;
