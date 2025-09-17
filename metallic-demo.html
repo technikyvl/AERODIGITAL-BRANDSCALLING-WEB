@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metallic Headings Demo - Aero Digital</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/metallic-headings.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        .demo-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .demo-section h1, .demo-section h2, .demo-section h3 {
+            margin-bottom: 2rem;
+        }
+        .demo-section p {
+            color: #ccc;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .demo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="demo-section">
+            <h1 class="metallic-heading large reveal-from-shadow">Metaliczny, Prestiżowy Font</h1>
+            <p>Demonstracja efektu metalicznego fontu z animacją wyjścia z cienia. Wszystkie nagłówki mają elegancki, trwały wygląd z płynnymi animacjami.</p>
+        </div>
+
+        <!-- Different Heading Sizes -->
+        <div class="demo-section">
+            <h2 class="metallic-heading large reveal-from-shadow">Różne Rozmiary Nagłówków</h2>
+            <p>Każdy nagłówek automatycznie otrzymuje odpowiedni styl w zależności od rozmiaru czcionki.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="metallic-heading reveal-from-shadow">Nagłówek H3</h3>
+                    <p>Standardowy nagłówek z efektem metalicznym</p>
+                </div>
+                <div class="demo-card">
+                    <h4 class="metallic-heading reveal-from-shadow">Nagłówek H4</h4>
+                    <p>Mniejszy nagłówek z zachowanym stylem</p>
+                </div>
+                <div class="demo-card">
+                    <h5 class="metallic-heading reveal-from-shadow">Nagłówek H5</h5>
+                    <p>Jeszcze mniejszy nagłówek</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animation Effects -->
+        <div class="demo-section">
+            <h2 class="metallic-heading large reveal-from-shadow">Efekty Animacji</h2>
+            <p>Nagłówki pojawiają się z cienia z płynną animacją podczas przewijania strony.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="metallic-heading reveal-from-shadow">Płynne Wyjście</h3>
+                    <p>Animacja wyjścia z cienia z efektem rozmycia</p>
+                </div>
+                <div class="demo-card">
+                    <h3 class="metallic-heading reveal-from-shadow">Metaliczny Blask</h3>
+                    <p>Gradient metaliczny z subtelnym świeceniem</p>
+                </div>
+                <div class="demo-card">
+                    <h3 class="metallic-heading reveal-from-shadow">Hover Effect</h3>
+                    <p>Interaktywny efekt przy najechaniu myszką</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Features -->
+        <div class="demo-section">
+            <h2 class="metallic-heading large reveal-from-shadow">Optymalizacja Wydajności</h2>
+            <p>Animacje są zoptymalizowane pod kątem wydajności i nie obciążają strony.</p>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="metallic-heading reveal-from-shadow">Intersection Observer</h3>
+                    <p>Używa nowoczesnego API do wykrywania widoczności</p>
+                </div>
+                <div class="demo-card">
+                    <h3 class="metallic-heading reveal-from-shadow">Hardware Acceleration</h3>
+                    <p>Wykorzystuje akcelerację sprzętową GPU</p>
+                </div>
+                <div class="demo-card">
+                    <h3 class="metallic-heading reveal-from-shadow">Reduced Motion</h3>
+                    <p>Respektuje preferencje użytkownika dotyczące animacji</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="demo-section">
+            <h2 class="metallic-heading large reveal-from-shadow">Gotowy do Wdrożenia?</h2>
+            <p>Wszystkie nagłówki na stronie automatycznie otrzymają metaliczny efekt z animacją wyjścia z cienia.</p>
+            <button class="btn btn-primary btn-lg mt-3" onclick="window.location.href='index.html'">
+                Zobacz na Stronie Głównej
+            </button>
+        </div>
+    </div>
+
+    <script src="assets/js/metallic-headings.js"></script>
+    <script>
+        // Demo-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add some interactive demo features
+            const cards = document.querySelectorAll('.demo-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
