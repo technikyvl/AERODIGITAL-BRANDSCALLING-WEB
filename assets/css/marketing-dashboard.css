@@ -4,8 +4,8 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) perspective(1500px) rotateX(3deg);
-  max-width: 95vw;
-  width: 95vw;
+  max-width: 76vw;
+  width: 76vw;
   min-height: 55vh;
   border-radius: 1rem;
   border: none;
@@ -192,8 +192,8 @@
 /* Responsive */
 @media (max-width: 1400px) {
   .marketing-dashboard-container {
-    max-width: 90vw;
-    width: 90vw;
+    max-width: 72vw;
+    width: 72vw;
     padding: 2.5rem;
     transform: translateX(-50%) perspective(1500px) rotateX(2deg);
   }
@@ -203,8 +203,8 @@
   .marketing-dashboard-container {
     padding: 2rem;
     transform: translateX(-50%) perspective(1200px) rotateX(1deg);
-    max-width: 95vw;
-    width: 95vw;
+    max-width: 76vw;
+    width: 76vw;
     min-height: 45vh;
   }
   
@@ -232,8 +232,8 @@
     transform: translateX(-50%) perspective(1000px) rotateX(0.5deg);
     padding: 1.5rem;
     min-height: 40vh;
-    max-width: 98vw;
-    width: 98vw;
+    max-width: 80vw;
+    width: 80vw;
   }
   
   .marketing-dashboard-chart {
