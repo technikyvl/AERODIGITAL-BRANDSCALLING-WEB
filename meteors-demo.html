@@ -85,47 +85,15 @@
 
     <!-- Hero Section with Meteors -->
     <section class="hero-meteors" id="home">
-      <!-- Background glow effect -->
-      <div class="hero-meteors-bg-glow"></div>
-      
       <!-- Meteors container -->
       <div class="meteors-container"></div>
       
       <!-- Hero content -->
       <div class="hero-meteors-content">
-        <h1 class="hero-meteors-title">Pozyskanie nowych klientów wcale nie musi być trudne</h1>
+        <h1 class="hero-meteors-title">Aero Digital</h1>
         <p class="hero-meteors-subtitle">
-          Zwiększamy ROI do x5 z każdej kampanii. Nasze rozwiązania łączą zaawansowaną analitykę z kreatywnym podejściem, aby dostarczyć realne wyniki biznesowe.
+          Transforming clicks into clients with smart campaigns.
         </p>
-        
-        <!-- Stats Section -->
-        <div class="hero-meteors-stats">
-          <div class="hero-meteors-stat">
-            <h3 class="hero-meteors-stat-number" id="pln-counter">
-              <span class="cs_counter" data-count="50000">50 000</span> PLN
-            </h3>
-            <p class="hero-meteors-stat-label">Wygenerowanych dla naszych klientów</p>
-          </div>
-          
-          <div class="hero-meteors-stats-grid">
-            <div class="hero-meteors-stat-item">
-              <p class="hero-meteors-stat-value">50+</p>
-              <p class="hero-meteors-stat-label">Wykonanych Projektów</p>
-            </div>
-            <div class="hero-meteors-stat-item">
-              <p class="hero-meteors-stat-value">x5 ROI</p>
-              <p class="hero-meteors-stat-label">Z każdym projektem</p>
-            </div>
-            <div class="hero-meteors-stat-item">
-              <p class="hero-meteors-stat-value">~1 000</p>
-              <p class="hero-meteors-stat-label">Godzin Doświadczenia</p>
-            </div>
-            <div class="hero-meteors-stat-item">
-              <p class="hero-meteors-stat-value">100%</p>
-              <p class="hero-meteors-stat-label">Satysfakcji klientów</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -133,33 +101,18 @@
     <script>
         // Demo-specific functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Counter animation
-            const counterElement = document.querySelector('.cs_counter');
-            if (counterElement) {
-                const target = parseInt(counterElement.getAttribute('data-count'));
-                let current = 0;
-                const increment = target / 100;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counterElement.textContent = Math.floor(current).toLocaleString('pl-PL').replace(/,/g, ' ');
-                }, 20);
-            }
-            
-            // Add click effect to stats
-            const statItems = document.querySelectorAll('.hero-meteors-stat-item');
-            statItems.forEach(item => {
-                item.addEventListener('click', function() {
+            // Add hover effect to title
+            const title = document.querySelector('.hero-meteors-title');
+            if (title) {
+                title.addEventListener('mouseenter', function() {
                     this.style.transform = 'scale(1.05)';
-                    this.style.transition = 'transform 0.2s ease';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 200);
+                    this.style.transition = 'transform 0.3s ease';
                 });
-            });
+                
+                title.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
         });
     </script>
 </body>

@@ -7,7 +7,7 @@ class MeteorsEffect {
   constructor(container, options = {}) {
     this.container = container;
     this.options = {
-      number: 24,
+      number: 28,
       minDelay: 0.2,
       maxDelay: 0.8,
       minDuration: 2,
@@ -39,13 +39,13 @@ class MeteorsEffect {
     const meteor = document.createElement('div');
     meteor.className = 'meteor';
     
-    // Random position
+    // Random position - wider range
     const randomX = Math.floor(Math.random() * 800) - 400; // -400 to 400
     const randomY = Math.floor(Math.random() * 200) - 100; // -100 to 100
     
     // Random animation properties
-    const delay = Math.random() * (this.options.maxDelay - this.options.minDelay) + this.options.minDelay;
-    const duration = Math.floor(Math.random() * (this.options.maxDuration - this.options.minDuration) + this.options.minDuration);
+    const delay = Math.random() * 0.6 + 0.2; // 0.2 to 0.8
+    const duration = Math.floor(Math.random() * 8 + 2); // 2 to 10
     
     // Apply styles
     meteor.style.left = randomX + 'px';
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   meteorContainers.forEach(container => {
     new MeteorsEffect(container, {
-      number: 24,
+      number: 28,
       minDelay: 0.2,
       maxDelay: 0.8,
       minDuration: 2,
