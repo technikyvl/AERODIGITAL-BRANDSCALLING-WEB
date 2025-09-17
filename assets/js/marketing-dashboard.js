@@ -108,8 +108,8 @@ class MarketingDashboard {
       </div>
     `;
     
-    // Render chart after DOM is updated
-    setTimeout(() => this.createChart(), 100);
+    // Render chart immediately - no setTimeout to prevent flickering
+    this.createChart();
   }
   
   createChart() {
@@ -118,9 +118,10 @@ class MarketingDashboard {
     
     const ctx = canvas.getContext('2d');
     const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * window.devicePixelRatio;
-    canvas.height = rect.height * window.devicePixelRatio;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    
+    // Set canvas size
+    canvas.width = rect.width;
+    canvas.height = rect.height;
     
     // Chart data - 6 months
     const months = ['STY', 'LUT', 'MAR', 'KWI', 'MAJ', 'CZE'];
@@ -131,7 +132,7 @@ class MarketingDashboard {
     const maxValue = Math.max(...seoData, ...adsData);
     const minValue = Math.min(...seoData, ...adsData);
     const range = maxValue - minValue;
-    const padding = 40;
+    const padding = 60; // większy padding dla większego wykresu
     const chartWidth = rect.width - padding * 2;
     const chartHeight = rect.height - padding * 2;
     
@@ -159,7 +160,7 @@ class MarketingDashboard {
     
     // Draw SEO line
     ctx.strokeStyle = '#818cf8';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 4; // grubsza linia dla większego wykresu
     ctx.beginPath();
     
     for (let i = 0; i < seoData.length; i++) {
@@ -177,7 +178,7 @@ class MarketingDashboard {
     
     // Draw Ads line
     ctx.strokeStyle = '#6366f1';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 4; // grubsza linia dla większego wykresu
     ctx.beginPath();
     
     for (let i = 0; i < adsData.length; i++) {
@@ -196,7 +197,7 @@ class MarketingDashboard {
     // Draw data points
     ctx.fillStyle = '#ffffff';
     ctx.strokeStyle = '#1e293b';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3; // grubsza obwódka dla większego wykresu
     
     // SEO points
     for (let i = 0; i < seoData.length; i++) {
@@ -205,7 +206,7 @@ class MarketingDashboard {
       const y = padding + chartHeight - (normalizedValue * chartHeight);
       
       ctx.beginPath();
-      ctx.arc(x, y, 4, 0, 2 * Math.PI);
+      ctx.arc(x, y, 6, 0, 2 * Math.PI); // większe punkty
       ctx.fill();
       ctx.stroke();
     }
@@ -217,14 +218,14 @@ class MarketingDashboard {
       const y = padding + chartHeight - (normalizedValue * chartHeight);
       
       ctx.beginPath();
-      ctx.arc(x, y, 4, 0, 2 * Math.PI);
+      ctx.arc(x, y, 6, 0, 2 * Math.PI); // większe punkty
       ctx.fill();
       ctx.stroke();
     }
     
     // Draw month labels
     ctx.fillStyle = '#9ca3af';
-    ctx.font = '12px Inter, sans-serif';
+    ctx.font = '14px Inter, sans-serif'; // większa czcionka dla większego wykresu
     ctx.textAlign = 'center';
     
     for (let i = 0; i < months.length; i++) {
