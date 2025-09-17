@@ -1,24 +1,44 @@
 /* Marketing Dashboard Styles */
 .marketing-dashboard-container {
-  position: relative;
-  margin-top: 6rem; /* obniżony - więcej miejsca nad dashboardem */
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 98vw; /* jeszcze szerszy */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) perspective(1500px) rotateX(3deg);
+  max-width: 98vw;
   width: 100%;
-  min-height: 60vh; /* dostosowana wysokość */
+  min-height: 50vh;
   border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.15); /* pojedyncze obramowanie */
+  border: none;
   background: #000000;
   box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.4), /* głębszy cień */
-    0 0 0 1px rgba(255, 255, 255, 0.1), /* subtelna biała ramka */
-    0 0 60px rgba(255, 255, 255, 0.08); /* białe glow */
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(255, 255, 255, 0.08);
   padding: 4rem;
-  transform: perspective(1500px) rotateX(3deg); /* jeszcze mniej pochylony */
-  animation: none; /* usunięto animację aby nie migał */
+  animation: none;
   opacity: 1;
-  z-index: 10; /* wyżej niż meteory */
+  z-index: 10;
+}
+
+/* White stretched glow behind dashboard */
+.marketing-dashboard-container::before {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -50px;
+  right: -50px;
+  height: 200px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Removed animations to prevent flickering */
@@ -53,16 +73,56 @@
   line-height: 1;
   margin-bottom: 0.25rem;
   transition: all 0.3s ease;
+  color: #ffffff;
 }
 
 .marketing-stat-value.highlight-green {
-  color: #22c55e;
-  text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+  color: #22c55e !important;
+  text-shadow: 0 0 15px rgba(34, 197, 94, 0.8);
+  transform: scale(1.05);
 }
 
 .marketing-stat-value.highlight-red {
-  color: #ef4444;
-  text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+  color: #ef4444 !important;
+  text-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+  transform: scale(1.05);
+}
+
+/* Animation keyframes for number changes */
+@keyframes numberIncrease {
+  0% {
+    color: #ffffff;
+    text-shadow: none;
+    transform: scale(1);
+  }
+  50% {
+    color: #22c55e;
+    text-shadow: 0 0 15px rgba(34, 197, 94, 0.8);
+    transform: scale(1.05);
+  }
+  100% {
+    color: #ffffff;
+    text-shadow: none;
+    transform: scale(1);
+  }
+}
+
+@keyframes numberDecrease {
+  0% {
+    color: #ffffff;
+    text-shadow: none;
+    transform: scale(1);
+  }
+  50% {
+    color: #ef4444;
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+    transform: scale(1.05);
+  }
+  100% {
+    color: #ffffff;
+    text-shadow: none;
+    transform: scale(1);
+  }
 }
 
 .marketing-stat-label {
@@ -137,6 +197,7 @@
   .marketing-dashboard-container {
     max-width: 95vw;
     padding: 3rem;
+    transform: translateX(-50%) perspective(1500px) rotateX(2deg);
   }
   
   .marketing-dashboard-stats {
@@ -152,11 +213,10 @@
 
 @media (max-width: 768px) {
   .marketing-dashboard-container {
-    margin-top: 4rem;
     padding: 2rem;
-    transform: perspective(1200px) rotateX(2deg);
+    transform: translateX(-50%) perspective(1200px) rotateX(1deg);
     max-width: 95vw;
-    min-height: 50vh;
+    min-height: 40vh;
   }
   
   .marketing-dashboard-stats {
@@ -182,9 +242,9 @@
   }
   
   .marketing-dashboard-container {
-    transform: perspective(1000px) rotateX(1deg);
+    transform: translateX(-50%) perspective(1000px) rotateX(0.5deg);
     padding: 1.5rem;
-    min-height: 40vh;
+    min-height: 35vh;
   }
   
   .marketing-dashboard-chart {

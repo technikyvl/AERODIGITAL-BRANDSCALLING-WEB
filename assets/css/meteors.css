@@ -56,12 +56,30 @@
 .hero-meteors {
   position: relative;
   overflow: hidden;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #000000;
   isolation: isolate;
+}
+
+/* Soft shadow at bottom of viewport */
+.hero-meteors::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
 }
 
 /* Removed glow background for pure black */
@@ -72,6 +90,11 @@
   z-index: 10;
   padding: 0 1.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* pełna wysokość viewport */
 }
 
 /* Delicate metallic gradient heading */
