@@ -2622,14 +2622,34 @@ hr {
   background-color: #000000 !important;
 }
 
+/* Enlarged ROI section */
+.roi-section-enlarged {
+  padding: 6rem 0; /* Dodatkowy padding na górze i dole */
+  min-height: 80vh; /* Zwiększona wysokość sekcji */
+}
+
+.roi-section-enlarged .cs_card {
+  padding: 4rem; /* Większy padding wewnątrz karty */
+}
+
+.roi-section-enlarged .cs_card_thumbnail {
+  min-height: 500px; /* Większa wysokość zdjęć */
+}
+
+.roi-section-enlarged .cs_card_thumbnail img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
 
 /* Brands section wrapper - vertical centering */
 .brands-section-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 60vh; /* Zwiększona wysokość sekcji */
-  padding: 4rem 0; /* Dodatkowy padding na górze i dole */
+  min-height: 50vh; /* Zmniejszona wysokość sekcji */
+  padding: 2rem 0; /* Zmniejszony padding na górze i dole */
 }
 
 .brands-content-wrapper {
@@ -2698,12 +2718,12 @@ hr {
 /* Responsive brands section */
 @media (max-width: 768px) {
   .brands-section-wrapper {
-    min-height: 50vh;
-    padding: 3rem 0;
+    min-height: 40vh;
+    padding: 1.5rem 0;
   }
   
   .brands-content-wrapper {
-    min-height: 35vh;
+    min-height: 30vh;
   }
   
   .brands-section-title {
@@ -2735,12 +2755,12 @@ hr {
 
 @media (max-width: 480px) {
   .brands-section-wrapper {
-    min-height: 45vh;
-    padding: 2rem 0;
+    min-height: 35vh;
+    padding: 1rem 0;
   }
   
   .brands-content-wrapper {
-    min-height: 30vh;
+    min-height: 25vh;
   }
   
   .brands-section-title {
@@ -2767,6 +2787,37 @@ hr {
   
   .brands-slider-container .cs_brands_list img {
     max-height: 30px;
+  }
+}
+
+/* Responsive ROI section */
+@media (max-width: 768px) {
+  .roi-section-enlarged {
+    padding: 4rem 0;
+    min-height: 70vh;
+  }
+  
+  .roi-section-enlarged .cs_card {
+    padding: 2rem;
+  }
+  
+  .roi-section-enlarged .cs_card_thumbnail {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roi-section-enlarged {
+    padding: 3rem 0;
+    min-height: 60vh;
+  }
+  
+  .roi-section-enlarged .cs_card {
+    padding: 1.5rem;
+  }
+  
+  .roi-section-enlarged .cs_card_thumbnail {
+    min-height: 300px;
   }
 }
 .cs_horizontal_slider_wrapper:hover .cs_brands_list,
