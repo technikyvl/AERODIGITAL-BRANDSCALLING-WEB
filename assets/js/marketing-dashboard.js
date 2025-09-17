@@ -17,6 +17,9 @@ class MarketingDashboard {
   init() {
     this.render();
     this.startUpdates();
+    // Ensure dashboard is always visible
+    this.container.style.display = 'block';
+    this.container.style.opacity = '1';
   }
   
   formatNumber(value) {
@@ -76,8 +79,11 @@ class MarketingDashboard {
   }
   
   render() {
+    // Only update if container exists and is visible
+    if (!this.container) return;
+    
     this.container.innerHTML = `
-      <div class="marketing-dashboard-container">
+      <div class="marketing-dashboard-container" style="opacity: 1; display: block;">
         <h3 class="marketing-dashboard-header">Wyniki marketingowe (SEO + Ads)</h3>
         
         <div class="marketing-dashboard-stats">
@@ -108,8 +114,8 @@ class MarketingDashboard {
       </div>
     `;
     
-    // Render chart immediately - no setTimeout to prevent flickering
-    this.createChart();
+    // Render chart immediately
+    requestAnimationFrame(() => this.createChart());
   }
   
   createChart() {

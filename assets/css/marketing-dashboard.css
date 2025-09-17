@@ -1,66 +1,27 @@
 /* Marketing Dashboard Styles */
 .marketing-dashboard-container {
   position: relative;
-  margin-top: 3rem;
+  margin-top: 6rem; /* obniżony - więcej miejsca nad dashboardem */
   margin-left: auto;
   margin-right: auto;
-  max-width: 95vw; /* znacznie szerszy - prawie pełna szerokość */
+  max-width: 98vw; /* jeszcze szerszy */
   width: 100%;
-  min-height: 70vh; /* znacznie wyższy */
-  border-radius: 1rem; /* rounded-2xl - większe zaokrąglenia */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* pojedyncze, subtelne obramowanie */
+  min-height: 60vh; /* dostosowana wysokość */
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* pojedyncze obramowanie */
   background: #000000;
   box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25), /* shadow-2xl */
-    0 0 40px rgba(255, 255, 255, 0.1), /* white glow */
-    0 0 80px rgba(255, 255, 255, 0.05); /* outer white glow */
-  padding: 4rem; /* jeszcze większy padding */
-  transform: perspective(1500px) rotateX(5deg); /* jeszcze mniej pochylony */
-  animation: fadeInUp 0.8s ease-out forwards; /* dodane forwards aby nie migał */
-  opacity: 1; /* zapewnia że nie miga */
+    0 25px 50px -12px rgba(0, 0, 0, 0.4), /* głębszy cień */
+    0 0 0 1px rgba(255, 255, 255, 0.1), /* subtelna biała ramka */
+    0 0 60px rgba(255, 255, 255, 0.08); /* białe glow */
+  padding: 4rem;
+  transform: perspective(1500px) rotateX(3deg); /* jeszcze mniej pochylony */
+  animation: none; /* usunięto animację aby nie migał */
+  opacity: 1;
+  z-index: 10; /* wyżej niż meteory */
 }
 
-/* Fade in from bottom animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: perspective(1500px) rotateX(5deg) translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: perspective(1500px) rotateX(5deg) translateY(0);
-  }
-}
-
-/* Treasure glow effect */
-.marketing-dashboard-container::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 1rem;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.2) 25%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.2) 75%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  animation: treasureGlow 3s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes treasureGlow {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.02);
-  }
-}
+/* Removed animations to prevent flickering */
 
 .marketing-dashboard-header {
   text-align: center;
@@ -73,12 +34,13 @@
 .marketing-dashboard-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem; /* większy gap dla szerszego dashboardu */
+  gap: 3rem; /* jeszcze większy gap */
   margin-bottom: 2rem;
   text-align: center;
-  max-width: 1200px; /* ograniczenie szerokości statystyk */
+  max-width: 1600px; /* szersze statystyki */
   margin-left: auto;
   margin-right: auto;
+  padding: 0 2rem; /* padding po bokach */
 }
 
 .marketing-stat-item {
@@ -109,18 +71,19 @@
 }
 
 .marketing-dashboard-chart {
-  height: 16rem; /* znacznie większy wykres */
+  height: 18rem; /* jeszcze większy wykres */
   width: 100%;
-  max-width: 1400px; /* ograniczenie szerokości wykresu */
-  margin: 0 auto; /* wyśrodkowanie */
+  max-width: 1800px; /* szerszy wykres */
+  margin: 0 auto;
   position: relative;
   background: linear-gradient(180deg, 
     rgba(15, 23, 42, 0.8) 0%, 
     rgba(30, 41, 59, 0.3) 100%
-  ); /* dark blue gradient */
-  border-radius: 0 0 1rem 1rem; /* rounded-b-2xl */
+  );
+  border-radius: 0 0 1rem 1rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 2rem; /* padding po bokach */
 }
 
 /* Chart canvas */
@@ -170,36 +133,36 @@
 }
 
 /* Responsive */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .marketing-dashboard-container {
-    max-width: 90vw;
+    max-width: 95vw;
     padding: 3rem;
   }
   
   .marketing-dashboard-stats {
-    max-width: 1000px;
-    gap: 1.5rem;
+    max-width: 1200px;
+    gap: 2rem;
   }
   
   .marketing-dashboard-chart {
-    max-width: 1000px;
-    height: 14rem;
+    max-width: 1200px;
+    height: 16rem;
   }
 }
 
 @media (max-width: 768px) {
   .marketing-dashboard-container {
-    margin-top: 2rem;
+    margin-top: 4rem;
     padding: 2rem;
-    transform: perspective(1200px) rotateX(3deg);
+    transform: perspective(1200px) rotateX(2deg);
     max-width: 95vw;
-    min-height: 60vh;
+    min-height: 50vh;
   }
   
   .marketing-dashboard-stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 600px;
+    gap: 1.5rem;
+    max-width: 800px;
   }
   
   .marketing-stat-value {
@@ -207,24 +170,24 @@
   }
   
   .marketing-dashboard-chart {
-    height: 12rem;
-    max-width: 600px;
+    height: 14rem;
+    max-width: 800px;
   }
 }
 
 @media (max-width: 480px) {
   .marketing-dashboard-stats {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 1rem;
   }
   
   .marketing-dashboard-container {
-    transform: perspective(1000px) rotateX(2deg);
+    transform: perspective(1000px) rotateX(1deg);
     padding: 1.5rem;
-    min-height: 50vh;
+    min-height: 40vh;
   }
   
   .marketing-dashboard-chart {
-    height: 10rem;
+    height: 12rem;
   }
 }
