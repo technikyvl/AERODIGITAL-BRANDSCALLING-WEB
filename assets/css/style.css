@@ -2634,16 +2634,103 @@ hr {
   padding-bottom: 2rem !important;
 }
 
+/* Brands slider container - centered and enlarged */
+.brands-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 2rem 0;
+}
+
+.brands-slider-container .cs_slider_in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.brands-slider-container .cs_brands_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  gap: 3rem;
+}
+
+.brands-slider-container .cs_brands_list .cs_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.brands-slider-container .cs_brands_list img {
+  max-height: 60px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.brands-slider-container .cs_brands_list img:hover {
+  opacity: 1;
+}
+
 /* Responsive brands section title */
 @media (max-width: 768px) {
   .brands-section-title {
     font-size: 1rem !important;
+  }
+  
+  .brands-slider-container {
+    min-height: 100px;
+    padding: 1.5rem 0;
+  }
+  
+  .brands-slider-container .cs_slider_in {
+    min-height: 100px;
+  }
+  
+  .brands-slider-container .cs_brands_list {
+    min-height: 100px;
+    gap: 2rem;
+  }
+  
+  .brands-slider-container .cs_brands_list .cs_center {
+    height: 60px;
+  }
+  
+  .brands-slider-container .cs_brands_list img {
+    max-height: 40px;
   }
 }
 
 @media (max-width: 480px) {
   .brands-section-title {
     font-size: 1rem !important;
+  }
+  
+  .brands-slider-container {
+    min-height: 80px;
+    padding: 1rem 0;
+  }
+  
+  .brands-slider-container .cs_slider_in {
+    min-height: 80px;
+  }
+  
+  .brands-slider-container .cs_brands_list {
+    min-height: 80px;
+    gap: 1.5rem;
+  }
+  
+  .brands-slider-container .cs_brands_list .cs_center {
+    height: 50px;
+  }
+  
+  .brands-slider-container .cs_brands_list img {
+    max-height: 30px;
   }
 }
 .cs_horizontal_slider_wrapper:hover .cs_brands_list,
