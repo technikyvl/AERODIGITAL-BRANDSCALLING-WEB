@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   z-index: 50;
-  padding: 8px;
+  padding: 12px;
   transition: all 0.3s ease;
 }
 
@@ -57,13 +57,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 12px 0;
+  padding: 20px 0;
 }
 
 @media (min-width: 1024px) {
   .new-nav-content {
     gap: 0;
-    padding: 16px 0;
+    padding: 24px 0;
     justify-content: center;
   }
 }
@@ -98,7 +98,7 @@
 }
 
 .new-logo-icon {
-  height: 20px;
+  height: 24px;
   width: auto;
   color: #000000;
 }
@@ -175,7 +175,7 @@
 
 .new-nav-link {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
   transition: color 0.15s ease;
@@ -317,11 +317,11 @@ html {
 
 /* Ensure content doesn't hide behind fixed header */
 body {
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 @media (max-width: 768px) {
   body {
-    padding-top: 70px;
+    padding-top: 90px;
   }
 }
