@@ -85,46 +85,46 @@
   text-align: center;
 }
 
-/* Delicate metallic gradient heading */
+/* Enhanced metallic gradient heading */
 .hero-meteors-title {
   font-size: clamp(3rem, 10vw, 5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.1;
   background: linear-gradient(135deg, 
-    #d9d9d9 0%, 
-    #fefefe 30%, 
-    #ffffff 50%, 
-    #a3b8ff 70%, 
-    #8b9dc3 100%
+    #6b7280 0%, 
+    #d1d5db 25%, 
+    #f3f4f6 40%, 
+    #e5e7eb 60%, 
+    #9ca3af 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: reveal 700ms ease-out forwards, metallic-shine 3s ease-in-out infinite;
   margin-bottom: 0;
-  text-shadow: 0 0 30px rgba(163, 184, 255, 0.3);
+  text-shadow: 0 0 30px rgba(107, 114, 128, 0.3);
   position: relative;
 }
 
-/* Subtle metallic shine animation */
+/* Enhanced metallic shine animation */
 @keyframes metallic-shine {
   0%, 100% {
     background: linear-gradient(135deg, 
-      #d9d9d9 0%, 
-      #fefefe 30%, 
-      #ffffff 50%, 
-      #a3b8ff 70%, 
-      #8b9dc3 100%
+      #6b7280 0%, 
+      #d1d5db 25%, 
+      #f3f4f6 40%, 
+      #e5e7eb 60%, 
+      #9ca3af 100%
     );
   }
   50% {
     background: linear-gradient(135deg, 
-      #e8e8e8 0%, 
-      #ffffff 20%, 
-      #ffffff 60%, 
-      #b8c8ff 80%, 
-      #9bb0d3 100%
+      #4b5563 0%, 
+      #9ca3af 20%, 
+      #f9fafb 40%, 
+      #d1d5db 60%, 
+      #6b7280 100%
     );
   }
 }

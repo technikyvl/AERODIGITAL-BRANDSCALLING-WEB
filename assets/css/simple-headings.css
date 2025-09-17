@@ -24,14 +24,16 @@ h1, h2, h3, h4, h5, h6,
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-weight: 700;
   background: linear-gradient(135deg, 
-    #a1a1aa 0%, 
-    #ffffff 50%, 
-    #71717a 100%
+    #6b7280 0%, 
+    #d1d5db 25%, 
+    #f3f4f6 40%, 
+    #e5e7eb 60%, 
+    #9ca3af 100%
   ) !important;
   background-clip: text !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  text-shadow: none !important;
+  text-shadow: 0 0 30px rgba(107, 114, 128, 0.3) !important;
   line-height: 1.2;
   letter-spacing: -0.01em;
   text-rendering: optimizeLegibility;
