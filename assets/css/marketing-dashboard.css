@@ -1,0 +1,202 @@
+/* Marketing Dashboard Styles */
+.marketing-dashboard-container {
+  position: relative;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 64rem; /* max-w-4xl */
+  border-radius: 0.75rem; /* rounded-xl */
+  border: 1px solid #27272a; /* border-zinc-800 */
+  background: #000000;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+  padding: 2rem;
+  transform: perspective(1200px) rotateX(20deg);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Fade in from bottom animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(20deg) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(20deg) translateY(0);
+  }
+}
+
+/* Shadow emerging effect */
+.marketing-dashboard-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.marketing-dashboard-header {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.marketing-dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.marketing-stat-item {
+  color: #ffffff;
+}
+
+.marketing-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.marketing-stat-value.highlight-green {
+  color: #22c55e;
+  text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+.marketing-stat-value.highlight-red {
+  color: #ef4444;
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.marketing-stat-label {
+  font-size: 0.875rem;
+  color: #a1a1aa; /* text-zinc-400 */
+}
+
+.marketing-dashboard-chart {
+  height: 10rem; /* h-40 */
+  width: 100%;
+  position: relative;
+  background: linear-gradient(180deg, 
+    rgba(76, 29, 149, 0.8) 0%, 
+    rgba(124, 58, 237, 0.3) 100%
+  ); /* from-violet-950/80 to-violet-600/30 */
+  border-radius: 0 0 0.75rem 0.75rem; /* rounded-b-xl */
+  overflow: hidden;
+}
+
+/* Decorative waves simulating chart */
+.marketing-chart-wave-1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    rgba(30, 27, 75, 0.6) 0%, 
+    transparent 100%
+  ); /* from-indigo-900/60 to-transparent */
+}
+
+.marketing-chart-wave-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, 
+    rgba(79, 70, 229, 0.4) 0%, 
+    transparent 100%
+  ); /* from-indigo-600/40 to-transparent */
+}
+
+/* Animated wave effect */
+.marketing-chart-wave-1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 100%
+  );
+  animation: waveMove 3s ease-in-out infinite;
+}
+
+.marketing-chart-wave-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    transparent 100%
+  );
+  animation: waveMove 4s ease-in-out infinite reverse;
+}
+
+@keyframes waveMove {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .marketing-dashboard-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    transform: perspective(1000px) rotateX(15deg);
+  }
+  
+  .marketing-dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .marketing-stat-value {
+    font-size: 1.25rem;
+  }
+  
+  .marketing-dashboard-chart {
+    height: 8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .marketing-dashboard-stats {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .marketing-dashboard-container {
+    transform: perspective(800px) rotateX(10deg);
+  }
+}
