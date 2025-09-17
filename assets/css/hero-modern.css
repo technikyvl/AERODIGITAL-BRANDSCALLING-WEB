@@ -1,0 +1,291 @@
+/* Modern Hero Section - Inspired by React Component */
+
+.cs_hero_modern {
+  position: relative;
+  min-height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs_hero_modern_bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.5;
+  contain: strict;
+}
+
+.cs_hero_modern_gradient_1 {
+  position: absolute;
+  width: 35rem;
+  height: 80rem;
+  left: 0;
+  top: 0;
+  transform: translateY(-87.5%) rotate(-45deg);
+  border-radius: 50%;
+  background: radial-gradient(68.54% 68.72% at 55.02% 31.46%, 
+    hsla(0, 0%, 85%, 0.08) 0%, 
+    hsla(0, 0%, 55%, 0.02) 50%, 
+    hsla(0, 0%, 45%, 0) 80%);
+}
+
+.cs_hero_modern_gradient_2 {
+  position: absolute;
+  width: 14rem;
+  height: 80rem;
+  left: 0;
+  top: 0;
+  transform: rotate(-45deg) translate(5%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, 
+    hsla(0, 0%, 85%, 0.06) 0%, 
+    hsla(0, 0%, 45%, 0.02) 80%, 
+    transparent 100%);
+}
+
+.cs_hero_modern_gradient_3 {
+  position: absolute;
+  width: 14rem;
+  height: 80rem;
+  left: 0;
+  top: 0;
+  transform: translateY(-87.5%) rotate(-45deg);
+  background: radial-gradient(50% 50% at 50% 50%, 
+    hsla(0, 0%, 85%, 0.04) 0%, 
+    hsla(0, 0%, 45%, 0.02) 80%, 
+    transparent 100%);
+}
+
+.cs_hero_modern_content {
+  position: relative;
+  z-index: 10;
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 7rem 1.5rem 0;
+}
+
+.cs_hero_modern_title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cs_hero_modern_subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 2rem auto;
+  max-width: 42rem;
+}
+
+.cs_hero_modern_buttons {
+  margin-top: 2rem;
+}
+
+.cs_hero_modern_image {
+  margin-top: -4rem;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 5;
+}
+
+.cs_hero_modern_image_container {
+  position: relative;
+  transform: perspective(1200px);
+  mask-image: linear-gradient(to right, black 50%, transparent 100%);
+  margin-right: -4rem;
+  padding-left: 4rem;
+}
+
+.cs_hero_modern_img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  transform: rotateX(20deg);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.cs_hero_modern_partners {
+  position: relative;
+  z-index: 10;
+  background: #f9fafb;
+  padding: 4rem 0;
+  margin-top: 2rem;
+}
+
+.cs_hero_modern_partners_title {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 5rem;
+}
+
+.cs_hero_modern_partners_logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.cs_hero_modern_partner_logo {
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.cs_hero_modern_partner_logo:hover {
+  opacity: 1;
+}
+
+.cs_hero_modern_partner_logo img {
+  height: 100%;
+  width: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.cs_hero_modern_partner_logo:hover img {
+  filter: grayscale(0%);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .cs_hero_modern_title {
+    font-size: 3rem;
+  }
+  
+  .cs_hero_modern_content {
+    padding: 8rem 1.5rem 0;
+  }
+  
+  .cs_hero_modern_image_container {
+    margin-right: -14rem;
+    padding-left: 14rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cs_hero_modern_title {
+    font-size: 3.75rem;
+  }
+  
+  .cs_hero_modern_content {
+    padding: 6rem 1.5rem 0;
+  }
+  
+  .cs_hero_modern_bg {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .cs_hero_modern {
+    min-height: 80vh;
+  }
+  
+  .cs_hero_modern_content {
+    padding: 4rem 1rem 0;
+  }
+  
+  .cs_hero_modern_title {
+    font-size: 2rem;
+  }
+  
+  .cs_hero_modern_subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .cs_hero_modern_image_container {
+    margin-right: -1rem;
+    padding-left: 1rem;
+  }
+  
+  .cs_hero_modern_partners_logos {
+    gap: 2rem;
+  }
+  
+  .cs_hero_modern_partner_logo {
+    height: 1rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .cs_hero_modern {
+    background: transparent;
+  }
+  
+  .cs_hero_modern_partners {
+    background: #111827;
+  }
+  
+  .cs_hero_modern_partners_title {
+    color: #d1d5db;
+  }
+  
+  .cs_hero_modern_subtitle {
+    color: #9ca3af;
+  }
+  
+  .cs_hero_modern_img {
+    border-color: #374151;
+  }
+}
+
+/* Animation for image */
+.cs_hero_modern_img {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: rotateX(20deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(20deg) translateY(-10px);
+  }
+}
+
+/* Smooth reveal animation for partners */
+.cs_hero_modern_partner_logo {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.cs_hero_modern_partner_logo:nth-child(1) { animation-delay: 0.1s; }
+.cs_hero_modern_partner_logo:nth-child(2) { animation-delay: 0.2s; }
+.cs_hero_modern_partner_logo:nth-child(3) { animation-delay: 0.3s; }
+.cs_hero_modern_partner_logo:nth-child(4) { animation-delay: 0.4s; }
+.cs_hero_modern_partner_logo:nth-child(5) { animation-delay: 0.5s; }
+.cs_hero_modern_partner_logo:nth-child(6) { animation-delay: 0.6s; }
+.cs_hero_modern_partner_logo:nth-child(7) { animation-delay: 0.7s; }
+.cs_hero_modern_partner_logo:nth-child(8) { animation-delay: 0.8s; }
+.cs_hero_modern_partner_logo:nth-child(9) { animation-delay: 0.9s; }
+.cs_hero_modern_partner_logo:nth-child(10) { animation-delay: 1.0s; }
+.cs_hero_modern_partner_logo:nth-child(11) { animation-delay: 1.1s; }
+.cs_hero_modern_partner_logo:nth-child(12) { animation-delay: 1.2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+}
