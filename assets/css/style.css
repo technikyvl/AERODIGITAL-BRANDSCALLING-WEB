@@ -2622,25 +2622,12 @@ hr {
   background-color: #000000 !important;
 }
 
-/* Enlarged ROI section */
-.roi-section-enlarged {
-  padding: 6rem 0; /* Dodatkowy padding na górze i dole */
-  min-height: 80vh; /* Zwiększona wysokość sekcji */
+/* Fixed ROI section - larger but without interfering with card styles */
+.roi-section-fixed {
+  padding: 6rem 0;
+  min-height: 80vh;
 }
 
-.roi-section-enlarged .cs_card {
-  padding: 4rem; /* Większy padding wewnątrz karty */
-}
-
-.roi-section-enlarged .cs_card_thumbnail {
-  min-height: 500px; /* Większa wysokość zdjęć */
-}
-
-.roi-section-enlarged .cs_card_thumbnail img {
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-}
 
 
 /* Brands section wrapper - vertical centering */
@@ -2790,36 +2777,21 @@ hr {
   }
 }
 
-/* Responsive ROI section */
+/* Responsive for ROI section */
 @media (max-width: 768px) {
-  .roi-section-enlarged {
+  .roi-section-fixed {
     padding: 4rem 0;
     min-height: 70vh;
-  }
-  
-  .roi-section-enlarged .cs_card {
-    padding: 2rem;
-  }
-  
-  .roi-section-enlarged .cs_card_thumbnail {
-    min-height: 400px;
   }
 }
 
 @media (max-width: 480px) {
-  .roi-section-enlarged {
+  .roi-section-fixed {
     padding: 3rem 0;
     min-height: 60vh;
   }
-  
-  .roi-section-enlarged .cs_card {
-    padding: 1.5rem;
-  }
-  
-  .roi-section-enlarged .cs_card_thumbnail {
-    min-height: 300px;
-  }
 }
+
 .cs_horizontal_slider_wrapper:hover .cs_brands_list,
 .cs_horizontal_slider_wrapper:hover .cs_tools_wrapper {
   animation-play-state: paused;
