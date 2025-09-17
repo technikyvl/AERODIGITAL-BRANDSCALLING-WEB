@@ -154,92 +154,11 @@ class MarketingDashboard {
     const chartWidth = rect.width - padding * 2;
     const chartHeight = rect.height - padding * 2;
     
-    // Draw grid
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-    ctx.lineWidth = 1;
+          // Grid removed - no lines
     
-    // Horizontal grid lines
-    for (let i = 0; i <= 4; i++) {
-      const y = padding + (chartHeight / 4) * i;
-      ctx.beginPath();
-      ctx.moveTo(padding, y);
-      ctx.lineTo(padding + chartWidth, y);
-      ctx.stroke();
-    }
+          // Lines removed - no chart lines
     
-    // Vertical grid lines
-    for (let i = 0; i <= 5; i++) {
-      const x = padding + (chartWidth / 5) * i;
-      ctx.beginPath();
-      ctx.moveTo(x, padding);
-      ctx.lineTo(x, padding + chartHeight);
-      ctx.stroke();
-    }
-    
-    // Draw SEO line
-    ctx.strokeStyle = '#818cf8';
-    ctx.lineWidth = 4; // grubsza linia dla większego wykresu
-    ctx.beginPath();
-    
-    for (let i = 0; i < seoData.length; i++) {
-      const x = padding + (chartWidth / 5) * i;
-      const normalizedValue = (seoData[i] - minValue) / range;
-      const y = padding + chartHeight - (normalizedValue * chartHeight);
-      
-      if (i === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
-      }
-    }
-    ctx.stroke();
-    
-    // Draw Ads line
-    ctx.strokeStyle = '#6366f1';
-    ctx.lineWidth = 4; // grubsza linia dla większego wykresu
-    ctx.beginPath();
-    
-    for (let i = 0; i < adsData.length; i++) {
-      const x = padding + (chartWidth / 5) * i;
-      const normalizedValue = (adsData[i] - minValue) / range;
-      const y = padding + chartHeight - (normalizedValue * chartHeight);
-      
-      if (i === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
-      }
-    }
-    ctx.stroke();
-    
-    // Draw data points
-    ctx.fillStyle = '#ffffff';
-    ctx.strokeStyle = '#1e293b';
-    ctx.lineWidth = 3; // grubsza obwódka dla większego wykresu
-    
-    // SEO points
-    for (let i = 0; i < seoData.length; i++) {
-      const x = padding + (chartWidth / 5) * i;
-      const normalizedValue = (seoData[i] - minValue) / range;
-      const y = padding + chartHeight - (normalizedValue * chartHeight);
-      
-      ctx.beginPath();
-      ctx.arc(x, y, 6, 0, 2 * Math.PI); // większe punkty
-      ctx.fill();
-      ctx.stroke();
-    }
-    
-    // Ads points
-    for (let i = 0; i < adsData.length; i++) {
-      const x = padding + (chartWidth / 5) * i;
-      const normalizedValue = (adsData[i] - minValue) / range;
-      const y = padding + chartHeight - (normalizedValue * chartHeight);
-      
-      ctx.beginPath();
-      ctx.arc(x, y, 6, 0, 2 * Math.PI); // większe punkty
-      ctx.fill();
-      ctx.stroke();
-    }
+          // Data points removed - no lines or borders
     
     // Draw month labels
     ctx.fillStyle = '#9ca3af';
