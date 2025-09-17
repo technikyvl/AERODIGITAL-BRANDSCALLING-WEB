@@ -4,13 +4,17 @@
   margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
-  max-width: 64rem; /* max-w-4xl */
-  border-radius: 0.75rem; /* rounded-xl */
+  max-width: 80rem; /* max-w-5xl - powiększony */
+  border-radius: 1rem; /* rounded-2xl - większe zaokrąglenia */
   border: 1px solid #27272a; /* border-zinc-800 */
   background: #000000;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
-  padding: 2rem;
-  transform: perspective(1200px) rotateX(20deg);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25), /* shadow-2xl */
+    0 0 0 1px rgba(255, 255, 255, 0.1), /* subtle white border */
+    0 0 40px rgba(255, 255, 255, 0.1), /* white glow */
+    0 0 80px rgba(255, 255, 255, 0.05); /* outer white glow */
+  padding: 3rem; /* większy padding */
+  transform: perspective(1500px) rotateX(8deg); /* mniej pochylony */
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -18,34 +22,42 @@
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: perspective(1200px) rotateX(20deg) translateY(30px);
+    transform: perspective(1500px) rotateX(8deg) translateY(30px);
   }
   100% {
     opacity: 1;
-    transform: perspective(1200px) rotateX(20deg) translateY(0);
+    transform: perspective(1500px) rotateX(8deg) translateY(0);
   }
 }
 
-/* Shadow emerging effect */
+/* Treasure glow effect */
 .marketing-dashboard-container::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: 0.75rem;
+  inset: -2px;
+  border-radius: 1rem;
   background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.1) 50%,
-    rgba(0, 0, 0, 0.3) 100%
+    45deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    rgba(255, 255, 255, 0.1) 100%
   );
-  mask-image: linear-gradient(
-    180deg,
-    transparent 0%,
-    black 20%,
-    black 80%,
-    transparent 100%
-  );
+  animation: treasureGlow 3s ease-in-out infinite;
   pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes treasureGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
 }
 
 .marketing-dashboard-header {
@@ -92,88 +104,71 @@
 }
 
 .marketing-dashboard-chart {
-  height: 10rem; /* h-40 */
+  height: 12rem; /* większy wykres */
   width: 100%;
   position: relative;
   background: linear-gradient(180deg, 
-    rgba(76, 29, 149, 0.8) 0%, 
-    rgba(124, 58, 237, 0.3) 100%
-  ); /* from-violet-950/80 to-violet-600/30 */
-  border-radius: 0 0 0.75rem 0.75rem; /* rounded-b-xl */
+    rgba(15, 23, 42, 0.8) 0%, 
+    rgba(30, 41, 59, 0.3) 100%
+  ); /* dark blue gradient */
+  border-radius: 0 0 1rem 1rem; /* rounded-b-2xl */
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Decorative waves simulating chart */
-.marketing-chart-wave-1 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+/* Chart canvas */
+.marketing-chart-canvas {
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, 
-    rgba(30, 27, 75, 0.6) 0%, 
-    transparent 100%
-  ); /* from-indigo-900/60 to-transparent */
 }
 
-.marketing-chart-wave-2 {
+/* Chart grid lines */
+.marketing-chart-grid {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(180deg, 
-    rgba(79, 70, 229, 0.4) 0%, 
-    transparent 100%
-  ); /* from-indigo-600/40 to-transparent */
+  inset: 0;
+  pointer-events: none;
 }
 
-/* Animated wave effect */
-.marketing-chart-wave-1::before {
-  content: '';
+.marketing-chart-grid-line {
   position: absolute;
-  top: 0;
-  left: -100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.marketing-chart-grid-line.horizontal {
   width: 100%;
+  height: 1px;
+}
+
+.marketing-chart-grid-line.vertical {
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.1) 50%, 
-    transparent 100%
-  );
-  animation: waveMove 3s ease-in-out infinite;
+  width: 1px;
 }
 
-.marketing-chart-wave-2::before {
-  content: '';
+/* Chart data points */
+.marketing-chart-point {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.05) 50%, 
-    transparent 100%
-  );
-  animation: waveMove 4s ease-in-out infinite reverse;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #1e293b;
+  transform: translate(-50%, -50%);
 }
 
-@keyframes waveMove {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
+.marketing-chart-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  transform-origin: left center;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .marketing-dashboard-container {
     margin-top: 2rem;
-    padding: 1.5rem;
-    transform: perspective(1000px) rotateX(15deg);
+    padding: 2rem;
+    transform: perspective(1200px) rotateX(5deg);
+    max-width: 90%;
   }
   
   .marketing-dashboard-stats {
@@ -186,7 +181,7 @@
   }
   
   .marketing-dashboard-chart {
-    height: 8rem;
+    height: 10rem;
   }
 }
 
@@ -197,6 +192,11 @@
   }
   
   .marketing-dashboard-container {
-    transform: perspective(800px) rotateX(10deg);
+    transform: perspective(1000px) rotateX(3deg);
+    padding: 1.5rem;
+  }
+  
+  .marketing-dashboard-chart {
+    height: 8rem;
   }
 }

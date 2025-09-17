@@ -103,11 +103,135 @@ class MarketingDashboard {
         </div>
         
         <div class="marketing-dashboard-chart">
-          <div class="marketing-chart-wave-1"></div>
-          <div class="marketing-chart-wave-2"></div>
+          <canvas class="marketing-chart-canvas" id="marketing-chart-canvas"></canvas>
         </div>
       </div>
     `;
+    
+    // Render chart after DOM is updated
+    setTimeout(() => this.createChart(), 100);
+  }
+  
+  createChart() {
+    const canvas = document.getElementById('marketing-chart-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * window.devicePixelRatio;
+    canvas.height = rect.height * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    
+    // Chart data - 6 months
+    const months = ['STY', 'LUT', 'MAR', 'KWI', 'MAJ', 'CZE'];
+    const seoData = [78000, 82000, 69000, 61000, 75000, 84000];
+    const adsData = [65000, 68500, 54000, 47000, 62000, 71000];
+    
+    // Normalize data to fit chart
+    const maxValue = Math.max(...seoData, ...adsData);
+    const minValue = Math.min(...seoData, ...adsData);
+    const range = maxValue - minValue;
+    const padding = 40;
+    const chartWidth = rect.width - padding * 2;
+    const chartHeight = rect.height - padding * 2;
+    
+    // Draw grid
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+    ctx.lineWidth = 1;
+    
+    // Horizontal grid lines
+    for (let i = 0; i <= 4; i++) {
+      const y = padding + (chartHeight / 4) * i;
+      ctx.beginPath();
+      ctx.moveTo(padding, y);
+      ctx.lineTo(padding + chartWidth, y);
+      ctx.stroke();
+    }
+    
+    // Vertical grid lines
+    for (let i = 0; i <= 5; i++) {
+      const x = padding + (chartWidth / 5) * i;
+      ctx.beginPath();
+      ctx.moveTo(x, padding);
+      ctx.lineTo(x, padding + chartHeight);
+      ctx.stroke();
+    }
+    
+    // Draw SEO line
+    ctx.strokeStyle = '#818cf8';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    
+    for (let i = 0; i < seoData.length; i++) {
+      const x = padding + (chartWidth / 5) * i;
+      const normalizedValue = (seoData[i] - minValue) / range;
+      const y = padding + chartHeight - (normalizedValue * chartHeight);
+      
+      if (i === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.stroke();
+    
+    // Draw Ads line
+    ctx.strokeStyle = '#6366f1';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    
+    for (let i = 0; i < adsData.length; i++) {
+      const x = padding + (chartWidth / 5) * i;
+      const normalizedValue = (adsData[i] - minValue) / range;
+      const y = padding + chartHeight - (normalizedValue * chartHeight);
+      
+      if (i === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.stroke();
+    
+    // Draw data points
+    ctx.fillStyle = '#ffffff';
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 2;
+    
+    // SEO points
+    for (let i = 0; i < seoData.length; i++) {
+      const x = padding + (chartWidth / 5) * i;
+      const normalizedValue = (seoData[i] - minValue) / range;
+      const y = padding + chartHeight - (normalizedValue * chartHeight);
+      
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.stroke();
+    }
+    
+    // Ads points
+    for (let i = 0; i < adsData.length; i++) {
+      const x = padding + (chartWidth / 5) * i;
+      const normalizedValue = (adsData[i] - minValue) / range;
+      const y = padding + chartHeight - (normalizedValue * chartHeight);
+      
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.stroke();
+    }
+    
+    // Draw month labels
+    ctx.fillStyle = '#9ca3af';
+    ctx.font = '12px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    
+    for (let i = 0; i < months.length; i++) {
+      const x = padding + (chartWidth / 5) * i;
+      const y = padding + chartHeight + 20;
+      ctx.fillText(months[i], x, y);
+    }
   }
   
   startUpdates() {
