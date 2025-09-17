@@ -2623,6 +2623,23 @@ hr {
 }
 
 
+/* Brands section wrapper - vertical centering */
+.brands-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh; /* Zwiększona wysokość sekcji */
+  padding: 4rem 0; /* Dodatkowy padding na górze i dole */
+}
+
+.brands-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh; /* Wysokość dla wyśrodkowania zawartości */
+}
+
 /* Brands section title styling */
 .brands-section-title {
   color: #ffffff !important;
@@ -2678,8 +2695,17 @@ hr {
   opacity: 1;
 }
 
-/* Responsive brands section title */
+/* Responsive brands section */
 @media (max-width: 768px) {
+  .brands-section-wrapper {
+    min-height: 50vh;
+    padding: 3rem 0;
+  }
+  
+  .brands-content-wrapper {
+    min-height: 35vh;
+  }
+  
   .brands-section-title {
     font-size: 1rem !important;
   }
@@ -2708,6 +2734,15 @@ hr {
 }
 
 @media (max-width: 480px) {
+  .brands-section-wrapper {
+    min-height: 45vh;
+    padding: 2rem 0;
+  }
+  
+  .brands-content-wrapper {
+    min-height: 30vh;
+  }
+  
   .brands-section-title {
     font-size: 1rem !important;
   }
