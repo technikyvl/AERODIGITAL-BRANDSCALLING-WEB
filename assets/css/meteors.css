@@ -34,13 +34,16 @@
   background: linear-gradient(to right, #000000, transparent);
 }
 
-/* Meteor animation */
+/* Meteor animation - seamless loop */
 @keyframes meteor-fly {
   0% {
     transform: rotate(215deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
     opacity: 1;
   }
-  70% {
+  90% {
     opacity: 1;
   }
   100% {
@@ -82,22 +85,48 @@
   text-align: center;
 }
 
-/* Metallic gradient heading */
+/* Delicate metallic gradient heading */
 .hero-meteors-title {
   font-size: clamp(3rem, 10vw, 5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.1;
   background: linear-gradient(135deg, 
-    #1f2937 0%, 
-    #000000 50%, 
-    #374151 100%
+    #d9d9d9 0%, 
+    #fefefe 30%, 
+    #ffffff 50%, 
+    #a3b8ff 70%, 
+    #8b9dc3 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: reveal 700ms ease-out forwards;
+  animation: reveal 700ms ease-out forwards, metallic-shine 3s ease-in-out infinite;
   margin-bottom: 0;
+  text-shadow: 0 0 30px rgba(163, 184, 255, 0.3);
+  position: relative;
+}
+
+/* Subtle metallic shine animation */
+@keyframes metallic-shine {
+  0%, 100% {
+    background: linear-gradient(135deg, 
+      #d9d9d9 0%, 
+      #fefefe 30%, 
+      #ffffff 50%, 
+      #a3b8ff 70%, 
+      #8b9dc3 100%
+    );
+  }
+  50% {
+    background: linear-gradient(135deg, 
+      #e8e8e8 0%, 
+      #ffffff 20%, 
+      #ffffff 60%, 
+      #b8c8ff 80%, 
+      #9bb0d3 100%
+    );
+  }
 }
 
 /* Hero subtitle */

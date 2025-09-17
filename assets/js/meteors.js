@@ -57,10 +57,13 @@ class MeteorsEffect {
   }
 
   startAnimation() {
-    // Restart animation periodically to keep meteors flowing
+    // Create meteors continuously for seamless flow
     setInterval(() => {
       this.createMeteors();
-    }, 8000); // Restart every 8 seconds
+    }, 2000); // Create new meteors every 2 seconds
+    
+    // Also create initial batch
+    this.createMeteors();
   }
 
   destroy() {
