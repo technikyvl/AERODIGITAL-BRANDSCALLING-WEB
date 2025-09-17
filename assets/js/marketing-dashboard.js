@@ -54,35 +54,37 @@ class MarketingDashboard {
   }
   
   highlightChanges() {
-    const statElements = this.container.querySelectorAll('.marketing-stat-value');
+    const statItems = this.container.querySelectorAll('.marketing-stat-item');
     const statKeys = ['seo', 'ads', 'revenue', 'roi'];
     
     statKeys.forEach((key, index) => {
-      const element = statElements[index];
-      if (!element) return;
+      const itemElement = statItems[index];
+      if (!itemElement) return;
       
       const currentValue = this.stats[key];
       const previousValue = this.previousStats[key];
       
       // Remove any existing animation classes and reset color
-      element.classList.remove('highlight-green', 'highlight-red');
-      element.style.color = '#ffffff';
+      itemElement.classList.remove('highlight-green', 'highlight-red');
+      itemElement.style.color = '#ffffff';
       
       if (currentValue > previousValue) {
-        // Add green color and animation
-        element.style.color = '#22c55e';
-        element.style.animation = 'numberIncrease 1s ease-in-out';
+        // Add green color and animation to entire stat item
+        itemElement.classList.add('highlight-green');
+        itemElement.style.animation = 'numberIncrease 1s ease-in-out';
         setTimeout(() => {
-          element.style.animation = '';
-          element.style.color = '#ffffff';
+          itemElement.style.animation = '';
+          itemElement.classList.remove('highlight-green');
+          itemElement.style.color = '#ffffff';
         }, 1000);
       } else if (currentValue < previousValue) {
-        // Add red color and animation
-        element.style.color = '#ef4444';
-        element.style.animation = 'numberDecrease 1s ease-in-out';
+        // Add red color and animation to entire stat item
+        itemElement.classList.add('highlight-red');
+        itemElement.style.animation = 'numberDecrease 1s ease-in-out';
         setTimeout(() => {
-          element.style.animation = '';
-          element.style.color = '#ffffff';
+          itemElement.style.animation = '';
+          itemElement.classList.remove('highlight-red');
+          itemElement.style.color = '#ffffff';
         }, 1000);
       }
     });
