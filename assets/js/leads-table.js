@@ -145,35 +145,8 @@ class LeadsTable {
   }
   
   startUpdates() {
-    setInterval(() => {
-      this.leads = this.leads.map(lead => {
-        if (Math.random() > 0.6) return lead;
-        
-        const nextSize = this.bump(lead.size);
-        const last = lead.interest[lead.interest.length - 1];
-        const nextInterest = [
-          ...lead.interest.slice(1), 
-          Math.min(100, last + (Math.random() > 0.3 ? 1 + Math.round(Math.random() * 3) : -1))
-        ];
-        
-        const nextProb = Math.random() < 0.6 ? lead.probability : 
-          lead.probability === "low" ? "mid" : 
-          lead.probability === "mid" && Math.random() < 0.5 ? "high" : lead.probability;
-        
-        const nextStatus = nextProb === "high" && Math.random() < 0.25 ? "closing" :
-          lead.status === "closing" && Math.random() < 0.25 ? "closed" : lead.status;
-        
-        return { 
-          ...lead, 
-          size: nextSize, 
-          interest: nextInterest, 
-          probability: nextProb, 
-          status: nextStatus 
-        };
-      });
-      
-      this.render();
-    }, 3000 + Math.random() * 3000);
+    // Statyczna tabela - bez automatycznych aktualizacji
+    // Metoda pozostaje dla kompatybilności, ale nie wykonuje żadnych aktualizacji
   }
 }
 
