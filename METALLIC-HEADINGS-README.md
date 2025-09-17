@@ -1,15 +1,16 @@
-# Metaliczne Nagłówki z Animacją Wyjścia z Cienia
+# Metaliczne Nagłówki w Stylu Bytetown
 
 ## Opis
-Implementacja metalicznego, prestiżowego stylu fontu dla wszystkich nagłówków na stronie z płynną animacją "reveal from shadow" (wyjście z cienia). Efekt jest lekki, nowoczesny i zoptymalizowany pod kątem wydajności.
+Implementacja eleganckiego, metalicznego stylu fontu inspirowanego projektem Bytetown. Chłodny gradient srebrno-błękitny (#d9d9d9 → #fefefe → #a3b8ff) z subtelnym połyskiem i płynną animacją "reveal from shadow" (wyjście z cienia). Efekt jest delikatny, nowoczesny i zoptymalizowany pod kątem wydajności.
 
 ## Funkcjonalności
 
-### 🎨 Metaliczny Styl Fontu
-- **Gradient metaliczny**: Wielowarstwowy gradient imitujący metal
-- **Efekt świecenia**: Subtelne cienie i blask dla prestiżowego wyglądu
+### 🎨 Metaliczny Styl Fontu - Bytetown
+- **Chłodny gradient**: Srebrno-błękitny gradient (#d9d9d9 → #fefefe → #a3b8ff)
+- **Subtelny połysk**: Delikatne świecenie w odcieniach błękitu
+- **Czytelność**: Inter, Poppins, Montserrat - bardzo czytelne, bold, bezszeryfowe
 - **Responsywność**: Automatyczne dostosowanie do różnych rozmiarów ekranu
-- **Czcionka**: Orbitron + Urbanist dla nowoczesnego, technologicznego wyglądu
+- **Elegancja**: Delikatny, nie agresywny efekt metaliczny
 
 ### ✨ Animacja Wyjścia z Cienia
 - **Reveal from shadow**: Nagłówki pojawiają się z cienia z efektem rozmycia
@@ -28,11 +29,11 @@ Implementacja metalicznego, prestiżowego stylu fontu dla wszystkich nagłówkó
 ### CSS (`assets/css/metallic-headings.css`)
 ```css
 .metallic-heading {
-  /* Metaliczny gradient i efekty */
-  background: linear-gradient(135deg, #ffffff 0%, #495057 100%);
+  /* Chłodny gradient srebrno-błękitny - Bytetown style */
+  background: linear-gradient(135deg, #d9d9d9 0%, #fefefe 60%, #a3b8ff 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 16px rgba(163, 184, 255, 0.15);
 }
 
 .metallic-heading.reveal-from-shadow {

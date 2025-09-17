@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warianty Gradientu - Bytetown Style</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/metallic-headings.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 30%, #16213e 70%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .gradient-section {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        
+        .gradient-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .gradient-description {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .gradient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .gradient-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .gradient-preview {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .gradient-code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #a3b8ff;
+            margin-top: 1rem;
+            text-align: left;
+            overflow-x: auto;
+        }
+        
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-showcase">
+        <!-- Main Bytetown Style -->
+        <div class="gradient-section">
+            <h1 class="metallic-heading large reveal-from-shadow">Warianty Gradientu Bytetown</h1>
+            <p class="gradient-description">Różne warianty chłodnego gradientu srebrno-błękitnego inspirowanego stylem Bytetown</p>
+        </div>
+
+        <!-- Original Bytetown -->
+        <div class="gradient-section">
+            <h2 class="metallic-heading large reveal-from-shadow">Oryginalny Styl Bytetown</h2>
+            <p class="gradient-description">Klasyczny gradient srebrno-błękitny z subtelnym połyskiem</p>
+            
+            <div class="gradient-grid">
+                <div class="gradient-card">
+                    <div class="gradient-preview metallic-heading reveal-from-shadow">
+                        Główny Nagłówek
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #d9d9d9;"></div>
+                        <div class="color-swatch" style="background: #fefefe;"></div>
+                        <div class="color-swatch" style="background: #a3b8ff;"></div>
+                    </div>
+                    <div class="gradient-code">
+background: linear-gradient(135deg, 
+  #d9d9d9 0%, 
+  #fefefe 60%, 
+  #a3b8ff 100%
+);
+                    </div>
+                </div>
+                
+                <div class="gradient-card">
+                    <div class="gradient-preview metallic-heading large reveal-from-shadow">
+                        Duży Nagłówek
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #d9d9d9;"></div>
+                        <div class="color-swatch" style="background: #f8faff;"></div>
+                        <div class="color-swatch" style="background: #8ba3ff;"></div>
+                    </div>
+                    <div class="gradient-code">
+background: linear-gradient(135deg, 
+  #d9d9d9 0%, 
+  #f8faff 60%, 
+  #8ba3ff 100%
+);
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alternative Variants -->
+        <div class="gradient-section">
+            <h2 class="metallic-heading large reveal-from-shadow">Warianty Alternatywne</h2>
+            <p class="gradient-description">Różne odcienie chłodnego gradientu dla różnych zastosowań</p>
+            
+            <div class="gradient-grid">
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="
+                        background: linear-gradient(135deg, #e0e0e0 0%, #f8f9fa 50%, #b3c6ff 100%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        text-shadow: 0 0 12px rgba(179, 198, 255, 0.2);
+                    ">
+                        Delikatny Wariant
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #e0e0e0;"></div>
+                        <div class="color-swatch" style="background: #f8f9fa;"></div>
+                        <div class="color-swatch" style="background: #b3c6ff;"></div>
+                    </div>
+                    <div class="gradient-code">
+background: linear-gradient(135deg, 
+  #e0e0e0 0%, 
+  #f8f9fa 50%, 
+  #b3c6ff 100%
+);
+                    </div>
+                </div>
+                
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="
+                        background: linear-gradient(135deg, #c0c0c0 0%, #ffffff 40%, #9bb5ff 80%, #7a9cff 100%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        text-shadow: 0 0 16px rgba(122, 156, 255, 0.25);
+                    ">
+                        Intensywny Wariant
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #c0c0c0;"></div>
+                        <div class="color-swatch" style="background: #ffffff;"></div>
+                        <div class="color-swatch" style="background: #7a9cff;"></div>
+                    </div>
+                    <div class="gradient-code">
+background: linear-gradient(135deg, 
+  #c0c0c0 0%, 
+  #ffffff 40%, 
+  #7a9cff 100%
+);
+                    </div>
+                </div>
+                
+                <div class="gradient-card">
+                    <div class="gradient-preview" style="
+                        background: linear-gradient(135deg, #d1d9e8 0%, #f0f4ff 30%, #e8f0ff 70%, #a8c4ff 100%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        text-shadow: 0 0 20px rgba(168, 196, 255, 0.3);
+                    ">
+                        Pastelowy Wariant
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #d1d9e8;"></div>
+                        <div class="color-swatch" style="background: #f0f4ff;"></div>
+                        <div class="color-swatch" style="background: #a8c4ff;"></div>
+                    </div>
+                    <div class="gradient-code">
+background: linear-gradient(135deg, 
+  #d1d9e8 0%, 
+  #f0f4ff 30%, 
+  #a8c4ff 100%
+);
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Usage Examples -->
+        <div class="gradient-section">
+            <h2 class="metallic-heading large reveal-from-shadow">Przykłady Zastosowania</h2>
+            <p class="gradient-description">Jak różne warianty wyglądają w praktyce</p>
+            
+            <div class="gradient-grid">
+                <div class="gradient-card">
+                    <h3 class="metallic-heading reveal-from-shadow">Nagłówek H3</h3>
+                    <p style="color: #a0a0a0; margin: 1rem 0;">Standardowy nagłówek z efektem metalicznym</p>
+                </div>
+                
+                <div class="gradient-card">
+                    <h4 class="metallic-heading reveal-from-shadow">Nagłówek H4</h4>
+                    <p style="color: #a0a0a0; margin: 1rem 0;">Mniejszy nagłówek z zachowanym stylem</p>
+                </div>
+                
+                <div class="gradient-card">
+                    <h5 class="metallic-heading reveal-from-shadow">Nagłówek H5</h5>
+                    <p style="color: #a0a0a0; margin: 1rem 0;">Jeszcze mniejszy nagłówek</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="gradient-section">
+            <h2 class="metallic-heading large reveal-from-shadow">Gotowy do Wdrożenia?</h2>
+            <p class="gradient-description">Wszystkie nagłówki na stronie automatycznie otrzymają metaliczny efekt w stylu Bytetown.</p>
+            <div style="margin-top: 2rem;">
+                <a href="index.html" class="btn btn-primary btn-lg me-3">Strona Główna</a>
+                <a href="metallic-demo.html" class="btn btn-outline-primary btn-lg">Demo Pełne</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/metallic-headings.js"></script>
+</body>
+</html>
