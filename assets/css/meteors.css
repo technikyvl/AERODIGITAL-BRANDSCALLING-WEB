@@ -14,8 +14,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 2px;
-  width: 2px;
+  height: 3px;
+  width: 3px;
   border-radius: 9999px;
   background: #000000;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
@@ -29,25 +29,23 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 1px;
+  width: 80px;
+  height: 2px;
   background: linear-gradient(to right, #000000, transparent);
 }
 
-/* Meteor animation - seamless loop */
+/* Meteor animation - seamless loop from middle */
 @keyframes meteor-fly {
   0% {
-    transform: rotate(215deg) translateX(0);
-    opacity: 0;
-  }
-  10% {
+    transform: rotate(215deg) translateX(-400px);
     opacity: 1;
   }
-  90% {
+  50% {
+    transform: rotate(215deg) translateX(-800px);
     opacity: 1;
   }
   100% {
-    transform: rotate(215deg) translateX(-800px);
+    transform: rotate(215deg) translateX(-1200px);
     opacity: 0;
   }
 }

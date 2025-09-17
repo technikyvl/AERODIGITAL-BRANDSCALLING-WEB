@@ -43,9 +43,9 @@ class MeteorsEffect {
     const randomX = Math.floor(Math.random() * 1200) - 600; // -600 to 600
     const randomY = Math.floor(Math.random() * 400) - 200; // -200 to 200
     
-    // Random animation properties
-    const delay = Math.random() * 0.6 + 0.2; // 0.2 to 0.8
-    const duration = Math.floor(Math.random() * 8 + 2); // 2 to 10
+    // Random animation properties - shorter duration for seamless loop
+    const delay = Math.random() * 0.3 + 0.1; // 0.1 to 0.4
+    const duration = Math.floor(Math.random() * 3 + 2); // 2 to 5
     
     // Apply styles
     meteor.style.left = randomX + 'px';
