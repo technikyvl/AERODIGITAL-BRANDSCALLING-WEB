@@ -92,9 +92,10 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  min-height: 100vh; /* pełna wysokość viewport */
+  min-height: 100vh;
+  padding-top: 8rem; /* podniesiony nagłówek */
 }
 
 /* Delicate metallic gradient heading */

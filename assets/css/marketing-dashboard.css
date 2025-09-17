@@ -4,16 +4,16 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) perspective(1500px) rotateX(3deg);
-  max-width: 98vw;
-  width: 100%;
-  min-height: 50vh;
+  max-width: 95vw;
+  width: 95vw;
+  min-height: 55vh;
   border-radius: 1rem;
   border: none;
   background: #000000;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.4),
     0 0 60px rgba(255, 255, 255, 0.08);
-  padding: 4rem;
+  padding: 3rem;
   animation: none;
   opacity: 1;
   z-index: 10;
@@ -54,13 +54,11 @@
 .marketing-dashboard-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem; /* jeszcze większy gap */
+  gap: 2rem;
   margin-bottom: 2rem;
   text-align: center;
-  max-width: 1600px; /* szersze statystyki */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 2rem; /* padding po bokach */
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .marketing-stat-item {
@@ -131,9 +129,8 @@
 }
 
 .marketing-dashboard-chart {
-  height: 18rem; /* jeszcze większy wykres */
+  height: 16rem;
   width: 100%;
-  max-width: 1800px; /* szerszy wykres */
   margin: 0 auto;
   position: relative;
   background: linear-gradient(180deg, 
@@ -143,7 +140,7 @@
   border-radius: 0 0 1rem 1rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0 2rem; /* padding po bokach */
+  padding: 0 1rem;
 }
 
 /* Chart canvas */
@@ -195,19 +192,10 @@
 /* Responsive */
 @media (max-width: 1400px) {
   .marketing-dashboard-container {
-    max-width: 95vw;
-    padding: 3rem;
+    max-width: 90vw;
+    width: 90vw;
+    padding: 2.5rem;
     transform: translateX(-50%) perspective(1500px) rotateX(2deg);
-  }
-  
-  .marketing-dashboard-stats {
-    max-width: 1200px;
-    gap: 2rem;
-  }
-  
-  .marketing-dashboard-chart {
-    max-width: 1200px;
-    height: 16rem;
   }
 }
 
@@ -216,13 +204,13 @@
     padding: 2rem;
     transform: translateX(-50%) perspective(1200px) rotateX(1deg);
     max-width: 95vw;
-    min-height: 40vh;
+    width: 95vw;
+    min-height: 45vh;
   }
   
   .marketing-dashboard-stats {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    max-width: 800px;
   }
   
   .marketing-stat-value {
@@ -231,7 +219,6 @@
   
   .marketing-dashboard-chart {
     height: 14rem;
-    max-width: 800px;
   }
 }
 
@@ -244,7 +231,9 @@
   .marketing-dashboard-container {
     transform: translateX(-50%) perspective(1000px) rotateX(0.5deg);
     padding: 1.5rem;
-    min-height: 35vh;
+    min-height: 40vh;
+    max-width: 98vw;
+    width: 98vw;
   }
   
   .marketing-dashboard-chart {

@@ -64,20 +64,25 @@ class MarketingDashboard {
       const currentValue = this.stats[key];
       const previousValue = this.previousStats[key];
       
-      // Remove any existing animation classes
+      // Remove any existing animation classes and reset color
       element.classList.remove('highlight-green', 'highlight-red');
+      element.style.color = '#ffffff';
       
       if (currentValue > previousValue) {
-        // Add green animation
+        // Add green color and animation
+        element.style.color = '#22c55e';
         element.style.animation = 'numberIncrease 1s ease-in-out';
         setTimeout(() => {
           element.style.animation = '';
+          element.style.color = '#ffffff';
         }, 1000);
       } else if (currentValue < previousValue) {
-        // Add red animation
+        // Add red color and animation
+        element.style.color = '#ef4444';
         element.style.animation = 'numberDecrease 1s ease-in-out';
         setTimeout(() => {
           element.style.animation = '';
+          element.style.color = '#ffffff';
         }, 1000);
       }
     });
