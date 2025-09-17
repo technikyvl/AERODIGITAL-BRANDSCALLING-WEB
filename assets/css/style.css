@@ -2616,6 +2616,35 @@ hr {
 .cs_horizontal_slider_wrapper .cs_brands_list img:hover {
   opacity: 1;
 }
+
+/* Black background for ROI section */
+.cs_black_bg {
+  background-color: #000000 !important;
+}
+
+/* Brands section title styling */
+.brands-section-title {
+  color: #ffffff !important;
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
+  max-width: 36rem !important;
+  margin: 0 auto 0 auto !important;
+  font-weight: 400 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Responsive brands section title */
+@media (max-width: 768px) {
+  .brands-section-title {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .brands-section-title {
+    font-size: 1rem !important;
+  }
+}
 .cs_horizontal_slider_wrapper:hover .cs_brands_list,
 .cs_horizontal_slider_wrapper:hover .cs_tools_wrapper {
   animation-play-state: paused;
