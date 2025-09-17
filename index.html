@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/simple-headings.css">
     <link rel="stylesheet" href="assets/css/meteors.css">
+    <link rel="stylesheet" href="assets/css/site-header.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- DottedMap -->
     <script src="https://cdn.jsdelivr.net/npm/dotted-map@2.1.2/dist/dotted-map.min.js"></script>
@@ -31,43 +32,69 @@
       <div class="cs_preloader_in position-relative"><span></span><span></span></div>
     </div>
     <!-- End Preloader -->
-    <!-- Start Island Header Section -->
-    <header class="cs_island_header">
-      <div class="cs_island_header_content">
-        <div class="cs_island_header_left">
-          <a class="cs_island_logo" href="index.html" aria-label="Home page link">
-            <img src="assets/img/AERO DIGITAL (6).png" alt="Aero Digital Logo">
+    <!-- Start Site Header - 21st.dev Style -->
+    <header class="site-header">
+      <nav class="site-nav">
+        <div class="site-nav-content">
+          <!-- Brand -->
+          <a href="index.html" class="site-brand" aria-label="home">
+            <span class="site-brand-text">Aero Digital</span>
           </a>
+
+          <!-- Desktop Navigation -->
+          <ul class="site-nav-menu">
+            <li class="site-nav-item">
+              <a href="#features" class="site-nav-link">Features</a>
+            </li>
+            <li class="site-nav-item">
+              <a href="#solution" class="site-nav-link">Solution</a>
+            </li>
+            <li class="site-nav-item">
+              <a href="#pricing" class="site-nav-link">Pricing</a>
+            </li>
+            <li class="site-nav-item">
+              <a href="#about" class="site-nav-link">About</a>
+            </li>
+          </ul>
+
+          <!-- Actions -->
+          <div class="site-nav-actions">
+            <a href="login.html" class="site-btn site-btn-outline">Login</a>
+            <a href="signup.html" class="site-btn site-btn-primary">Get Started</a>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <button class="site-mobile-toggle" aria-label="Toggle menu">
+            <span class="site-mobile-toggle-line"></span>
+            <span class="site-mobile-toggle-line"></span>
+            <span class="site-mobile-toggle-line"></span>
+          </button>
         </div>
-        
-        <div class="cs_island_header_center">
-          <nav class="cs_island_nav">
-            <a href="#home" class="cs_island_nav_item">Home</a>
-            <a href="features.html" class="cs_island_nav_item">Features</a>
-            <a href="pricing.html" class="cs_island_nav_item">Pricing</a>
-            <a href="blog.html" class="cs_island_nav_item">Blog</a>
-            <a href="contact.html" class="cs_island_nav_item">Contact</a>
-          </nav>
+
+        <!-- Mobile Menu -->
+        <div class="site-mobile-menu">
+          <ul class="site-mobile-nav">
+            <li class="site-mobile-nav-item">
+              <a href="#features" class="site-mobile-nav-link">Features</a>
+            </li>
+            <li class="site-mobile-nav-item">
+              <a href="#solution" class="site-mobile-nav-link">Solution</a>
+            </li>
+            <li class="site-mobile-nav-item">
+              <a href="#pricing" class="site-mobile-nav-link">Pricing</a>
+            </li>
+            <li class="site-mobile-nav-item">
+              <a href="#about" class="site-mobile-nav-link">About</a>
+            </li>
+          </ul>
+          <div class="site-mobile-actions">
+            <a href="login.html" class="site-btn site-btn-outline">Login</a>
+            <a href="signup.html" class="site-btn site-btn-primary">Get Started</a>
+          </div>
         </div>
-        
-        <div class="cs_island_header_right">
-          <a href="login.html" class="cs_island_login" aria-label="Login page link">
-            Login
-          </a>
-          <a href="register.html" class="cs_island_signup" aria-label="Register page link button">
-            Sign Up Free
-          </a>
-        </div>
-        
-        <!-- Mobile Menu Toggle -->
-        <button class="cs_island_mobile_toggle" aria-label="Toggle mobile menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+      </nav>
     </header>
-    <!-- End Island Header Section -->
+    <!-- End Site Header -->
     <!-- Start Hero Section with Meteors -->
     <section class="hero-meteors" id="home">
       <!-- Meteors container -->
@@ -908,6 +935,7 @@
     <script src="assets/js/odometer.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/meteors.js"></script>
+    <script src="assets/js/site-header.js"></script>
     
     <!-- RuixenStats Chart Script -->
     <script>

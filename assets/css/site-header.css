@@ -1,0 +1,339 @@
+/* Site Header - 21st.dev Style */
+
+/* Header Container */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+/* Navigation */
+.site-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .site-nav {
+    background: rgba(24, 24, 27, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Scrolled state */
+.site-header.scrolled .site-nav {
+  max-width: 1000px;
+  padding: 0 8px;
+}
+
+/* Navigation Content */
+.site-nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+/* Brand */
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.site-brand-text {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  background: linear-gradient(135deg, 
+    #a1a1aa 0%, 
+    #ffffff 50%, 
+    #71717a 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark theme brand */
+@media (prefers-color-scheme: dark) {
+  .site-brand-text {
+    background: linear-gradient(135deg, 
+      #f4f4f5 0%, 
+      #ffffff 50%, 
+      #a1a1aa 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Desktop Navigation Menu */
+.site-nav-menu {
+  display: none;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .site-nav-menu {
+    display: flex;
+  }
+}
+
+.site-nav-item {
+  margin: 0;
+}
+
+.site-nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-nav-link:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+/* Dark theme links */
+@media (prefers-color-scheme: dark) {
+  .site-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .site-nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+/* Actions */
+.site-nav-actions {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .site-nav-actions {
+    display: flex;
+  }
+}
+
+/* Buttons */
+.site-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.site-btn-outline {
+  color: rgba(0, 0, 0, 0.8);
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.site-btn-outline:hover {
+  color: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.site-btn-primary {
+  color: white;
+  background: #000000;
+  border: 1px solid #000000;
+}
+
+.site-btn-primary:hover {
+  background: #333333;
+  border-color: #333333;
+}
+
+/* Dark theme buttons */
+@media (prefers-color-scheme: dark) {
+  .site-btn-outline {
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .site-btn-outline:hover {
+    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .site-btn-primary {
+    color: #000000;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+  }
+  
+  .site-btn-primary:hover {
+    background: #f4f4f5;
+    border-color: #f4f4f5;
+  }
+}
+
+/* Mobile Toggle */
+.site-mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .site-mobile-toggle {
+    display: none;
+  }
+}
+
+.site-mobile-toggle-line {
+  width: 24px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 1px;
+  transition: all 0.2s ease;
+}
+
+/* Dark theme toggle */
+@media (prefers-color-scheme: dark) {
+  .site-mobile-toggle-line {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Mobile Menu */
+.site-mobile-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.3s ease;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.site-mobile-menu.open {
+  grid-template-rows: 1fr;
+}
+
+/* Dark theme mobile menu border */
+@media (prefers-color-scheme: dark) {
+  .site-mobile-menu {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.site-mobile-nav {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 16px 0;
+}
+
+.site-mobile-nav-item {
+  margin: 0;
+}
+
+.site-mobile-nav-link {
+  display: block;
+  padding: 8px 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-mobile-nav-link:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+/* Dark theme mobile links */
+@media (prefers-color-scheme: dark) {
+  .site-mobile-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .site-mobile-nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.site-mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.site-mobile-actions .site-btn {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 4px 0;
+  }
+  
+  .site-nav {
+    padding: 0 8px;
+  }
+  
+  .site-nav-content {
+    padding: 8px 0;
+  }
+  
+  .site-brand-text {
+    font-size: 18px;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure content doesn't hide behind fixed header */
+body {
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+}
