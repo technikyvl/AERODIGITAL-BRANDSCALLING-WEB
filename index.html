@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/slick.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/simple-headings.css">
+    <link rel="stylesheet" href="assets/css/meteors.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- DottedMap -->
     <script src="https://cdn.jsdelivr.net/npm/dotted-map@2.1.2/dist/dotted-map.min.js"></script>
@@ -67,57 +68,52 @@
       </div>
     </header>
     <!-- End Island Header Section -->
-    <!-- Start Hero Section -->
-    <section class="cs_hero cs_style_1 cs_type_1 hero--compact" id="home">
-      <div class="container">
-        <div class="cs_hero_content cs_center_column text-center">
-          <p class="cs_mb_25">
-            <img src="assets/img/cup.png" alt="Giftbox image" class="me-2">Our application is trusted by over <span class="cs_purple_color">15K</span> clients worldwide!
-          </p>
-          <h1 class="cs_fs_70 cs_bold cs_mb_57 wow fadeInDown">Pozyskanie nowych klientów wcale nie musi być trudne.</h1>
+    <!-- Start Hero Section with Meteors -->
+    <section class="hero-meteors" id="home">
+      <!-- Background glow effect -->
+      <div class="hero-meteors-bg-glow"></div>
+      
+      <!-- Meteors container -->
+      <div class="meteors-container"></div>
+      
+      <!-- Hero content -->
+      <div class="hero-meteors-content">
+        <h1 class="hero-meteors-title">Pozyskanie nowych klientów wcale nie musi być trudne</h1>
+        <p class="hero-meteors-subtitle">
+          Zwiększamy ROI do x5 z każdej kampanii. Nasze rozwiązania łączą zaawansowaną analitykę z kreatywnym podejściem, aby dostarczyć realne wyniki biznesowe.
+        </p>
+        
+        <!-- Stats Section -->
+        <div class="hero-meteors-stats">
+          <div class="hero-meteors-stat">
+            <h3 class="hero-meteors-stat-number" id="pln-counter">
+              <span class="cs_counter" data-count="50000">50 000</span> PLN
+            </h3>
+            <p class="hero-meteors-stat-label">Wygenerowanych dla naszych klientów</p>
+          </div>
           
-          <!-- RuixenStats Dashboard Section -->
-          <div class="cs_ruixen_dashboard cs_mb_60 wow fadeInUp">
-            <div class="cs_ruixen_chart_card">
-                <!-- Chart Container -->
-                <div class="cs_chart_container">
-                  <canvas id="ruixenChart" width="100%" height="400"></canvas>
-                </div>
-                
-                <!-- Hero Number Above Chart -->
-                <div class="cs_hero_number_above">
-                  <h3 class="cs_hero_number" id="pln-counter">
-                    <span class="cs_counter" data-count="50000">50 000</span> PLN
-                  </h3>
-                  <p class="cs_hero_label">Wygenerowanych dla naszych klientów</p>
-                </div>
-                
-                <!-- Side Stats -->
-      <div class="cs_side_stats">
-        <div class="cs_stat_item">
-          <p class="cs_stat_value">50+</p>
-          <p class="cs_stat_label">Wykonanych Projektów</p>
-        </div>
-        <div class="cs_stat_item">
-          <p class="cs_stat_value">x5 ROI</p>
-          <p class="cs_stat_label">Z każdym projektem</p>
-        </div>
-        <div class="cs_stat_item">
-          <p class="cs_stat_value">~1 000</p>
-          <p class="cs_stat_label">Godzin Doświadczenia</p>
-        </div>
-        <div class="cs_stat_item">
-          <p class="cs_stat_value">100%</p>
-          <p class="cs_stat_label">Satysfakcji klientów</p>
-        </div>
-      </div>
-              </div>
+          <div class="hero-meteors-stats-grid">
+            <div class="hero-meteors-stat-item">
+              <p class="hero-meteors-stat-value">50+</p>
+              <p class="hero-meteors-stat-label">Wykonanych Projektów</p>
+            </div>
+            <div class="hero-meteors-stat-item">
+              <p class="hero-meteors-stat-value">x5 ROI</p>
+              <p class="hero-meteors-stat-label">Z każdym projektem</p>
+            </div>
+            <div class="hero-meteors-stat-item">
+              <p class="hero-meteors-stat-value">~1 000</p>
+              <p class="hero-meteors-stat-label">Godzin Doświadczenia</p>
+            </div>
+            <div class="hero-meteors-stat-item">
+              <p class="hero-meteors-stat-value">100%</p>
+              <p class="hero-meteors-stat-label">Satysfakcji klientów</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Hero Section -->
+    <!-- End Hero Section with Meteors -->
     <!-- Start Brands Section -->
     <div class="cs_height_124 cs_height_lg_80"></div>
     <div class="container">
@@ -943,6 +939,7 @@
     <script src="assets/js/jquery.slick.min.js"></script>
     <script src="assets/js/odometer.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/meteors.js"></script>
     
     <!-- RuixenStats Chart Script -->
     <script>

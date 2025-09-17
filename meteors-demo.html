@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero z Meteorami - Demo</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/simple-headings.css">
+    <link rel="stylesheet" href="assets/css/meteors.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .demo-navigation {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .demo-navigation a {
+            display: inline-block;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .demo-navigation a:hover {
+            background: #2563eb;
+        }
+        
+        .demo-info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            max-width: 300px;
+        }
+        
+        .demo-info h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .demo-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Navigation -->
+    <div class="demo-navigation">
+        <a href="index.html">Strona Główna</a>
+        <a href="metallic-demo.html">Demo Metaliczne</a>
+        <a href="gradient-variants.html">Warianty Gradientu</a>
+    </div>
+    
+    <!-- Demo Info -->
+    <div class="demo-info">
+        <h3>Hero z Meteorami</h3>
+        <p>Nowa sekcja hero z efektem spadających meteorów, metalicznym gradientem i płynną animacją reveal.</p>
+    </div>
+
+    <!-- Hero Section with Meteors -->
+    <section class="hero-meteors" id="home">
+      <!-- Background glow effect -->
+      <div class="hero-meteors-bg-glow"></div>
+      
+      <!-- Meteors container -->
+      <div class="meteors-container"></div>
+      
+      <!-- Hero content -->
+      <div class="hero-meteors-content">
+        <h1 class="hero-meteors-title">Pozyskanie nowych klientów wcale nie musi być trudne</h1>
+        <p class="hero-meteors-subtitle">
+          Zwiększamy ROI do x5 z każdej kampanii. Nasze rozwiązania łączą zaawansowaną analitykę z kreatywnym podejściem, aby dostarczyć realne wyniki biznesowe.
+        </p>
+        
+        <!-- Stats Section -->
+        <div class="hero-meteors-stats">
+          <div class="hero-meteors-stat">
+            <h3 class="hero-meteors-stat-number" id="pln-counter">
+              <span class="cs_counter" data-count="50000">50 000</span> PLN
+            </h3>
+            <p class="hero-meteors-stat-label">Wygenerowanych dla naszych klientów</p>
+          </div>
+          
+          <div class="hero-meteors-stats-grid">
+            <div class="hero-meteors-stat-item">
+              <p class="hero-meteors-stat-value">50+</p>
+              <p class="hero-meteors-stat-label">Wykonanych Projektów</p>
+            </div>
+            <div class="hero-meteors-stat-item">
+              <p class="hero-meteors-stat-value">x5 ROI</p>
+              <p class="hero-meteors-stat-label">Z każdym projektem</p>
+            </div>
+            <div class="hero-meteors-stat-item">
+              <p class="hero-meteors-stat-value">~1 000</p>
+              <p class="hero-meteors-stat-label">Godzin Doświadczenia</p>
+            </div>
+            <div class="hero-meteors-stat-item">
+              <p class="hero-meteors-stat-value">100%</p>
+              <p class="hero-meteors-stat-label">Satysfakcji klientów</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="assets/js/meteors.js"></script>
+    <script>
+        // Demo-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Counter animation
+            const counterElement = document.querySelector('.cs_counter');
+            if (counterElement) {
+                const target = parseInt(counterElement.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counterElement.textContent = Math.floor(current).toLocaleString('pl-PL').replace(/,/g, ' ');
+                }, 20);
+            }
+            
+            // Add click effect to stats
+            const statItems = document.querySelectorAll('.hero-meteors-stat-item');
+            statItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.transition = 'transform 0.2s ease';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
