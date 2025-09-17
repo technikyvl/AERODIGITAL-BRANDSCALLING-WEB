@@ -7,63 +7,72 @@ class MeteorsEffect {
   constructor(container, options = {}) {
     this.container = container;
     this.options = {
-      number: 28,
-      minDelay: 0.2,
-      maxDelay: 0.8,
-      minDuration: 2,
-      maxDuration: 10,
+      number: 15,
+      minDelay: 0,
+      maxDelay: 0.5,
+      minDuration: 3,
+      maxDuration: 6,
       ...options
     };
     this.meteors = [];
+    this.animationId = null;
     this.init();
   }
 
   init() {
-    this.createMeteors();
-    this.startAnimation();
+    this.createInitialMeteors();
+    this.startContinuousFlow();
   }
 
-  createMeteors() {
-    // Clear existing meteors
-    this.container.innerHTML = '';
-    this.meteors = [];
-
+  createInitialMeteors() {
     for (let i = 0; i < this.options.number; i++) {
-      const meteor = this.createMeteor(i);
-      this.container.appendChild(meteor);
-      this.meteors.push(meteor);
+      this.createMeteor();
     }
   }
 
-  createMeteor(index) {
+  createMeteor() {
     const meteor = document.createElement('div');
     meteor.className = 'meteor';
     
-    // Random position - full screen coverage
-    const randomX = Math.floor(Math.random() * 1200) - 600; // -600 to 600
+    // Random vertical position
     const randomY = Math.floor(Math.random() * 400) - 200; // -200 to 200
     
-    // Random animation properties - shorter duration for seamless loop
-    const delay = Math.random() * 0.3 + 0.1; // 0.1 to 0.4
-    const duration = Math.floor(Math.random() * 3 + 2); // 2 to 5
+    // Random animation properties
+    const delay = Math.random() * (this.options.maxDelay - this.options.minDelay) + this.options.minDelay;
+    const duration = Math.random() * (this.options.maxDuration - this.options.minDuration) + this.options.minDuration;
     
     // Apply styles
-    meteor.style.left = randomX + 'px';
+    meteor.style.left = '50%';
     meteor.style.top = randomY + 'px';
     meteor.style.animationDelay = delay + 's';
     meteor.style.animationDuration = duration + 's';
     
+    this.container.appendChild(meteor);
+    this.meteors.push(meteor);
+    
+    // Remove meteor after animation completes
+    setTimeout(() => {
+      if (meteor.parentNode) {
+        meteor.parentNode.removeChild(meteor);
+        const index = this.meteors.indexOf(meteor);
+        if (index > -1) {
+          this.meteors.splice(index, 1);
+        }
+      }
+    }, (duration + delay) * 1000);
+    
     return meteor;
   }
 
-  startAnimation() {
-    // Create meteors continuously for seamless flow
-    setInterval(() => {
-      this.createMeteors();
-    }, 2000); // Create new meteors every 2 seconds
+  startContinuousFlow() {
+    const createMeteorInterval = () => {
+      this.createMeteor();
+      // Random interval between 0.5 and 2 seconds
+      const nextInterval = Math.random() * 1500 + 500;
+      this.animationId = setTimeout(createMeteorInterval, nextInterval);
+    };
     
-    // Also create initial batch
-    this.createMeteors();
+    createMeteorInterval();
   }
 
   destroy() {
@@ -74,16 +83,38 @@ class MeteorsEffect {
 
 // Auto-initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize meteors
   const meteorContainers = document.querySelectorAll('.meteors-container');
   
   meteorContainers.forEach(container => {
     new MeteorsEffect(container, {
-      number: 28,
-      minDelay: 0.2,
-      maxDelay: 0.8,
-      minDuration: 2,
-      maxDuration: 10
+      number: 15,
+      minDelay: 0,
+      maxDelay: 0.5,
+      minDuration: 3,
+      maxDuration: 6
     });
+  });
+  
+  // Initialize heading reveal animations
+  const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .cs_section_title, .cs_hero_number, .cs_fs_50, .cs_fs_70');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = 'reveal 700ms ease-out forwards';
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  
+  headings.forEach(heading => {
+    observer.observe(heading);
   });
 });
 
