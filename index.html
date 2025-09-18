@@ -528,7 +528,41 @@
     <script src="assets/js/meteors.js"></script>
     <script src="assets/js/new-header.js"></script>
     <script src="assets/js/marketing-dashboard.js"></script>
-    <script src="assets/js/headings-reveal.js"></script>
+    
+    <!-- Shadow Reveal Animation Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Wszystkie nagłówki + typowe klasy nagłówków używane w projekcie
+      const SELECTORS = 'h1, h2, h3, h4, h5, h6, .hero-title, .section-title, .card-title, .cs_section_title, .cs_fs_70, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_29, .cs_fs_25, .cs_fs_24, .cs_fs_21, .cs_fs_18, .cs_fs_16, .title, .hcard__body .title, .cs_footer_widget_title, .brands-section-title';
+
+      // Dodaj stan startowy .reveal
+      const nodes = Array.from(document.querySelectorAll(SELECTORS));
+      nodes.forEach(el => el.classList.add('reveal'));
+
+      // Jeśli użytkownik prosi o ograniczenie ruchu — pokaż od razu
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) {
+        nodes.forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      // Ujawniaj nagłówki, gdy wejdą w viewport (raz na element)
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.25,
+        rootMargin: '0px 0px -10% 0px'
+      });
+
+      nodes.forEach(el => io.observe(el));
+    });
+    </script>
+    
     <!-- RuixenStats Chart Script -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
