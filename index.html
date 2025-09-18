@@ -259,17 +259,128 @@
       </div>
     </section>
     <!-- End Auto Spelling Check Section -->
-    <!-- Start Features Section -->
-    <section>
-    <div class="cs_height_130 cs_height_lg_80"></div>
-    <div class="container">
-      <div class="cs_section_heading cs_style_1 text-center cs_mb_60">
-        <h2 class="cs_section_title cs_fs_50 cs_mb_15 wow fadeInDown">Usługi dzięki którym pozyskasz klientów</h2>
-        <p class="cs_section_text mb-0">With our intuitive dashboards and user-friendly interface, you can effortlessly explore and <br> analyze your data, no matter your level of technical expertise.</p>
+    <!-- Start Services Section -->
+    <section id="uslugi-klienci" class="services">
+      <div class="services__head">
+        <h2>Usługi dzięki którym pozyskasz klientów</h2>
+        <p>Najskuteczniejsze dźwignie wzrostu: kampanie, strona/sklep, SEO i automatyzacje.</p>
       </div>
-    </div>
+
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <article class="hcard">
+          <div class="hcard__bg">
+            <span class="bg-overlay"></span>
+            <span class="bg-blob"></span>
+            <span class="bg-ping tl"></span>
+            <span class="bg-ping br"></span>
+            <span class="bg-sweep"></span>
+          </div>
+          <div class="hcard__body">
+            <div class="icon-wrap">
+              <span class="ring ring--outer"></span>
+              <span class="ring ring--inner"></span>
+              <div class="icon"><i data-lucide="megaphone"></i></div>
+            </div>
+            <h3 class="title">Kampanie reklamowe</h3>
+            <div class="desc">
+              <p>Skuteczne kampanie sprzedażowe (Meta/Google).</p>
+              <p>Testy A/B i optymalizacja ROAS.</p>
+              <p>Zaawansowane targetowanie i remarketing.</p>
+              <p>Tygodniowy raport wyników.</p>
+            </div>
+            <div class="bar"></div>
+            <div class="dots"><span></span><span></span><span></span></div>
+          </div>
+          <span class="corner tl"></span><span class="corner br"></span>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="hcard">
+          <div class="hcard__bg">
+            <span class="bg-overlay"></span>
+            <span class="bg-blob"></span>
+            <span class="bg-ping tl"></span>
+            <span class="bg-ping br"></span>
+            <span class="bg-sweep"></span>
+          </div>
+          <div class="hcard__body">
+            <div class="icon-wrap">
+              <span class="ring ring--outer"></span>
+              <span class="ring ring--inner"></span>
+              <div class="icon"><i data-lucide="layout-dashboard"></i></div>
+            </div>
+            <h3 class="title">Strony i sklepy</h3>
+            <div class="desc">
+              <p>Szybkie, responsywne projekty.</p>
+              <p>UX pod konwersję + SEO.</p>
+              <p>Płatności, integracje, automatyzacje.</p>
+              <p>Pełna konfiguracja domeny/hostingu.</p>
+            </div>
+            <div class="bar"></div>
+            <div class="dots"><span></span><span></span><span></span></div>
+          </div>
+          <span class="corner tl"></span><span class="corner br"></span>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="hcard">
+          <div class="hcard__bg">
+            <span class="bg-overlay"></span>
+            <span class="bg-blob"></span>
+            <span class="bg-ping tl"></span>
+            <span class="bg-ping br"></span>
+            <span class="bg-sweep"></span>
+          </div>
+          <div class="hcard__body">
+            <div class="icon-wrap">
+              <span class="ring ring--outer"></span>
+              <span class="ring ring--inner"></span>
+              <div class="icon"><i data-lucide="search"></i></div>
+            </div>
+            <h3 class="title">SEO i content</h3>
+            <div class="desc">
+              <p>Audyt techniczny i frazy kluczowe.</p>
+              <p>Plan treści + link building.</p>
+              <p>E-E-A-T, CWV, indeksacja.</p>
+              <p>Monitoring pozycji i raporty.</p>
+            </div>
+            <div class="bar"></div>
+            <div class="dots"><span></span><span></span><span></span></div>
+          </div>
+          <span class="corner tl"></span><span class="corner br"></span>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="hcard">
+          <div class="hcard__bg">
+            <span class="bg-overlay"></span>
+            <span class="bg-blob"></span>
+            <span class="bg-ping tl"></span>
+            <span class="bg-ping br"></span>
+            <span class="bg-sweep"></span>
+          </div>
+          <div class="hcard__body">
+            <div class="icon-wrap">
+              <span class="ring ring--outer"></span>
+              <span class="ring ring--inner"></span>
+              <div class="icon"><i data-lucide="workflow"></i></div>
+            </div>
+            <h3 class="title">Automatyzacje i CRM</h3>
+            <div class="desc">
+              <p>Lejki leadowe i formularze.</p>
+              <p>Integracje n8n/Zapier.</p>
+              <p>E-mail/SMS marketing.</p>
+              <p>Dashboard KPI i alerty.</p>
+            </div>
+            <div class="bar"></div>
+            <div class="dots"><span></span><span></span><span></span></div>
+          </div>
+          <span class="corner tl"></span><span class="corner br"></span>
+        </article>
+      </div>
     </section>
-    <!-- End Features Section -->
+    <!-- End Services Section -->
     <!-- Start Integration Section -->
     <section>
       <div class="cs_height_140 cs_height_lg_80"></div>
@@ -1103,6 +1214,12 @@
         
         window.addEventListener('scroll', handleScroll);
       });
+    </script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
     </script>
   </body>
 </html>
