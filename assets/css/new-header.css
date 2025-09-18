@@ -30,100 +30,22 @@
   }
 }
 
-/* Scrolled state - Glass effect using card tokens */
+/* Scrolled state - Simple dark background */
 .new-header.scrolled .new-nav-container {
   max-width: 1200px;
   padding: 0 32px;
-  border-radius: 20px;
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 2px solid var(--glass-border);
-  box-shadow: var(--glass-shadow), var(--glass-inset);
-  transition: var(--glass-transition);
-  position: relative;
-  overflow: hidden;
-  margin: 16px auto;
-  transform: translateY(0);
-}
-
-/* Header sweep effect on hover */
-.new-header.scrolled .new-nav-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--glass-sweep-bg);
-  transform: skewX(-12deg) translateX(120%);
-  transition: transform var(--glass-sweep-duration) ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Additional glass overlay for more depth */
-.new-header.scrolled .new-nav-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.05) 0%, 
-    transparent 50%, 
-    rgba(255, 255, 255, 0.02) 100%);
-  border-radius: 20px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.new-header.scrolled .new-nav-container:hover::before {
-  transform: skewX(-12deg) translateX(-200%);
-}
-
-/* Header hover state */
-.new-header.scrolled .new-nav-container:hover {
-  border-color: var(--glass-border-hover);
-  box-shadow: var(--glass-shadow-hover), var(--glass-inset-hover);
-  transform: var(--glass-scale-hover);
-}
-
-/* Navigation links brightening on header hover */
-.new-header.scrolled .new-nav-container:hover .new-nav-link {
-  color: rgba(255, 255, 255, 1);
-  filter: brightness(1.08);
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  margin: 16px auto;
 }
 
-@media (prefers-color-scheme: light) {
-  .new-header.scrolled .new-nav-container:hover .new-nav-link {
-    color: rgba(0, 0, 0, 1);
-  }
+/* Simple hover state */
+.new-header.scrolled .new-nav-container:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.95);
 }
 
-/* Light theme scrolled state */
-@media (prefers-color-scheme: light) {
-  .new-header.scrolled .new-nav-container {
-    background: linear-gradient(180deg, 
-      rgba(255, 255, 255, 0.8) 0%, 
-      rgba(240, 240, 240, 0.6) 50%, 
-      rgba(255, 255, 255, 0.8) 100%
-    );
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  }
-  
-  .new-header.scrolled .new-nav-container:hover {
-    border-color: rgba(0, 0, 0, 0.2);
-    box-shadow: 
-      0 12px 40px rgba(0, 0, 0, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  }
-}
 
 /* Navigation Content */
 .new-nav-content {
