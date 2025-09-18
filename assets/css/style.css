@@ -7041,4 +7041,70 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
   .glare-overlay{ opacity:1; transform:none; filter:none; transition:none; }
 }
 
+/* === HEADER: kapsuła polished glass === */
+.new-header{
+  position: sticky; top:16px; z-index:100;
+  margin-inline:auto;
+  width:min(1200px, calc(100% - 48px));
+  padding-inline:20px; border-radius:18px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+    rgba(8,8,8,.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 12px 40px rgba(0,0,0,.35),
+    inset 0 1px rgba(255,255,255,.10),
+    inset 0 -1px rgba(255,255,255,.05);
+  overflow:hidden; /* potrzebne dla polerowanego highlightu */
+}
+.new-header::before{ /* delikatny polerowany połysk */
+  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+  background:
+    radial-gradient(60% 160% at 8% -20%, rgba(255,255,255,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,0) 55%);
+  mix-blend-mode: screen; opacity:.45;
+}
+
+/* === HERO: subtitle pod H1 (tylko wygląd) === */
+.hero-subtitle{ 
+  margin-top:14px; font-size:clamp(16px,2vw,20px); 
+  color:rgba(255,255,255,.82); text-align:center;
+}
+
+/* === DASHBOARD: wrapper umożliwiający nachodzący glare === */
+.dashboard-glare-wrap{ position:relative; overflow:visible; isolation:isolate; }
+.chart-card, .dashboard{ position:relative; overflow:hidden; border-radius:16px; }
+
+/* === Glare nad kartą (nachodzący) === */
+.glare-overlay{
+  position:absolute; left:0; right:0;
+  z-index:6; pointer-events:none;
+  opacity:0; transform:translateY(14px); filter:blur(2px);
+  transition:
+    opacity .95s cubic-bezier(0.22,1,0.36,1),
+    transform .95s cubic-bezier(0.22,1,0.36,1),
+    filter .95s cubic-bezier(0.22,1,0.36,1);
+}
+.glare-overlay.in{ opacity:1; transform:translateY(0); filter:blur(0); }
+
+.glare--top{
+  top:-8%; height:40%;
+  background:radial-gradient(80% 60% at 50% 0%,
+    rgba(255,255,255,.22), rgba(255,255,255,.12) 35%, transparent 70%);
+  mix-blend-mode: screen;
+}
+.glare--bottom{
+  bottom:-14%; height:58%;
+  background:radial-gradient(84% 62% at 50% 100%,
+    rgba(255,255,255,.24), rgba(255,255,255,.12) 42%, transparent 78%);
+  mix-blend-mode: screen;
+}
+
+/* A11y: bez animacji przy reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .glare-overlay{ opacity:1; transform:none; filter:none; transition:none; }
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -101,9 +101,7 @@
       <!-- Hero content -->
       <div class="hero-meteors-content">
         <h1 class="hero-meteors-title reveal">AERO DIGITAL</h1>
-        <p class="hero-meteors-subtitle reveal">
-          Pozyskanie klientów wcale nie musi być trudne.
-        </p>
+        <p class="hero-subtitle reveal">Pozyskanie klientów wcale nie musi być trudne.</p>
         
         <!-- Marketing Dashboard -->
         <div class="marketing-dashboard-container" id="marketing-dashboard-container" data-anim="dashboard">
@@ -555,53 +553,75 @@
 
       headings.forEach(el => headingsIO.observe(el));
 
-      /* === 2) DASHBOARD: wolny fade-in-up + sekwencja glare === */
+      /* === 2) Glare: opakuj dashboard wrapperem z overflow:visible i dodaj overlaye === */
       const DASHBOARD_SELECTORS = [
-        '#marketing-chart', '.dashboard', '.chart-card', '[data-anim="dashboard"]'
+        '#marketing-chart','.dashboard','.chart-card','[data-anim="dashboard"]'
       ].join(',');
       const dashboards = Array.from(document.querySelectorAll(DASHBOARD_SELECTORS));
 
-      dashboards.forEach(host => {
-        host.classList.add('dashboard-glare-host','fiu'); // stan początkowy
-        // dołóż tylko bottom glare (bez top glare)
-        if (!host.querySelector('.glare--bottom')) {
-          host.insertAdjacentHTML('beforeend','<div class="glare-overlay glare--bottom"></div>');
+      dashboards.forEach(card => {
+        // jeśli karta nie jest w wrapperze — owiń:
+        if (!card.closest('.dashboard-glare-wrap')){
+          const wrap = document.createElement('div');
+          wrap.className = 'dashboard-glare-wrap';
+          card.parentNode.insertBefore(wrap, card);
+          wrap.appendChild(card);
+        }
+        const wrap = card.closest('.dashboard-glare-wrap');
+
+        // dołóż glare top/bottom, jeśli brak
+        if (!wrap.querySelector('.glare--top')){
+          wrap.insertAdjacentHTML('beforeend','<div class="glare-overlay glare--top"></div>');
+        }
+        if (!wrap.querySelector('.glare--bottom')){
+          wrap.insertAdjacentHTML('beforeend','<div class="glare-overlay glare--bottom"></div>');
         }
       });
 
+      // Jeśli gdzieś nadrzędny container ma overflow hidden — wymuś widoczność (ostrożnie)
+      document.querySelectorAll('.dashboard-glare-wrap').forEach(w => {
+        const parent = w.parentElement;
+        if (parent && getComputedStyle(parent).overflow !== 'visible'){
+          parent.style.overflow = 'visible';
+        }
+      });
+
+      /* === 3) Sekwencja animacji: dashboard (fiu) -> glare, przy każdym wejściu w viewport === */
       const dashIO = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          const host = entry.target;
-          const bottomGlare = host.querySelector('.glare--bottom');
+          const card = entry.target;
+          const wrap = card.closest('.dashboard-glare-wrap');
+          const gTop = wrap?.querySelector('.glare--top');
+          const gBot = wrap?.querySelector('.glare--bottom');
 
-          if (reduceMotion) {
-            host.classList.add('in'); bottomGlare?.classList.add('in');
+          if (reduceMotion){
+            card.classList.add('in'); gTop?.classList.add('in'); gBot?.classList.add('in');
             return;
           }
+          if (entry.isIntersecting){
+            // restart ZA KAŻDYM razem
+            card.classList.remove('in'); gTop?.classList.remove('in'); gBot?.classList.remove('in');
+            void card.offsetWidth; // reflow
+            card.classList.add('in');
 
-          if (entry.isIntersecting) {
-            // restart animacji ZA KAŻDYM razem, gdy sekcja wjedzie
-            host.classList.remove('in');
-            bottomGlare?.classList.remove('in');
-            void host.offsetWidth; // reflow
-            host.classList.add('in');
-
-            // po zakończeniu przejścia dashboardu uruchom glare (sekwencja)
-            const onDone = (e) => {
-              if (e.target !== host) return;
-              bottomGlare?.classList.add('in');
-              host.removeEventListener('transitionend', onDone);
+            // po zakończeniu przejścia dashboardu – odpal glare
+            const onEnd = (e) => {
+              if (e.target !== card) return;
+              gTop?.classList.add('in'); gBot?.classList.add('in');
+              card.removeEventListener('transitionend', onEnd);
             };
-            host.addEventListener('transitionend', onDone);
-          } else {
-            // reset po wyjechaniu z viewportu
-            host.classList.remove('in');
-            bottomGlare?.classList.remove('in');
+            card.addEventListener('transitionend', onEnd);
+          }else{
+            card.classList.remove('in'); gTop?.classList.remove('in'); gBot?.classList.remove('in');
           }
         });
-      }, { threshold: 0.35, rootMargin: '0px 0px -5% 0px' });
+      }, { threshold:.35, rootMargin:'0px 0px -5% 0px' });
 
-      dashboards.forEach(el => dashIO.observe(el));
+      dashboards.forEach(card => {
+        // upewnij się, że dashboard ma klasę animacyjną fiu (jeśli nie – dodaj)
+        card.classList.add('fiu');
+        dashIO.observe(card);
+      });
 
       /* === 3) Wzmocnij glare w HERO 1 (na wrapperze sekcji hero) === */
       const heroHost = document.querySelector('.hero, #hero, [data-hero]');
