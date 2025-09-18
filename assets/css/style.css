@@ -6751,15 +6751,15 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   --text:#fff; --muted:#c7c7c7;
 }
 
-.services{padding:64px 0;}
-.services__head{max-width:960px;margin:0 auto 28px;text-align:center;color:#e8e8e8}
-.services__head h2{font-size:clamp(24px,3.2vw,36px);font-weight:800;letter-spacing:.4px;margin:0 0 10px}
-.services__head p{opacity:.8}
+.services{padding:120px 0;}
+.services__head{max-width:1200px;margin:0 auto 60px;text-align:center;color:#e8e8e8}
+.services__head h2{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:.4px;margin:0 0 20px}
+.services__head p{font-size:18px;opacity:.8}
 
 .services-grid{
-  display:grid; gap:28px;
+  display:grid; gap:40px;
   grid-template-columns:repeat(1,minmax(0,1fr));
-  max-width:1200px; margin:0 auto; padding:0 16px;
+  max-width:1400px; margin:0 auto; padding:0 20px;
 }
 @media (min-width:768px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
 @media (min-width:1200px){ .services-grid{grid-template-columns:repeat(4,1fr);} }
@@ -6783,20 +6783,20 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
 .bg-sweep{position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);transform:skewX(-12deg) translateX(120%);transition:transform 1s ease}
 .hcard:hover .bg-sweep{transform:skewX(-12deg) translateX(-200%)}
 
-.hcard__body{position:relative;z-index:1;padding:28px 24px;text-align:center}
-.icon-wrap{position:relative;margin:0 auto 22px;width:92px;height:92px}
+.hcard__body{position:relative;z-index:1;padding:48px 36px;text-align:center;min-height:420px;display:flex;flex-direction:column;justify-content:space-between}
+.icon-wrap{position:relative;margin:0 auto 32px;width:120px;height:120px}
 .icon-wrap .ring{position:absolute;inset:0;border-radius:999px;border:2px solid rgba(255,255,255,.20)}
 .icon-wrap .ring--outer{animation:ping 2.2s infinite}
 .icon-wrap .ring--inner{border-width:1px;border-color:rgba(255,255,255,.10);animation:pulse 2s infinite}
 @keyframes pulse{50%{opacity:.5}}
-.icon{position:relative;z-index:2;display:grid;place-items:center;width:92px;height:92px;border-radius:999px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);background:linear-gradient(135deg,rgba(0,0,0,.8),rgba(0,0,0,.6));box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .5s,box-shadow .5s}
+.icon{position:relative;z-index:2;display:grid;place-items:center;width:120px;height:120px;border-radius:999px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);background:linear-gradient(135deg,rgba(0,0,0,.8),rgba(0,0,0,.6));box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .5s,box-shadow .5s}
 .hcard:hover .icon{transform:rotate(12deg) scale(1.10);box-shadow:0 16px 40px rgba(255,255,255,.2) inset}
-.icon svg{width:32px;height:32px;color:#fff}
+.icon svg{width:48px;height:48px;color:#fff}
 
-.title{margin:10px 0 14px;font-size:24px;font-weight:800;background:linear-gradient(90deg,#fff,#eee,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:titlePulse 2.2s ease-in-out infinite}
+.title{margin:10px 0 20px;font-size:28px;font-weight:800;background:linear-gradient(90deg,#fff,#eee,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:titlePulse 2.2s ease-in-out infinite}
 @keyframes titlePulse{50%{filter:brightness(1.08)}}
 
-.desc p{color:var(--muted);font-size:14px;line-height:1.6;margin:.25rem 0}
+.desc p{color:var(--muted);font-size:16px;line-height:1.7;margin:.4rem 0}
 .hcard:hover .desc p{color:#e5e7eb;transition:color .3s}
 
 .bar{width:33%;height:2px;margin:18px auto 8px;border-radius:999px;background:linear-gradient(90deg,transparent,#fff,transparent);transition:all .5s}
@@ -6804,9 +6804,7 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
 
 .dots{display:flex;justify-content:center;gap:8px;opacity:.6;transition:opacity .3s}
 .hcard:hover .dots{opacity:1}
-.dots span{width:8px;height:8px;background:#fff;border-radius:999px;animation:bounce 1.2s infinite}
-.dots span:nth-child(2){animation-delay:.1s} .dots span:nth-child(3){animation-delay:.2s}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.dots span{width:8px;height:8px;background:#fff;border-radius:999px}
 
 .corner{position:absolute;width:80px;height:80px;opacity:0;transition:opacity .5s;pointer-events:none;background:radial-gradient(60% 60% at 100% 0%, rgba(255,255,255,.10), transparent 70%)}
 .corner.tl{top:0;left:0;border-bottom-right-radius:24px}
