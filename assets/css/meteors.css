@@ -114,12 +114,11 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: heroTitleReveal 1000ms cubic-bezier(0.22, 1, 0.36, 1) forwards, metallic-shine 3s ease-in-out infinite;
+  animation: metallic-shine 3s ease-in-out infinite; /* Only keep metallic shine, remove reveal animation */
   margin-bottom: 0;
   text-shadow: 0 0 30px rgba(163, 184, 255, 0.3);
   position: relative;
-  opacity: 0; /* Start hidden for animation */
-  filter: blur(2px) brightness(0.7); /* Start with shadow effect */
+  /* Remove custom opacity and filter - let global animation handle it */
 }
 
 
@@ -152,42 +151,13 @@
   max-width: 36rem; /* Constrained width for better readability */
   margin: 1.5rem auto 0 auto; /* Center the constrained text */
   line-height: 1.6;
-  opacity: 0; /* Start hidden for animation */
-  filter: blur(1px) brightness(0.8); /* Start with shadow effect */
-  animation: heroSubtitleReveal 1000ms cubic-bezier(0.22, 1, 0.36, 1) 100ms forwards; /* 100ms delay after title */
-}
-
-/* Hero title reveal animation - "Coming out of shadow" */
-@keyframes heroTitleReveal {
-  0% {
-    opacity: 0;
-    filter: blur(2px) brightness(0.7);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0) brightness(1);
-  }
-}
-
-/* Hero subtitle reveal animation - "Coming out of shadow" */
-@keyframes heroSubtitleReveal {
-  0% {
-    opacity: 0;
-    filter: blur(1px) brightness(0.8);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0) brightness(1);
-  }
+  /* Remove custom opacity, filter and animation - let global animation handle it */
 }
 
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .hero-meteors-title,
-  .hero-meteors-subtitle {
+  .hero-meteors-title {
     animation: none;
-    opacity: 1;
-    filter: none;
   }
 }
 

@@ -17,9 +17,9 @@ class HeadingsReveal {
   }
   
   setupIntersectionObserver() {
-    // Select all headings that should be animated (exclude h1 as it has its own animations)
+    // Select all headings that should be animated (now includes h1)
     const headings = document.querySelectorAll(`
-      h2, h3, h4, h5, h6,
+      h1, h2, h3, h4, h5, h6,
       .hero-title, .section-title, .card-title,
       .cs_section_title, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_25, .cs_fs_21, .cs_fs_18,
       .title, .hcard__body .title
@@ -50,7 +50,7 @@ class HeadingsReveal {
   showAllHeadings() {
     // Fallback: show all headings immediately for older browsers
     const headings = document.querySelectorAll(`
-      h2, h3, h4, h5, h6,
+      h1, h2, h3, h4, h5, h6,
       .hero-title, .section-title, .card-title,
       .cs_section_title, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_25, .cs_fs_21, .cs_fs_18,
       .title, .hcard__body .title
