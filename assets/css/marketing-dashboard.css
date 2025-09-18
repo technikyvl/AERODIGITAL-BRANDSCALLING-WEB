@@ -136,9 +136,9 @@
 }
 
 .marketing-dashboard-chart {
-  height: 16rem;
+  height: 20rem;
   width: 100%;
-  margin: 0 auto;
+  margin: 2rem auto 0 auto;
   position: relative;
   background: linear-gradient(180deg, 
     rgba(15, 23, 42, 0.8) 0%, 
