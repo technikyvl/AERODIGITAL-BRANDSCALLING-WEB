@@ -6997,39 +6997,6 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
 
 /* === 3) GLARE OVERLAYS (po animacji dashboardu) === */
 .dashboard-glare-host{ position:relative; }
-.glare-overlay{
-  position:absolute; left:0; right:0;
-  pointer-events:none;
-  opacity:0; transform:translateY(12px); filter:blur(2px);
-  transition:
-    opacity .9s var(--ease, cubic-bezier(0.22,1,0.36,1)),
-    transform .9s var(--ease, cubic-bezier(0.22,1,0.36,1)),
-    filter .9s var(--ease, cubic-bezier(0.22,1,0.36,1));
-  will-change:opacity,transform,filter;
-}
-.glare-overlay.in{ opacity:1; transform:translateY(0); filter:blur(0); }
-
-/* top glare (u góry karty) */
-.glare--top{
-  top:-8%;
-  height:40%;
-  background:radial-gradient(80% 60% at 50% 0%,
-    rgba(255,255,255,.20),
-    rgba(255,255,255,.10) 35%,
-    transparent 70%);
-  mix-blend-mode: screen;
-}
-
-/* bottom glare (na dole karty) */
-.glare--bottom{
-  bottom:-10%;
-  height:45%;
-  background:radial-gradient(80% 60% at 50% 100%,
-    rgba(255,255,255,.20),
-    rgba(255,255,255,.10) 40%,
-    transparent 75%);
-  mix-blend-mode: screen;
-}
 
 /* === 4) WZMOCNIONY GLARE W HERO 1 === */
 .hero-glare{ position:relative; }
