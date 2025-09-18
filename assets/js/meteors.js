@@ -28,12 +28,12 @@ class OptimizedMeteorsEffect {
   }
 
   setupContainer() {
-    // Ensure container covers full viewport width
+    // Ensure container covers full hero section width
     this.container.style.position = 'absolute';
     this.container.style.top = '0';
     this.container.style.left = '0';
-    this.container.style.width = '100vw';
-    this.container.style.height = '100vh';
+    this.container.style.width = '100%';
+    this.container.style.height = '100%';
     this.container.style.overflow = 'hidden';
     this.container.style.pointerEvents = 'none';
     this.container.style.zIndex = '-1';
@@ -46,8 +46,9 @@ class OptimizedMeteorsEffect {
     // Random properties
     const size = Math.random() * (this.options.maxSize - this.options.minSize) + this.options.minSize;
     const duration = Math.random() * (this.options.maxDuration - this.options.minDuration) + this.options.minDuration;
-    const startY = Math.random() * window.innerHeight;
-    const endY = startY + (Math.random() * 200 - 100); // slight variation in end position
+    const containerHeight = this.container.offsetHeight;
+    const startY = Math.random() * containerHeight;
+    const endY = startY + (Math.random() * 100 - 50); // slight variation in end position
     
     // Apply styles for smooth animation
     meteor.style.position = 'absolute';
@@ -55,19 +56,20 @@ class OptimizedMeteorsEffect {
     meteor.style.height = size + 'px';
     meteor.style.background = '#ffffff';
     meteor.style.borderRadius = '50%';
-    meteor.style.boxShadow = `0 0 ${size * 2}px rgba(255, 255, 255, 0.8)`;
-    meteor.style.left = '100vw';
+    meteor.style.boxShadow = `0 0 ${size * 3}px rgba(255, 255, 255, 0.6)`;
+    meteor.style.left = '100%';
     meteor.style.top = startY + 'px';
     meteor.style.transform = 'rotate(215deg)';
     meteor.style.willChange = 'transform, opacity';
     meteor.style.backfaceVisibility = 'hidden';
+    meteor.style.opacity = '1';
     
     // Create tail
     const tail = document.createElement('div');
     tail.style.position = 'absolute';
     tail.style.top = '50%';
     tail.style.left = '0';
-    tail.style.width = '60px';
+    tail.style.width = '80px';
     tail.style.height = '1px';
     tail.style.background = 'linear-gradient(to right, #ffffff, transparent)';
     tail.style.transform = 'translateY(-50%)';
@@ -84,25 +86,28 @@ class OptimizedMeteorsEffect {
 
   animateMeteor(meteor, duration, endY) {
     const startTime = performance.now();
-    const startX = window.innerWidth;
-    const endX = -100; // Move completely off screen
+    const containerWidth = this.container.offsetWidth;
+    const startX = containerWidth + 50; // Start slightly off screen
+    const endX = -150; // Move completely off screen
     
     const animate = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / (duration * 1000), 1);
       
-      // Easing function for smooth deceleration
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      
-      const currentX = startX + (endX - startX) * easeOut;
-      const currentY = startY + (endY - startY) * easeOut;
+      // Linear movement for consistent speed
+      const currentX = startX + (endX - startX) * progress;
+      const currentY = startY + (endY - startY) * progress;
       
       meteor.style.left = currentX + 'px';
       meteor.style.top = currentY + 'px';
       
+      // Fade in at start
+      if (progress < 0.1) {
+        meteor.style.opacity = (progress / 0.1).toString();
+      }
       // Fade out near the end
-      if (progress > 0.8) {
-        meteor.style.opacity = (1 - (progress - 0.8) / 0.2).toString();
+      else if (progress > 0.85) {
+        meteor.style.opacity = (1 - (progress - 0.85) / 0.15).toString();
       }
       
       if (progress < 1) {
@@ -169,12 +174,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   meteorContainers.forEach(container => {
     new OptimizedMeteorsEffect(container, {
-      maxMeteors: 25,
-      spawnRate: 600, // More frequent spawning
-      minDuration: 2,
-      maxDuration: 4,
+      maxMeteors: 15,
+      spawnRate: 800, // Balanced spawning rate
+      minDuration: 3,
+      maxDuration: 5,
       minSize: 1,
-      maxSize: 3
+      maxSize: 2
     });
   });
   
