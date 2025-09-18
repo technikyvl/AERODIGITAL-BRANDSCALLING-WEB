@@ -6942,32 +6942,83 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
   transition: none !important;
 }
 
-/* Shadow Reveal – identyczne parametry jak wcześniej */
-.reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  filter: blur(6px);
+/* === 1) SHADOW REVEAL (nagłówki) === */
+.reveal{
+  opacity:0;
+  transform:translateY(12px);
+  filter:blur(6px);
   transition:
-    opacity .6s cubic-bezier(0.22, 1, 0.36, 1),
-    transform .6s cubic-bezier(0.22, 1, 0.36, 1),
-    filter .6s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform, filter;
+    opacity .7s var(--ease, cubic-bezier(0.22,1,0.36,1)),
+    transform .7s var(--ease, cubic-bezier(0.22,1,0.36,1)),
+    filter .7s var(--ease, cubic-bezier(0.22,1,0.36,1));
+  will-change:opacity,transform,filter;
+}
+.reveal.visible{ opacity:1; transform:translateY(0); filter:blur(0); }
+
+/* === 2) DASHBOARD FADE-IN-UP (znacznie wolniejszy) === */
+.fiu{
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity 1.7s var(--ease, cubic-bezier(0.22,1,0.36,1)),
+    transform 1.7s var(--ease, cubic-bezier(0.22,1,0.36,1));
+  will-change:opacity,transform;
+}
+.fiu.in{ opacity:1; transform:translateY(0); }
+
+/* === 3) GLARE OVERLAYS (po animacji dashboardu) === */
+.dashboard-glare-host{ position:relative; }
+.glare-overlay{
+  position:absolute; left:0; right:0;
+  pointer-events:none;
+  opacity:0; transform:translateY(12px); filter:blur(2px);
+  transition:
+    opacity .9s var(--ease, cubic-bezier(0.22,1,0.36,1)),
+    transform .9s var(--ease, cubic-bezier(0.22,1,0.36,1)),
+    filter .9s var(--ease, cubic-bezier(0.22,1,0.36,1));
+  will-change:opacity,transform,filter;
+}
+.glare-overlay.in{ opacity:1; transform:translateY(0); filter:blur(0); }
+
+/* top glare (u góry karty) */
+.glare--top{
+  top:-8%;
+  height:40%;
+  background:radial-gradient(80% 60% at 50% 0%,
+    rgba(255,255,255,.20),
+    rgba(255,255,255,.10) 35%,
+    transparent 70%);
+  mix-blend-mode: screen;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
+/* bottom glare (na dole karty) */
+.glare--bottom{
+  bottom:-10%;
+  height:45%;
+  background:radial-gradient(80% 60% at 50% 100%,
+    rgba(255,255,255,.20),
+    rgba(255,255,255,.10) 40%,
+    transparent 75%);
+  mix-blend-mode: screen;
 }
 
-/* Dostępność */
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    filter: none;
-    transition: none;
-  }
+/* === 4) WZMOCNIONY GLARE W HERO 1 === */
+.hero-glare{ position:relative; }
+.hero-glare::before{
+  content:"";
+  position:absolute; left:0; right:0; top:-10%; height:55%;
+  background:radial-gradient(60% 55% at 50% 0%,
+    rgba(255,255,255,.25),
+    rgba(255,255,255,.12) 40%,
+    transparent 75%);
+  pointer-events:none; mix-blend-mode: screen; filter:blur(8px);
+}
+
+/* A11y: redukcja ruchu */
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; filter:none; transition:none; }
+  .fiu{ opacity:1; transform:none; transition:none; }
+  .glare-overlay{ opacity:1; transform:none; filter:none; transition:none; }
 }
 
 /*# sourceMappingURL=style.css.map */
