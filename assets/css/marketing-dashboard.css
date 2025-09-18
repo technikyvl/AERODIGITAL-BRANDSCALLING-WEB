@@ -19,7 +19,23 @@
   z-index: 10;
 }
 
-/* White stretched glow behind dashboard */
+/* Dashboard fade-in-up animation */
+@keyframes dashboardFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) perspective(1500px) rotateX(3deg) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) perspective(1500px) rotateX(3deg) translateY(0);
+  }
+}
+
+.marketing-dashboard-container.animate-in {
+  animation: dashboardFadeInUp 1500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* White stretched glow behind dashboard - More intense white */
 .marketing-dashboard-container::before {
   content: '';
   position: absolute;
@@ -30,15 +46,17 @@
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.15) 20%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.3) 20%, /* More intense white */
+    rgba(255, 255, 255, 0.6) 50%, /* Much more intense white */
+    rgba(255, 255, 255, 0.3) 80%, /* More intense white */
     transparent 100%
   );
   border-radius: 50%;
   filter: blur(60px);
   z-index: -1;
   pointer-events: none;
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(20px); /* Start with slight offset */
 }
 
 /* Glare fade-in-up animation - starts after dashboard animation completes */
@@ -57,6 +75,21 @@
   animation: glareFadeInUp 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .marketing-dashboard-container.animate-in {
+    animation: none;
+    opacity: 1;
+    transform: translateX(-50%) perspective(1500px) rotateX(3deg);
+  }
+  
+  .marketing-dashboard-container.glare-animate::before {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Dashboard fade-in-up animation - Slower version */
 @keyframes dashboardFadeInUp {
   from {
@@ -70,7 +103,7 @@
 }
 
 .marketing-dashboard-container.animate-in {
-  animation: dashboardFadeInUp 2250ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: dashboardFadeInUp 1500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* Respect prefers-reduced-motion */
