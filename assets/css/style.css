@@ -5577,32 +5577,32 @@ Pricing controller
   z-index: 1;
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(1) {
-  top: 90px;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(2) {
-  left: 0;
-  top: 34%;
-  transform: translateY(-34%);
+  top: 25%;
+  right: 5%;
+  transform: translateY(-25%);
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(3) {
-  right: 0;
-  top: 34%;
-  transform: translateY(-34%);
+  top: 25%;
+  left: 5%;
+  transform: translateY(-25%);
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(4) {
-  top: 72%;
-  left: 0;
-  transform: translateY(-72%);
+  bottom: 25%;
+  left: 5%;
+  transform: translateY(25%);
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(5) {
-  top: 72%;
-  right: 0;
-  transform: translateY(-72%);
+  bottom: 25%;
+  right: 5%;
+  transform: translateY(25%);
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(6) {
-  bottom: 97px;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
 }
