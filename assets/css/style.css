@@ -295,7 +295,7 @@ table th {
 }
 table td,
 table th {
-  border-top: 1px solid var(--border-color);
+  border-top: none;
   padding: 11px 10px;
 }
 
@@ -313,7 +313,7 @@ strong {
 
 pre {
   color: var(--body-color);
-  border: 1px solid var(--border-color);
+  border: none;
   font-size: 18px;
   padding: 25px;
   border-radius: 5px;
@@ -1920,7 +1920,7 @@ textarea {
   resize: none;
   outline: none;
   padding: 8px 20px;
-  border: 1px solid var(--border-color);
+  border: none;
 }
 .cs_form_field:focus {
   border-color: var(--accent-color);
@@ -2012,7 +2012,7 @@ hr {
   margin: 0;
   padding: 0;
   border: none;
-  border-top: 1px solid var(--border-color);
+  border-top: none;
   opacity: 0.5;
 }
 
@@ -2068,7 +2068,7 @@ hr {
   background-color: var(--accent-color);
 }
 .cs_btn.cs_style_1.cs_outline {
-  border: 1px solid var(--heading-color);
+  border: none;
 }
 .cs_btn.cs_style_1::before {
   content: "";
@@ -2099,7 +2099,7 @@ hr {
   align-items: center;
   gap: 10px;
   padding: 5px 10px 6px;
-  border: 1px solid var(--white-color);
+  border: none;
 }
 .cs_btn.cs_style_2 p {
   line-height: 1em;
@@ -2132,7 +2132,7 @@ hr {
   width: 35px;
   height: 35px;
   padding-left: 2px;
-  border: 1px solid currentColor;
+  border: none;
   position: relative;
   z-index: 1;
 }
@@ -2243,7 +2243,7 @@ hr {
 }
 .cs_section_heading.cs_style_1 .cs_section_subtitle.cs_border {
   padding: 5px 20px;
-  border: 1px solid currentColor;
+  border: none;
 }
 .cs_section_heading.cs_style_1 .cs_section_subtitle .cs_pill {
   display: inline-block;
@@ -2440,7 +2440,7 @@ hr {
   margin-top: -6px;
 }
 .cs_accordian.cs_type_1 {
-  border: 1px solid #252D32;
+  border: none;
 }
 .cs_accordian.cs_type_1 .cs_accordian_head {
   padding: 28px 70px 24px 25px;
@@ -3540,7 +3540,7 @@ hr {
 }
 .cs_footer.cs_style_1.cs_type_1 .cs_footer_bottom {
   padding: 45px 0;
-  border-top: 1px dashed var(--border-color);
+  border-top: none;
 }
 .cs_footer.cs_style_1.cs_type_2 hr {
   border-color: #323232;
@@ -3594,7 +3594,7 @@ hr {
 }
 .cs_footer.cs_style_1.cs_type_3 .cs_footer_bottom {
   padding: 30px 0;
-  border-top: 1px solid var(--border-color);
+  border-top: none;
 }
 @media (max-width: 1399px) {
   .cs_footer.cs_style_1 .cs_help_widget {
@@ -3642,7 +3642,7 @@ hr {
 }
 .cs_sidebar.cs_style_1 .cs_sidebar_widget {
   padding-bottom: 37px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: none;
   margin-bottom: 32px;
 }
 .cs_sidebar.cs_style_1 .cs_sidebar_widget:first-child {
@@ -3693,7 +3693,7 @@ hr {
 .cs_tags .cs_tag_link {
   display: inline-block;
   padding: 8px 23px;
-  border: 1px solid var(--body-color);
+  border: none;
 }
 .cs_tags .cs_tag_link:hover {
   background-color: var(--purple-color);
@@ -3892,7 +3892,7 @@ hr {
   top: -80px;
   left: -80px;
   z-index: 2;
-  border: 1px solid #edf2f6;
+  border: none;
   box-shadow: 0px 3px 13px 0px rgba(238, 238, 238, 0.5);
   animation: slide-right 15s linear infinite;
   animation-delay: 7.5s;
@@ -3901,7 +3901,7 @@ hr {
   bottom: -80px;
   right: -80px;
   z-index: 2;
-  border: 1px solid #f8f9fa;
+  border: none;
   box-shadow: 0px 3px 13px 0px rgba(238, 238, 238, 0.5);
   animation: slide-right 15s linear infinite;
 }
@@ -3961,7 +3961,7 @@ hr {
   display: inline-flex;
   padding: 2px 15px;
   border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   background: rgba(255, 255, 255, 0.1);
 }
 .cs_hero.cs_style_2 .cs_btns_group {
@@ -4079,7 +4079,7 @@ hr {
   display: inline-flex;
   padding: 2px 15px;
   border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   background: rgba(255, 255, 255, 0.1);
 }
 .cs_hero.cs_style_3 .cs_btns_group {
@@ -4505,7 +4505,7 @@ hr {
 .cs_card.cs_style_2 {
   height: 100%;
   padding: 41px 41px 36px;
-  border: 1px solid #252D32;
+  border: none;
   background-color: #121B21;
   display: flex;
   flex-direction: column;
@@ -4676,7 +4676,7 @@ hr {
   background-color: var(--purple-color);
 }
 .cs_iconbox.cs_style_2.cs_type_1 {
-  border: 1px solid #252D32;
+  border: none;
 }
 .cs_iconbox.cs_style_2.cs_type_1 .cs_iconbox_icon {
   width: 70px;
@@ -4766,7 +4766,7 @@ hr {
   height: 141px;
   padding: 20px;
   background-color: #121B21;
-  border: 1px solid #252D32;
+  border: none;
 }
 
 .cs_iconbox.cs_style_6 {
@@ -4889,7 +4889,7 @@ hr {
   padding: 12px 25px;
   text-align: center;
   line-height: 1.56em;
-  border: 1px solid var(--heading-color);
+  border: none;
   border-radius: 50px;
   margin-top: auto;
   transition: all 0.3s ease;
@@ -4903,12 +4903,12 @@ hr {
   transform: rotate(45deg);
 }
 .cs_pricing_table.cs_style_1.cs_type_1 {
-  border: 1px solid var(--border-color);
+  border: none;
 }
 .cs_pricing_table.cs_style_1.cs_type_2 {
   box-shadow: none;
   background-color: #121b21;
-  border: 1px solid #252d32;
+  border: none;
 }
 .cs_pricing_table.cs_style_1.cs_type_2 .cs_pricing_btn {
   border-color: var(--white-color);
@@ -5423,7 +5423,7 @@ Pricing controller
   padding: 18px 23px;
   outline: 0;
   color: var(--white-color);
-  border: 1px solid var(--white-color);
+  border: none;
 }
 .cs_newsletter_form .cs_newsletter_input::placeholder {
   color: var(--white-color);
@@ -5482,7 +5482,7 @@ Pricing controller
 }
 .cs_features_wrapper.cs_style_1 .cs_iconbox.cs_style_1 {
   padding: 0 70px;
-  border-right: 1px solid rgba(108, 108, 108, 0.3);
+  border-right: none;
 }
 .cs_features_wrapper.cs_style_1 .cs_iconbox.cs_style_1 .cs_iconbox_icon {
   width: 70px;
@@ -5741,7 +5741,7 @@ Pricing controller
   padding: 10px;
   font-size: 10px;
   color: var(--heading-color);
-  border: 1px solid var(--heading-color);
+  border: none;
 }
 .cs_social_login .cs_social_links a:hover {
   background-color: #0A66C2;
@@ -5899,7 +5899,7 @@ Pricing controller
 }
 .cs_post.cs_style_2 .cs_post_content {
   padding: 36px 30px 20px;
-  border: 1px solid var(--border-color);
+  border: none;
   border-radius: 0 0 15px 15px;
   border-top: 0;
   margin-top: -16px;
@@ -6032,8 +6032,8 @@ Pricing controller
   justify-content: space-between;
   gap: 15px 30px;
   flex-wrap: wrap;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  border-top: none;
+  border-bottom: none;
 }
 .cs_post_details .cs_post_shares h3 {
   font-size: 18px;
@@ -6125,7 +6125,7 @@ Pricing controller
   max-width: 1100px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
   border-radius: 50px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
