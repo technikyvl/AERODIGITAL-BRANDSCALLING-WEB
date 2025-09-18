@@ -39,9 +39,27 @@
   filter: blur(60px);
   z-index: -1;
   pointer-events: none;
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(20px); /* Start with slight offset */
 }
 
-/* Dashboard fade-in-up animation */
+/* Glare fade-in-up animation - starts after dashboard animation completes */
+@keyframes glareFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.marketing-dashboard-container.glare-animate::before {
+  animation: glareFadeInUp 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Dashboard fade-in-up animation - Slower version */
 @keyframes dashboardFadeInUp {
   from {
     opacity: 0;
@@ -54,7 +72,7 @@
 }
 
 .marketing-dashboard-container.animate-in {
-  animation: dashboardFadeInUp 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: dashboardFadeInUp 1500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* Respect prefers-reduced-motion */
@@ -63,6 +81,12 @@
     animation: none;
     opacity: 1;
     transform: translateX(-50%) perspective(1500px) rotateX(3deg);
+  }
+  
+  .marketing-dashboard-container.glare-animate::before {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

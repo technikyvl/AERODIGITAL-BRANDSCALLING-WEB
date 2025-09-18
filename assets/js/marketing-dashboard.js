@@ -25,6 +25,7 @@ class MarketingDashboard {
     if (!('IntersectionObserver' in window)) {
       // Fallback for older browsers
       this.container.classList.add('animate-in');
+      this.startGlareAnimation();
       return;
     }
     
@@ -34,7 +35,8 @@ class MarketingDashboard {
           // Add animation class with delay
           setTimeout(() => {
             this.container.classList.add('animate-in');
-          }, 200); // 200ms delay after entering viewport
+            this.startGlareAnimation();
+          }, 250); // 250ms delay after entering viewport
           observer.unobserve(entry.target);
         }
       });
@@ -44,6 +46,13 @@ class MarketingDashboard {
     });
     
     observer.observe(this.container);
+  }
+  
+  startGlareAnimation() {
+    // Start glare animation after dashboard animation completes
+    setTimeout(() => {
+      this.container.classList.add('glare-animate');
+    }, 1500); // Wait for dashboard animation to complete (1500ms)
   }
   
   formatNumber(value) {

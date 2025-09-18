@@ -6942,4 +6942,56 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
   transition: none !important;
 }
 
+/* Global Shadow-Reveal Animation for Headings */
+/* Base state for all headings - hidden with shadow effect */
+/* Exclude hero text as it has its own animations */
+h2, h3, h4, h5, h6,
+.hero-title, .section-title, .card-title,
+.cs_section_title, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_25, .cs_fs_21, .cs_fs_18,
+.title, .hcard__body .title {
+  opacity: 0;
+  filter: blur(1px) brightness(0.8);
+  transform: translateY(8px);
+  transition: none; /* Disable transitions initially */
+}
+
+/* Visible state - triggered by .visible class */
+/* Exclude h1 as it has its own animations */
+h2.visible, h3.visible, h4.visible, h5.visible, h6.visible,
+.hero-title.visible, .section-title.visible, .card-title.visible,
+.cs_section_title.visible, .cs_fs_50.visible, .cs_fs_40.visible, .cs_fs_30.visible, .cs_fs_25.visible, .cs_fs_21.visible, .cs_fs_18.visible,
+.title.visible, .hcard__body .title.visible {
+  opacity: 1;
+  filter: blur(0) brightness(1);
+  transform: translateY(0);
+  animation: shadowReveal 1000ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Shadow reveal animation keyframes */
+@keyframes shadowReveal {
+  from {
+    opacity: 0;
+    filter: blur(1px) brightness(0.8);
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: translateY(0);
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  h2, h3, h4, h5, h6,
+  .hero-title, .section-title, .card-title,
+  .cs_section_title, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_25, .cs_fs_21, .cs_fs_18,
+  .title, .hcard__body .title {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    animation: none;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
