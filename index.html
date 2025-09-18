@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="assets/css/meteors.css">
     <link rel="stylesheet" href="assets/css/new-header.css">
     <link rel="stylesheet" href="assets/css/marketing-dashboard.css">
-    <link rel="stylesheet" href="assets/css/world-map.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body class="cs_live_chat">
@@ -213,16 +212,17 @@
               <h2 class="cs_section_title cs_fs_50 cs_mb_16 wow fadeInDown">Zaufali nam klienci z całego świata</h2>
               <p class="cs_section_text mb-0 max-w-2xl mx-auto">Współpracujemy z firmami z różnych rynków — między innymi z Włoch, Francji, Belgii i Słowacji. Łączymy zespoły, procesy i dane bez względu na lokalizację, dostarczając spójne wyniki.</p>
             </div>
-            <div class="wow fadeInUp">
-              <section id="trusted-worldwide" class="section-map">
-                <div class="map-shell">
-                  <!-- Dotted world background -->
-                  <img id="dotted-world" alt="world map" draggable="false" />
-
-                  <!-- Animated overlay -->
-                  <svg id="world-overlay" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+            <div class="cs_world_map_container wow fadeInUp">
+              <div class="cs_world_map">
+                <!-- Simple world map placeholder -->
+                <div class="text-center d-flex align-items-center justify-content-center h-100">
+                  <div>
+                    <i class="fas fa-globe-americas cs_fs_60 cs_primary_color cs_mb_20"></i>
+                    <h4 class="cs_fs_24 cs_mb_10">Globalna obecność</h4>
+                    <p class="cs_fs_16 cs_mb_0">Obsługujemy klientów na całym świecie</p>
+                  </div>
                 </div>
-              </section>
+              </div>
             </div>
           </div>
         </div>
@@ -1183,141 +1183,6 @@
         
         window.addEventListener('scroll', handleScroll);
       });
-    </script>
-    
-    <!-- World Map JavaScript -->
-    <script type="module">
-      const LINE_COLOR = "#0ea5e9";
-      const DOT_COLOR_DARK = "#FFFFFF40";
-      const DOT_COLOR_LIGHT = "#9CA3AF66";
-      const BG_COLOR = "#000000";
-      const RADIUS = 0.22;
-      const ANIM_DUR = 2;
-      const STAGGER = 0.3;
-      const LOOP_PAUSE = 2;
-
-      const routes = [
-        { start: { lat: 40.7128, lng: -74.0060, label: "Stany Zjednoczone" }, end: { lat: 48.8566, lng: 2.3522,  label: "Francja" } },
-        { start: { lat: 48.8566, lng: 2.3522,  label: "Francja" },            end: { lat: 50.8503, lng: 4.3517,  label: "Belgia" } },
-        { start: { lat: 50.8503, lng: 4.3517,  label: "Belgia" },             end: { lat: 41.9028, lng: 12.4964, label: "Włochy" } },
-        { start: { lat: 41.9028, lng: 12.4964, label: "Włochy" },             end: { lat: 52.2297, lng: 21.0122, label: "Polska" } },
-      ];
-
-      const project = (lat, lng) => ({ x: (lng + 180) * (800 / 360), y: (90 - lat) * (400 / 180) });
-      const arcPath = (a, b) => {
-        const midX = (a.x + b.x) / 2;
-        const midY = Math.min(a.y, b.y) - 50;
-        return `M ${a.x} ${a.y} Q ${midX} ${midY} ${b.x} ${b.y}`;
-      };
-
-      async function loadDottedBackground() {
-        const img = document.getElementById("dotted-world");
-        try {
-          const { default: DottedMap } = await import("https://cdn.jsdelivr.net/npm/dotted-map@1.2.0/dist/dotted-map.esm.js");
-          const map = new DottedMap({ height: 100, grid: "diagonal" });
-          const svg = map.getSVG({
-            radius: RADIUS,
-            color: DOT_COLOR_DARK,
-            shape: "circle",
-            backgroundColor: BG_COLOR,
-          });
-          img.src = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
-        } catch (e) {
-          // Enhanced fallback with better continent representation
-          const fallbackSvg = createFallbackMap();
-          img.src = `data:image/svg+xml;utf8,${encodeURIComponent(fallbackSvg)}`;
-        }
-      }
-
-      function createFallbackMap() {
-        return `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400' fill='none'>
-          <rect width='800' height='400' fill='${BG_COLOR}'/>
-          <defs>
-            <pattern id='d' width='4' height='4' patternUnits='userSpaceOnUse'>
-              <circle cx='2' cy='2' r='0.8' fill='#ffffff33'/>
-            </pattern>
-            <pattern id='continents' width='6' height='6' patternUnits='userSpaceOnUse'>
-              <circle cx='3' cy='3' r='1.2' fill='#ffffff66'/>
-            </pattern>
-          </defs>
-          <!-- North America -->
-          <path d='M 80 120 Q 120 100 160 110 Q 200 120 240 130 Q 280 140 320 150 Q 360 160 400 170 Q 440 180 480 190 Q 520 200 560 210 Q 600 220 640 230 Q 680 240 720 250 Q 760 260 800 270 L 800 200 L 780 180 Q 760 160 740 150 Q 720 140 700 130 Q 680 120 660 110 Q 640 100 620 90 Q 600 80 580 70 Q 560 60 540 50 Q 520 40 500 30 Q 480 20 460 10 Q 440 0 420 0 L 400 0 Q 380 0 360 10 Q 340 20 320 30 Q 300 40 280 50 Q 260 60 240 70 Q 220 80 200 90 Q 180 100 160 110 Q 140 120 120 130 Q 100 140 80 150 Z' fill='url(#continents)'/>
-          <!-- South America -->
-          <path d='M 200 200 Q 220 200 240 210 Q 260 220 280 230 Q 300 240 320 250 Q 340 260 360 270 Q 380 280 400 290 Q 420 300 440 310 Q 460 320 480 330 Q 500 340 520 350 Q 540 360 560 370 Q 580 380 600 390 Q 620 400 640 410 Q 660 420 680 430 Q 700 440 720 450 Q 740 460 760 470 Q 780 480 800 490 L 800 400 L 780 380 Q 760 360 740 350 Q 720 340 700 330 Q 680 320 660 310 Q 640 300 620 290 Q 600 280 580 270 Q 560 260 540 250 Q 520 240 500 230 Q 480 220 460 210 Q 440 200 420 190 Q 400 180 380 170 Q 360 160 340 150 Q 320 140 300 130 Q 280 120 260 110 Q 240 100 220 90 Q 200 80 180 70 Q 160 60 140 50 Q 120 40 100 30 Q 80 20 60 10 Q 40 0 20 0 L 0 0 L 0 100 Q 20 120 40 140 Q 60 160 80 180 Q 100 200 120 220 Q 140 240 160 260 Q 180 280 200 300 Z' fill='url(#continents)'/>
-          <!-- Europe -->
-          <path d='M 350 100 Q 370 90 390 100 Q 410 110 430 120 Q 450 130 470 140 Q 490 150 510 160 Q 530 170 550 180 Q 570 190 590 200 Q 610 210 630 220 Q 650 230 670 240 Q 690 250 710 260 Q 730 270 750 280 Q 770 290 790 300 L 800 300 L 800 200 L 780 180 Q 760 160 740 150 Q 720 140 700 130 Q 680 120 660 110 Q 640 100 620 90 Q 600 80 580 70 Q 560 60 540 50 Q 520 40 500 30 Q 480 20 460 10 Q 440 0 420 0 L 400 0 Q 380 0 360 10 Q 340 20 320 30 Q 300 40 280 50 Q 260 60 240 70 Q 220 80 200 90 Q 180 100 160 110 Q 140 120 120 130 Q 100 140 80 150 Q 60 160 40 170 Q 20 180 0 190 L 0 200 Q 20 200 40 190 Q 60 180 80 170 Q 100 160 120 150 Q 140 140 160 130 Q 180 120 200 110 Q 220 100 240 90 Q 260 80 280 70 Q 300 60 320 50 Q 340 40 360 30 Q 380 20 400 10 Q 420 0 440 0 Q 460 0 480 10 Q 500 20 520 30 Q 540 40 560 50 Q 580 60 600 70 Q 620 80 640 90 Q 660 100 680 110 Q 700 120 720 130 Q 740 140 760 150 Q 780 160 800 170 L 800 180 Q 780 180 760 170 Q 740 160 720 150 Q 700 140 680 130 Q 660 120 640 110 Q 620 100 600 90 Q 580 80 560 70 Q 540 60 520 50 Q 500 40 480 30 Q 460 20 440 10 Q 420 0 400 0 Q 380 0 360 10 Q 340 20 320 30 Q 300 40 280 50 Q 260 60 240 70 Q 220 80 200 90 Q 180 100 160 110 Q 140 120 120 130 Q 100 140 80 150 Q 60 160 40 170 Q 20 180 0 190 L 0 200 Q 20 200 40 190 Q 60 180 80 170 Q 100 160 120 150 Q 140 140 160 130 Q 180 120 200 110 Q 220 100 240 90 Q 260 80 280 70 Q 300 60 320 50 Q 340 40 360 30 Q 380 20 400 10 Q 420 0 440 0 Q 460 0 480 10 Q 500 20 520 30 Q 540 40 560 50 Q 580 60 600 70 Q 620 80 640 90 Q 660 100 680 110 Q 700 120 720 130 Q 740 140 760 150 Q 780 160 800 170 Z' fill='url(#continents)'/>
-          <!-- Africa -->
-          <path d='M 380 200 Q 400 190 420 200 Q 440 210 460 220 Q 480 230 500 240 Q 520 250 540 260 Q 560 270 580 280 Q 600 290 620 300 Q 640 310 660 320 Q 680 330 700 340 Q 720 350 740 360 Q 760 370 780 380 Q 800 390 820 400 L 800 400 L 780 380 Q 760 360 740 350 Q 720 340 700 330 Q 680 320 660 310 Q 640 300 620 290 Q 600 280 580 270 Q 560 260 540 250 Q 520 240 500 230 Q 480 220 460 210 Q 440 200 420 190 Q 400 180 380 170 Q 360 160 340 150 Q 320 140 300 130 Q 280 120 260 110 Q 240 100 220 90 Q 200 80 180 70 Q 160 60 140 50 Q 120 40 100 30 Q 80 20 60 10 Q 40 0 20 0 L 0 0 L 0 100 Q 20 120 40 140 Q 60 160 80 180 Q 100 200 120 220 Q 140 240 160 260 Q 180 280 200 300 Z' fill='url(#continents)'/>
-          <!-- Asia -->
-          <path d='M 400 100 Q 420 90 440 100 Q 460 110 480 120 Q 500 130 520 140 Q 540 150 560 160 Q 580 170 600 180 Q 620 190 640 200 Q 660 210 680 220 Q 700 230 720 240 Q 740 250 760 260 Q 780 270 800 280 L 800 200 L 780 180 Q 760 160 740 150 Q 720 140 700 130 Q 680 120 660 110 Q 640 100 620 90 Q 600 80 580 70 Q 560 60 540 50 Q 520 40 500 30 Q 480 20 460 10 Q 440 0 420 0 L 400 0 Q 380 0 360 10 Q 340 20 320 30 Q 300 40 280 50 Q 260 60 240 70 Q 220 80 200 90 Q 180 100 160 110 Q 140 120 120 130 Q 100 140 80 150 Q 60 160 40 170 Q 20 180 0 190 L 0 200 Q 20 200 40 190 Q 60 180 80 170 Q 100 160 120 150 Q 140 140 160 130 Q 180 120 200 110 Q 220 100 240 90 Q 260 80 280 70 Q 300 60 320 50 Q 340 40 360 30 Q 380 20 400 10 Q 420 0 440 0 Q 460 0 480 10 Q 500 20 520 30 Q 540 40 560 50 Q 580 60 600 70 Q 620 80 640 90 Q 660 100 680 110 Q 700 120 720 130 Q 740 140 760 150 Q 780 160 800 170 Z' fill='url(#continents)'/>
-          <!-- Australia -->
-          <path d='M 600 300 Q 620 290 640 300 Q 660 310 680 320 Q 700 330 720 340 Q 740 350 760 360 Q 780 370 800 380 L 800 300 L 780 280 Q 760 260 740 250 Q 720 240 700 230 Q 680 220 660 210 Q 640 200 620 190 Q 600 180 580 170 Q 560 160 540 150 Q 520 140 500 130 Q 480 120 460 110 Q 440 100 420 90 Q 400 80 380 70 Q 360 60 340 50 Q 320 40 300 30 Q 280 20 260 10 Q 240 0 220 0 L 200 0 Q 180 0 160 10 Q 140 20 120 30 Q 100 40 80 50 Q 60 60 40 70 Q 20 80 0 90 L 0 100 Q 20 100 40 90 Q 60 80 80 70 Q 100 60 120 50 Q 140 40 160 30 Q 180 20 200 10 Q 220 0 240 0 Q 260 0 280 10 Q 300 20 320 30 Q 340 40 360 50 Q 380 60 400 70 Q 420 80 440 90 Q 460 100 480 110 Q 500 120 520 130 Q 540 140 560 150 Q 580 160 600 170 Q 620 180 640 190 Q 660 200 680 210 Q 700 220 720 230 Q 740 240 760 250 Q 780 260 800 270 Z' fill='url(#continents)'/>
-        </svg>`;
-      }
-
-      function buildOverlay() {
-        const svg = document.getElementById("world-overlay");
-        svg.innerHTML = `
-          <defs>
-            <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="white" stop-opacity="0"/>
-              <stop offset="5%" stop-color="${LINE_COLOR}" stop-opacity="1"/>
-              <stop offset="95%" stop-color="${LINE_COLOR}" stop-opacity="1"/>
-              <stop offset="100%" stop-color="white" stop-opacity="0"/>
-            </linearGradient>
-            <filter id="glow">
-              <feMorphology operator="dilate" radius="0.5"/>
-              <feGaussianBlur stdDeviation="1" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-        `;
-        routes.forEach((r, i) => {
-          const a = project(r.start.lat, r.start.lng);
-          const b = project(r.end.lat, r.end.lng);
-          const d = arcPath(a, b);
-
-          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-          path.setAttribute("id", `path-${i}`);
-          path.setAttribute("d", d);
-          path.setAttribute("fill", "none");
-          path.setAttribute("stroke", "url(#path-gradient)");
-          path.setAttribute("stroke-width", "1");
-          path.setAttribute("pathLength", "1");
-          path.setAttribute("stroke-dasharray", "1");
-          path.setAttribute("stroke-dashoffset", "1");
-          path.innerHTML = `
-            <animate attributeName="stroke-dashoffset"
-                     values="1;0;0;1"
-                     dur="${routes.length*STAGGER+ANIM_DUR+LOOP_PAUSE}s"
-                     repeatCount="indefinite"/>
-          `;
-          svg.appendChild(path);
-
-          const mover = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-          mover.setAttribute("r", "4");
-          mover.setAttribute("fill", LINE_COLOR);
-          mover.innerHTML = `<animateMotion dur="${routes.length*STAGGER+ANIM_DUR+LOOP_PAUSE}s" repeatCount="indefinite"><mpath href="#path-${i}"/></animateMotion>`;
-          svg.appendChild(mover);
-
-          const start = document.createElementNS("http://www.w3.org/2000/svg", "g");
-          start.innerHTML = `
-            <circle cx="${a.x}" cy="${a.y}" r="3" fill="${LINE_COLOR}" class="point-glow"/>
-            <text x="${a.x}" y="${a.y-10}" class="map-label">${r.start.label}</text>
-          `;
-          svg.appendChild(start);
-
-          const end = document.createElementNS("http://www.w3.org/2000/svg", "g");
-          end.innerHTML = `
-            <circle cx="${b.x}" cy="${b.y}" r="3" fill="${LINE_COLOR}" class="point-glow"/>
-            <text x="${b.x}" y="${b.y-10}" class="map-label">${r.end.label}</text>
-          `;
-          svg.appendChild(end);
-        });
-      }
-
-      await loadDottedBackground();
-      buildOverlay();
     </script>
   </body>
 </html>
