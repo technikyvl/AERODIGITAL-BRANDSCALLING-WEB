@@ -6788,6 +6788,22 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
 
 .hcard{position:relative;isolation:isolate;color:var(--text);border-radius:18px;overflow:hidden;transform:translateZ(0);transition:transform .5s ease}
 .hcard:hover{transform:rotate(-1deg) scale(1.05)}
+
+/* Ensure reveal animation doesn't interfere with hover */
+.hcard.reveal {
+  transition: 
+    opacity .8s cubic-bezier(.22,1,.36,1),
+    transform .8s cubic-bezier(.22,1,.36,1),
+    filter .8s cubic-bezier(.22,1,.36,1);
+}
+
+.hcard.reveal.visible {
+  transition: transform .5s ease;
+}
+
+.hcard.reveal.visible:hover {
+  transform: rotate(-1deg) scale(1.05);
+}
 .hcard::before{
   content:"";position:absolute;inset:0;border-radius:18px;
   background:#000000;
@@ -7315,6 +7331,11 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0) drop-shadow(0 0 0 rgba(0,0,0,0));
+}
+
+/* Ensure hover animations work on revealed cards */
+.reveal.visible.hcard:hover {
+  transform: rotate(-1deg) scale(1.05) !important;
 }
 
 /* Staggered animations for different elements */
