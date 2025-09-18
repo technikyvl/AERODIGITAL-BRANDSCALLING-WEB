@@ -144,7 +144,7 @@
     rgba(15, 23, 42, 0.8) 0%, 
     rgba(30, 41, 59, 0.3) 100%
   );
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 1rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0 1rem;
