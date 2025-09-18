@@ -6817,10 +6817,18 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   z-index:1;
   width:120%;
   left:-10%;
+  /* Ensure complete cleanup */
+  animation-fill-mode: forwards;
 }
 .hcard:hover::after{
   opacity:1;
   transform:translateX(100%) skewX(-15deg);
+}
+/* Force complete reset when not hovering */
+.hcard:not(:hover)::after{
+  opacity:0;
+  transform:translateX(-100%) skewX(-15deg);
+  transition:opacity 0.2s ease, transform 0s ease;
 }
 
 /* Ensure all cards have identical hover effects */
