@@ -6807,21 +6807,31 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
     transparent 100%);
   opacity:0;
   transform:translateX(-100%) skewX(-15deg);
-  transition:opacity 0.4s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events:none;
   z-index:1;
   width:120%;
   left:-10%;
+  animation:none;
 }
 .hcard:hover::after{
-  opacity:1;
-  transform:translateX(100%) skewX(-15deg);
-  transition:opacity 0.4s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  animation:polishSweep 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
-.hcard:not(:hover)::after{
-  opacity:0;
-  transform:translateX(-100%) skewX(-15deg);
-  transition:opacity 0.2s ease, transform 0s ease;
+@keyframes polishSweep {
+  0% {
+    opacity:0;
+    transform:translateX(-100%) skewX(-15deg);
+  }
+  10% {
+    opacity:1;
+  }
+  90% {
+    opacity:1;
+    transform:translateX(100%) skewX(-15deg);
+  }
+  100% {
+    opacity:0;
+    transform:translateX(100%) skewX(-15deg);
+  }
 }
 
 .hcard__bg{position:absolute;inset:0;z-index:0;overflow:hidden}
