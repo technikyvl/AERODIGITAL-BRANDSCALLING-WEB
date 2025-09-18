@@ -115,7 +115,7 @@
     <!-- End Hero Section with Meteors -->
     <!-- Start Brands Section -->
     <section class="brands-section-wrapper">
-      <div class="cs_height_120 cs_height_lg_80"></div>
+      <div class="cs_height_80 cs_height_lg_60"></div>
       <div class="container">
         <div class="brands-content-wrapper">
           <div class="cs_center cs_heading_color cs_mb_100 wow fadeInDown brands-section-title">Zaufały nam dziesiątki firm i przedsiębiorców</div>
@@ -165,7 +165,7 @@
           </div>
         </div>
       </div>
-      <div class="cs_height_120 cs_height_lg_80"></div>
+      <div class="cs_height_80 cs_height_lg_60"></div>
     </section>
     <!-- End Brands Section -->
     <!-- Start AI Assistant Card Section -->
@@ -1191,6 +1191,27 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+    </script>
+    
+    <!-- Header Glass Effect Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('.new-header');
+        
+        function updateHeader() {
+          if (window.scrollY > 10) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        }
+        
+        // Initial check
+        updateHeader();
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', updateHeader);
+      });
     </script>
   </body>
 </html>

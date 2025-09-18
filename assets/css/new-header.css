@@ -30,22 +30,37 @@
   }
 }
 
-/* Scrolled state */
+/* Scrolled state - Glass effect */
 .new-header.scrolled .new-nav-container {
   max-width: 1200px;
   padding: 0 32px;
   border-radius: 16px;
-  border: none;
-  background: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(180deg, 
+    rgba(0, 0, 0, 0.8) 0%, 
+    rgba(20, 20, 20, 0.6) 50%, 
+    rgba(0, 0, 0, 0.8) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.25s ease;
 }
 
-/* Dark theme scrolled state */
-@media (prefers-color-scheme: dark) {
+/* Light theme scrolled state */
+@media (prefers-color-scheme: light) {
   .new-header.scrolled .new-nav-container {
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
+    background: linear-gradient(180deg, 
+      rgba(255, 255, 255, 0.8) 0%, 
+      rgba(240, 240, 240, 0.6) 50%, 
+      rgba(255, 255, 255, 0.8) 100%
+    );
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
 }
 
