@@ -50,7 +50,7 @@ class WorldMap {
     // Add background map image
     const mapImage = document.createElement('img');
     mapImage.src = `data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`;
-    mapImage.className = 'h-full w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] pointer-events-none select-none object-cover';
+    mapImage.className = 'h-full w-full pointer-events-none select-none object-cover';
     mapImage.alt = 'world map';
     mapImage.height = 495;
     mapImage.width = 1056;
