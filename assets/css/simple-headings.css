@@ -97,7 +97,7 @@ p, span, a, li, td, th, .cs_text, .cs_paragraph, .cs_description, .cs_subtitle, 
 .card, .cs_card, .cs_iconbox, .cs_pricing_table, .cs_testimonial_item, .cs_blog_item {
   background-color: #1a1a1a !important;
   color: #ffffff !important;
-  border: 1px solid #333333 !important;
+  border: none !important;
 }
 
 /* Dark backgrounds - white text */

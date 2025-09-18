@@ -35,7 +35,7 @@
   max-width: 1200px;
   padding: 0 32px;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: none;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -45,7 +45,7 @@
 @media (prefers-color-scheme: dark) {
   .new-header.scrolled .new-nav-container {
     background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: none;
   }
 }
 
@@ -238,7 +238,7 @@
   margin-bottom: 24px;
   padding: 24px;
   border-radius: 24px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: none;
   background: #ffffff;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
@@ -264,7 +264,7 @@
 @media (prefers-color-scheme: dark) {
   .new-nav-right {
     background: #000000;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: none;
   }
 }
 
