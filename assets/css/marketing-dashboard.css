@@ -39,20 +39,20 @@
 .marketing-dashboard-container::before {
   content: '';
   position: absolute;
-  bottom: -150px;
-  left: -100px;
-  right: -100px;
-  height: 300px;
+  bottom: -200px;
+  left: -150px;
+  right: -150px;
+  height: 400px;
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.3) 20%, /* More intense white */
-    rgba(255, 255, 255, 0.6) 50%, /* Much more intense white */
-    rgba(255, 255, 255, 0.3) 80%, /* More intense white */
+    rgba(255, 255, 255, 0.4) 20%, /* More intense white */
+    rgba(255, 255, 255, 0.8) 50%, /* Much more intense white */
+    rgba(255, 255, 255, 0.4) 80%, /* More intense white */
     transparent 100%
   );
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(80px);
   z-index: -1;
   pointer-events: none;
   opacity: 0; /* Start hidden for animation */

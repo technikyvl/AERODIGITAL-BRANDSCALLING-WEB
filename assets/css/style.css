@@ -7033,15 +7033,6 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
 
 /* === 4) WZMOCNIONY GLARE W HERO 1 === */
 .hero-glare{ position:relative; }
-.hero-glare::before{
-  content:"";
-  position:absolute; left:0; right:0; top:-10%; height:55%;
-  background:radial-gradient(60% 55% at 50% 0%,
-    rgba(255,255,255,.25),
-    rgba(255,255,255,.12) 40%,
-    transparent 75%);
-  pointer-events:none; mix-blend-mode: screen; filter:blur(8px);
-}
 
 /* A11y: redukcja ruchu */
 @media (prefers-reduced-motion: reduce){
