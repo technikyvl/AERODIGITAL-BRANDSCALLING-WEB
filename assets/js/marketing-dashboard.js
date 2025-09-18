@@ -49,10 +49,10 @@ class MarketingDashboard {
   }
   
   startGlareAnimation() {
-    // Start glare animation after dashboard animation completes
+    // Start glare animation much earlier for more dramatic effect
     setTimeout(() => {
       this.container.classList.add('glare-animate');
-    }, 2250); // Wait for dashboard animation to complete (2250ms)
+    }, 800); // Much shorter delay - start glare while dashboard is still animating
   }
   
   formatNumber(value) {
