@@ -563,10 +563,7 @@
 
       dashboards.forEach(host => {
         host.classList.add('dashboard-glare-host','fiu'); // stan początkowy
-        // dołóż poświaty top/bottom jeśli brak
-        if (!host.querySelector('.glare--top')) {
-          host.insertAdjacentHTML('beforeend','<div class="glare-overlay glare--top"></div>');
-        }
+        // dołóż tylko bottom glare (bez top glare)
         if (!host.querySelector('.glare--bottom')) {
           host.insertAdjacentHTML('beforeend','<div class="glare-overlay glare--bottom"></div>');
         }
@@ -575,18 +572,16 @@
       const dashIO = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const host = entry.target;
-          const topGlare = host.querySelector('.glare--top');
           const bottomGlare = host.querySelector('.glare--bottom');
 
           if (reduceMotion) {
-            host.classList.add('in'); topGlare?.classList.add('in'); bottomGlare?.classList.add('in');
+            host.classList.add('in'); bottomGlare?.classList.add('in');
             return;
           }
 
           if (entry.isIntersecting) {
             // restart animacji ZA KAŻDYM razem, gdy sekcja wjedzie
             host.classList.remove('in');
-            topGlare?.classList.remove('in');
             bottomGlare?.classList.remove('in');
             void host.offsetWidth; // reflow
             host.classList.add('in');
@@ -594,7 +589,6 @@
             // po zakończeniu przejścia dashboardu uruchom glare (sekwencja)
             const onDone = (e) => {
               if (e.target !== host) return;
-              topGlare?.classList.add('in');
               bottomGlare?.classList.add('in');
               host.removeEventListener('transitionend', onDone);
             };
@@ -602,7 +596,6 @@
           } else {
             // reset po wyjechaniu z viewportu
             host.classList.remove('in');
-            topGlare?.classList.remove('in');
             bottomGlare?.classList.remove('in');
           }
         });
