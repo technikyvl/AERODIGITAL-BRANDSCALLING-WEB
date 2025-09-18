@@ -30,7 +30,21 @@
   }
 }
 
-/* Scrolled state - handled by global polished glass styles */
+/* Scrolled state - Simple dark background */
+.new-header.scrolled .new-nav-container {
+  max-width: 1200px;
+  padding: 0 32px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  margin: 16px auto;
+}
+
+/* Simple hover state */
+.new-header.scrolled .new-nav-container:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.95);
+}
 
 
 /* Navigation Content */
