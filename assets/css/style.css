@@ -6751,7 +6751,7 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   --text:#fff; --muted:#c7c7c7;
 }
 
-.services{padding:120px 0;}
+.services{padding:120px 0 120px 0;margin-top:80px;}
 .services__head{max-width:1200px;margin:0 auto 60px;text-align:center;color:#e8e8e8}
 .services__head h2{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:.4px;margin:0 0 20px}
 .services__head p{font-size:18px;opacity:.8}
