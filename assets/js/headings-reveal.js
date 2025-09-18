@@ -17,12 +17,14 @@ class HeadingsReveal {
   }
   
   setupIntersectionObserver() {
-    // Select all headings that should be animated (now includes h1)
+    // Select all headings that should be animated (ALL headings on the page)
     const headings = document.querySelectorAll(`
       h1, h2, h3, h4, h5, h6,
       .hero-title, .section-title, .card-title,
-      .cs_section_title, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_25, .cs_fs_21, .cs_fs_18,
-      .title, .hcard__body .title
+      .cs_section_title, .cs_fs_70, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_29, .cs_fs_25, .cs_fs_24, .cs_fs_21, .cs_fs_18, .cs_fs_16,
+      .title, .hcard__body .title,
+      .cs_footer_widget_title,
+      .brands-section-title
     `);
     
     if (headings.length === 0) return;
@@ -52,8 +54,10 @@ class HeadingsReveal {
     const headings = document.querySelectorAll(`
       h1, h2, h3, h4, h5, h6,
       .hero-title, .section-title, .card-title,
-      .cs_section_title, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_25, .cs_fs_21, .cs_fs_18,
-      .title, .hcard__body .title
+      .cs_section_title, .cs_fs_70, .cs_fs_50, .cs_fs_40, .cs_fs_30, .cs_fs_29, .cs_fs_25, .cs_fs_24, .cs_fs_21, .cs_fs_18, .cs_fs_16,
+      .title, .hcard__body .title,
+      .cs_footer_widget_title,
+      .brands-section-title
     `);
     
     headings.forEach(heading => {
