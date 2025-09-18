@@ -228,6 +228,14 @@
                     </div>
                   </div>
                 </div>
+                
+                <!-- Fallback simple globe -->
+                <div class="simple-globe" style="display: none;">
+                  <div class="globe-circle">
+                    <div class="globe-grid"></div>
+                    <div class="globe-points"></div>
+                  </div>
+                </div>
 
                 <p class="mt-6 text-center text-sm text-white/70">
                   Obsługujemy klientów na całym świecie
@@ -622,12 +630,23 @@
     <!-- Wireframe Globe Script -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        console.log('Globe script loaded');
+        
         // Create wireframe globe
         function createWireframeGlobe() {
           const wireframeContainer = document.getElementById('globe-wireframe');
           const dotsContainer = document.getElementById('globe-dots');
           
-          if (!wireframeContainer || !dotsContainer) return;
+          console.log('Wireframe container:', wireframeContainer);
+          console.log('Dots container:', dotsContainer);
+          
+          if (!wireframeContainer || !dotsContainer) {
+            console.log('Containers not found, retrying...');
+            setTimeout(createWireframeGlobe, 100);
+            return;
+          }
+
+          console.log('Creating wireframe...');
 
           // Create latitude lines
           for (let i = 0; i < 8; i++) {
@@ -688,10 +707,29 @@
             
             dotsContainer.appendChild(dot);
           });
+          
+          console.log('Wireframe created successfully');
         }
 
         // Initialize globe
         createWireframeGlobe();
+        
+        // Fallback to simple globe if wireframe fails
+        setTimeout(() => {
+          const wireframeGlobe = document.querySelector('.wireframe-globe');
+          const simpleGlobe = document.querySelector('.simple-globe');
+          
+          if (wireframeGlobe && simpleGlobe) {
+            const wireframeContent = wireframeGlobe.querySelector('#globe-wireframe');
+            const dotsContent = wireframeGlobe.querySelector('#globe-dots');
+            
+            if (!wireframeContent || !dotsContent || wireframeContent.children.length === 0) {
+              console.log('Switching to simple globe');
+              wireframeGlobe.style.display = 'none';
+              simpleGlobe.style.display = 'flex';
+            }
+          }
+        }, 1000);
       });
     </script>
 
