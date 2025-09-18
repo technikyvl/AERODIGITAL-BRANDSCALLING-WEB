@@ -5577,9 +5577,11 @@ Pricing controller
   z-index: 1;
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(1) {
-  top: 0;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(2) {
   top: 25%;
@@ -5602,9 +5604,11 @@ Pricing controller
   transform: translateY(25%);
 }
 .cs_payments_info_wrapper .cs_payment_logo:nth-child(6) {
-  bottom: 0;
+  bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
 }
 @media (max-width: 1199px) {
   .cs_payments_info_wrapper br {
