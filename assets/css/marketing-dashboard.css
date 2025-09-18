@@ -4,16 +4,16 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) perspective(1500px) rotateX(3deg);
-  max-width: 68vw;
-  width: 68vw;
-  min-height: 55vh;
+  max-width: 75vw;
+  width: 75vw;
+  min-height: 60vh;
   border-radius: 1rem;
   border: none;
   background: #000000;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.4),
     0 0 60px rgba(255, 255, 255, 0.08);
-  padding: 3rem;
+  padding: 3.3rem;
   animation: none;
   opacity: 1;
   z-index: 10;
@@ -48,7 +48,7 @@
   color: #ffffff;
   font-size: 1.125rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .marketing-dashboard-stats {
@@ -199,9 +199,9 @@
 /* Responsive */
 @media (max-width: 1400px) {
   .marketing-dashboard-container {
-    max-width: 65vw;
-    width: 65vw;
-    padding: 2.5rem;
+    max-width: 72vw;
+    width: 72vw;
+    padding: 2.75rem;
     transform: translateX(-50%) perspective(1500px) rotateX(2deg);
   }
   
@@ -216,9 +216,9 @@
 
 @media (max-width: 1024px) {
   .marketing-dashboard-container {
-    max-width: 72vw;
-    width: 72vw;
-    padding: 2rem;
+    max-width: 79vw;
+    width: 79vw;
+    padding: 2.2rem;
     transform: translateX(-50%) perspective(1400px) rotateX(1.5deg);
   }
   
@@ -237,11 +237,11 @@
 
 @media (max-width: 768px) {
   .marketing-dashboard-container {
-    padding: 1.5rem;
+    padding: 1.65rem;
     transform: translateX(-50%) perspective(1200px) rotateX(1deg);
-    max-width: 77vw;
-    width: 77vw;
-    min-height: 45vh;
+    max-width: 85vw;
+    width: 85vw;
+    min-height: 50vh;
   }
   
   .marketing-dashboard-stats {
@@ -270,10 +270,10 @@
   
   .marketing-dashboard-container {
     transform: translateX(-50%) perspective(1000px) rotateX(0.5deg);
-    padding: 1rem;
-    min-height: 40vh;
-    max-width: 82vw;
-    width: 82vw;
+    padding: 1.1rem;
+    min-height: 44vh;
+    max-width: 90vw;
+    width: 90vw;
   }
   
   .marketing-stat-value {
@@ -291,10 +291,10 @@
 
 @media (max-width: 360px) {
   .marketing-dashboard-container {
-    max-width: 87vw;
-    width: 87vw;
-    padding: 0.75rem;
-    min-height: 35vh;
+    max-width: 96vw;
+    width: 96vw;
+    padding: 0.825rem;
+    min-height: 38vh;
   }
   
   .marketing-stat-value {
