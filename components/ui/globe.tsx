@@ -1,6 +1,6 @@
 "use client"
 
-import createGlobe, { COBEOptions } from "cobe"
+import { COBEOptions } from "cobe"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 
@@ -79,18 +79,33 @@ export function Globe({
   }
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
     window.addEventListener("resize", onResize)
     onResize()
 
-    const globe = createGlobe(canvasRef.current!, {
-      ...config,
-      width: width * 2,
-      height: width * 2,
-      onRender,
-    })
+    const initGlobe = async () => {
+      if (canvasRef.current) {
+        const { default: createGlobe } = await import("cobe")
+        
+        const globe = createGlobe(canvasRef.current, {
+          ...config,
+          width: width * 2,
+          height: width * 2,
+          onRender,
+        })
 
-    setTimeout(() => (canvasRef.current!.style.opacity = "1"))
-    return () => globe.destroy()
+        setTimeout(() => {
+          if (canvasRef.current) {
+            canvasRef.current.style.opacity = "1"
+          }
+        })
+        
+        return () => globe.destroy()
+      }
+    }
+
+    initGlobe()
   }, [])
 
   return (
