@@ -17,9 +17,33 @@ class MarketingDashboard {
   init() {
     this.render();
     this.startUpdates();
-    // Ensure dashboard is always visible
-    this.container.style.display = 'block';
-    this.container.style.opacity = '1';
+    this.setupIntersectionObserver();
+  }
+  
+  setupIntersectionObserver() {
+    // Check if IntersectionObserver is supported
+    if (!('IntersectionObserver' in window)) {
+      // Fallback for older browsers
+      this.container.classList.add('animate-in');
+      return;
+    }
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add animation class with delay
+          setTimeout(() => {
+            this.container.classList.add('animate-in');
+          }, 200); // 200ms delay after entering viewport
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1, // Trigger when 10% of element is visible
+      rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+    });
+    
+    observer.observe(this.container);
   }
   
   formatNumber(value) {

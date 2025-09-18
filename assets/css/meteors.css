@@ -98,12 +98,12 @@
   padding-top: 8rem; /* podniesiony nagłówek */
 }
 
-/* Delicate metallic gradient heading */
+/* Delicate metallic gradient heading - Increased size by 30% */
 .hero-meteors-title {
-  font-size: clamp(3rem, 10vw, 5rem);
+  font-size: clamp(3.9rem, 13vw, 6.5rem); /* +30% from original */
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.05; /* Tighter line-height for better multi-line appearance */
   background: linear-gradient(135deg, 
     #d9d9d9 0%, 
     #fefefe 30%, 
@@ -114,10 +114,12 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: reveal 700ms ease-out forwards, metallic-shine 3s ease-in-out infinite;
+  animation: heroTitleReveal 1000ms cubic-bezier(0.22, 1, 0.36, 1) forwards, metallic-shine 3s ease-in-out infinite;
   margin-bottom: 0;
   text-shadow: 0 0 30px rgba(163, 184, 255, 0.3);
   position: relative;
+  opacity: 0; /* Start hidden for animation */
+  filter: blur(2px) brightness(0.7); /* Start with shadow effect */
 }
 
 
@@ -143,39 +145,49 @@
   }
 }
 
-/* Hero subtitle */
+/* Hero subtitle - Increased size by 14% and constrained width */
 .hero-meteors-subtitle {
   color: #ffffff;
-  font-size: 1.125rem;
+  font-size: 1.28rem; /* +14% from 1.125rem */
+  max-width: 36rem; /* Constrained width for better readability */
+  margin: 1.5rem auto 0 auto; /* Center the constrained text */
   line-height: 1.6;
-  max-width: 36rem;
-  margin: 1.5rem auto 0 auto;
+  opacity: 0; /* Start hidden for animation */
+  filter: blur(1px) brightness(0.8); /* Start with shadow effect */
+  animation: heroSubtitleReveal 1000ms cubic-bezier(0.22, 1, 0.36, 1) 100ms forwards; /* 100ms delay after title */
 }
 
-/* Reveal animation */
-@keyframes reveal {
+/* Hero title reveal animation - "Coming out of shadow" */
+@keyframes heroTitleReveal {
   0% {
     opacity: 0;
-    transform: translateY(10px);
+    filter: blur(2px) brightness(0.7);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0) brightness(1);
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero-meteors {
-    min-height: 60vh;
+/* Hero subtitle reveal animation - "Coming out of shadow" */
+@keyframes heroSubtitleReveal {
+  0% {
+    opacity: 0;
+    filter: blur(1px) brightness(0.8);
   }
-  
-  .hero-meteors-title {
-    font-size: clamp(2rem, 10vw, 3rem);
+  100% {
+    opacity: 1;
+    filter: blur(0) brightness(1);
   }
-  
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-meteors-title,
   .hero-meteors-subtitle {
-    font-size: 1rem;
+    animation: none;
+    opacity: 1;
+    filter: none;
   }
 }
 
@@ -188,15 +200,33 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .hero-meteors {
-    min-height: 80vh;
+    min-height: 60vh;
+  }
+  
+  .hero-meteors-content {
+    padding-top: 4rem;
   }
   
   .hero-meteors-title {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: clamp(3.25rem, 10.4vw, 5.2rem); /* +30% from responsive values */
+    line-height: 1.1; /* Slightly tighter for mobile */
   }
   
   .hero-meteors-subtitle {
-    font-size: 1rem;
+    font-size: 1.14rem; /* +14% from 1rem */
+    max-width: 32rem; /* Adjusted for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-meteors-title {
+    font-size: clamp(2.6rem, 8.3vw, 4.2rem); /* +30% from mobile values */
+    line-height: 1.15;
+  }
+  
+  .hero-meteors-subtitle {
+    font-size: 1.07rem; /* +14% from mobile */
+    max-width: 28rem;
   }
 }
 
@@ -206,7 +236,10 @@
     animation: none;
   }
   
-  .hero-meteors-title {
+  .hero-meteors-title,
+  .hero-meteors-subtitle {
     animation: none;
+    opacity: 1;
+    filter: none;
   }
 }

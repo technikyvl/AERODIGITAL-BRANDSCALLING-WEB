@@ -4,9 +4,9 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) perspective(1500px) rotateX(3deg);
-  max-width: 75vw;
-  width: 75vw;
-  min-height: 65.5vh;
+  max-width: 63.75vw; /* 75vw * 0.85 = 63.75vw */
+  width: 63.75vw;
+  min-height: 58.95vh; /* 65.5vh * 0.9 = 58.95vh */
   border-radius: 1rem;
   border: none;
   background: #000000;
@@ -15,7 +15,7 @@
     0 0 60px rgba(255, 255, 255, 0.08);
   padding: 3.6rem;
   animation: none;
-  opacity: 1;
+  opacity: 0; /* Start hidden for animation */
   z-index: 10;
 }
 
@@ -41,7 +41,30 @@
   pointer-events: none;
 }
 
-/* Removed animations to prevent flickering */
+/* Dashboard fade-in-up animation */
+@keyframes dashboardFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) perspective(1500px) rotateX(3deg) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) perspective(1500px) rotateX(3deg) translateY(0);
+  }
+}
+
+.marketing-dashboard-container.animate-in {
+  animation: dashboardFadeInUp 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .marketing-dashboard-container.animate-in {
+    animation: none;
+    opacity: 1;
+    transform: translateX(-50%) perspective(1500px) rotateX(3deg);
+  }
+}
 
 .marketing-dashboard-header {
   text-align: center;
@@ -199,8 +222,8 @@
 /* Responsive */
 @media (max-width: 1400px) {
   .marketing-dashboard-container {
-    max-width: 72vw;
-    width: 72vw;
+    max-width: 61.2vw; /* 72vw * 0.85 = 61.2vw */
+    width: 61.2vw;
     padding: 2.75rem;
     transform: translateX(-50%) perspective(1500px) rotateX(2deg);
   }
@@ -216,8 +239,8 @@
 
 @media (max-width: 1024px) {
   .marketing-dashboard-container {
-    max-width: 79vw;
-    width: 79vw;
+    max-width: 67.15vw; /* 79vw * 0.85 = 67.15vw */
+    width: 67.15vw;
     padding: 2.2rem;
     transform: translateX(-50%) perspective(1400px) rotateX(1.5deg);
   }
@@ -239,9 +262,9 @@
   .marketing-dashboard-container {
     padding: 1.65rem;
     transform: translateX(-50%) perspective(1200px) rotateX(1deg);
-    max-width: 85vw;
-    width: 85vw;
-    min-height: 50vh;
+    max-width: 72.25vw; /* 85vw * 0.85 = 72.25vw */
+    width: 72.25vw;
+    min-height: 45vh; /* 50vh * 0.9 = 45vh */
   }
   
   .marketing-dashboard-stats {
@@ -271,9 +294,9 @@
   .marketing-dashboard-container {
     transform: translateX(-50%) perspective(1000px) rotateX(0.5deg);
     padding: 1.1rem;
-    min-height: 44vh;
-    max-width: 90vw;
-    width: 90vw;
+    min-height: 39.6vh; /* 44vh * 0.9 = 39.6vh */
+    max-width: 76.5vw; /* 90vw * 0.85 = 76.5vw */
+    width: 76.5vw;
   }
   
   .marketing-stat-value {
@@ -291,10 +314,10 @@
 
 @media (max-width: 360px) {
   .marketing-dashboard-container {
-    max-width: 96vw;
-    width: 96vw;
+    max-width: 81.6vw; /* 96vw * 0.85 = 81.6vw */
+    width: 81.6vw;
     padding: 0.825rem;
-    min-height: 38vh;
+    min-height: 34.2vh; /* 38vh * 0.9 = 34.2vh */
   }
   
   .marketing-stat-value {
