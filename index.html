@@ -23,10 +23,6 @@
     <link rel="stylesheet" href="assets/css/marketing-dashboard.css">
     <link rel="stylesheet" href="assets/css/world-map.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- DottedMap -->
-    <script src="https://cdn.jsdelivr.net/npm/dotted-map@2.1.2/dist/dotted-map.min.js"></script>
-    <!-- World Map Component -->
-    <script src="components/ui/world-map.js"></script>
   </head>
   <body class="cs_live_chat">
     <!-- Start Preloader -->
@@ -217,8 +213,16 @@
               <h2 class="cs_section_title cs_fs_50 cs_mb_16 wow fadeInDown">Zaufali nam klienci z całego świata</h2>
               <p class="cs_section_text mb-0 max-w-2xl mx-auto">Współpracujemy z firmami z różnych rynków — między innymi z Włoch, Francji, Belgii i Słowacji. Łączymy zespoły, procesy i dane bez względu na lokalizację, dostarczając spójne wyniki.</p>
             </div>
-            <div class="cs_world_map_container wow fadeInUp">
-              <div id="worldMap" class="cs_world_map"></div>
+            <div class="wow fadeInUp">
+              <section id="trusted-worldwide" class="section-map">
+                <div class="map-shell">
+                  <!-- Dotted world background -->
+                  <img id="dotted-world" alt="world map" draggable="false" />
+
+                  <!-- Animated overlay -->
+                  <svg id="world-overlay" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+                </div>
+              </section>
             </div>
           </div>
         </div>
@@ -1091,48 +1095,7 @@
         // Initialize animations
         startPLNGrowth();
         initHeadingReveal();
-        initWorldMap();
       });
-      
-      // WorldMap Component Implementation
-      function initWorldMap() {
-        // Wait for WorldMap class to load
-        if (typeof WorldMap === 'undefined') {
-          setTimeout(initWorldMap, 100);
-          return;
-        }
-        
-        // Initialize the new WorldMap component with the requested connections
-        new WorldMap('worldMap', {
-          lineColor: '#0ea5e9',
-          showLabels: true,
-          labelClassName: 'text-sm',
-          animationDuration: 2,
-          loop: true,
-          dots: [
-            // USA -> France
-            {
-              start: { lat: 40.7128, lng: -74.0060, label: 'Stany Zjednoczone' }, // New York
-              end: { lat: 48.8566, lng: 2.3522, label: 'Francja' }, // Paris
-            },
-            // France -> Belgium
-            {
-              start: { lat: 48.8566, lng: 2.3522, label: 'Francja' }, // Paris
-              end: { lat: 50.8503, lng: 4.3517, label: 'Belgia' }, // Brussels
-            },
-            // Belgium -> Italy
-            {
-              start: { lat: 50.8503, lng: 4.3517, label: 'Belgia' }, // Brussels
-              end: { lat: 41.9028, lng: 12.4964, label: 'Włochy' }, // Rome
-            },
-            // Italy -> Poland
-            {
-              start: { lat: 41.9028, lng: 12.4964, label: 'Włochy' }, // Rome
-              end: { lat: 52.2297, lng: 21.0122, label: 'Polska' }, // Warsaw
-            },
-          ]
-        });
-      }
     </script>
     
     <!-- Island Header JavaScript -->
@@ -1220,6 +1183,123 @@
         
         window.addEventListener('scroll', handleScroll);
       });
+    </script>
+    
+    <!-- World Map JavaScript -->
+    <script type="module">
+      const LINE_COLOR = "#0ea5e9";
+      const DOT_COLOR_DARK = "#FFFFFF40";
+      const DOT_COLOR_LIGHT = "#9CA3AF66";
+      const BG_COLOR = "#000000";
+      const RADIUS = 0.22;
+      const ANIM_DUR = 2;
+      const STAGGER = 0.3;
+      const LOOP_PAUSE = 2;
+
+      const routes = [
+        { start: { lat: 40.7128, lng: -74.0060, label: "Stany Zjednoczone" }, end: { lat: 48.8566, lng: 2.3522,  label: "Francja" } },
+        { start: { lat: 48.8566, lng: 2.3522,  label: "Francja" },            end: { lat: 50.8503, lng: 4.3517,  label: "Belgia" } },
+        { start: { lat: 50.8503, lng: 4.3517,  label: "Belgia" },             end: { lat: 41.9028, lng: 12.4964, label: "Włochy" } },
+        { start: { lat: 41.9028, lng: 12.4964, label: "Włochy" },             end: { lat: 52.2297, lng: 21.0122, label: "Polska" } },
+      ];
+
+      const project = (lat, lng) => ({ x: (lng + 180) * (800 / 360), y: (90 - lat) * (400 / 180) });
+      const arcPath = (a, b) => {
+        const midX = (a.x + b.x) / 2;
+        const midY = Math.min(a.y, b.y) - 50;
+        return `M ${a.x} ${a.y} Q ${midX} ${midY} ${b.x} ${b.y}`;
+      };
+
+      async function loadDottedBackground() {
+        const img = document.getElementById("dotted-world");
+        try {
+          const { default: DottedMap } = await import("https://cdn.jsdelivr.net/npm/dotted-map@1.2.0/dist/dotted-map.esm.js");
+          const map = new DottedMap({ height: 100, grid: "diagonal" });
+          const svg = map.getSVG({
+            radius: RADIUS,
+            color: DOT_COLOR_DARK,
+            shape: "circle",
+            backgroundColor: BG_COLOR,
+          });
+          img.src = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+        } catch (e) {
+          const fallbackSvg =
+            `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400' fill='none'>
+               <rect width='800' height='400' fill='${BG_COLOR}'/>
+               <defs>
+                 <pattern id='d' width='6' height='6' patternUnits='userSpaceOnUse'>
+                   <circle cx='1' cy='1' r='1' fill='#ffffff33'/>
+                 </pattern>
+               </defs>
+               <rect width='800' height='400' fill='url(#d)'/>
+             </svg>`;
+          img.src = `data:image/svg+xml;utf8,${encodeURIComponent(fallbackSvg)}`;
+        }
+      }
+
+      function buildOverlay() {
+        const svg = document.getElementById("world-overlay");
+        svg.innerHTML = `
+          <defs>
+            <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="white" stop-opacity="0"/>
+              <stop offset="5%" stop-color="${LINE_COLOR}" stop-opacity="1"/>
+              <stop offset="95%" stop-color="${LINE_COLOR}" stop-opacity="1"/>
+              <stop offset="100%" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="glow">
+              <feMorphology operator="dilate" radius="0.5"/>
+              <feGaussianBlur stdDeviation="1" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+        `;
+        routes.forEach((r, i) => {
+          const a = project(r.start.lat, r.start.lng);
+          const b = project(r.end.lat, r.end.lng);
+          const d = arcPath(a, b);
+
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute("id", `path-${i}`);
+          path.setAttribute("d", d);
+          path.setAttribute("fill", "none");
+          path.setAttribute("stroke", "url(#path-gradient)");
+          path.setAttribute("stroke-width", "1");
+          path.setAttribute("pathLength", "1");
+          path.setAttribute("stroke-dasharray", "1");
+          path.setAttribute("stroke-dashoffset", "1");
+          path.innerHTML = `
+            <animate attributeName="stroke-dashoffset"
+                     values="1;0;0;1"
+                     dur="${routes.length*STAGGER+ANIM_DUR+LOOP_PAUSE}s"
+                     repeatCount="indefinite"/>
+          `;
+          svg.appendChild(path);
+
+          const mover = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          mover.setAttribute("r", "4");
+          mover.setAttribute("fill", LINE_COLOR);
+          mover.innerHTML = `<animateMotion dur="${routes.length*STAGGER+ANIM_DUR+LOOP_PAUSE}s" repeatCount="indefinite"><mpath href="#path-${i}"/></animateMotion>`;
+          svg.appendChild(mover);
+
+          const start = document.createElementNS("http://www.w3.org/2000/svg", "g");
+          start.innerHTML = `
+            <circle cx="${a.x}" cy="${a.y}" r="3" fill="${LINE_COLOR}" class="point-glow"/>
+            <text x="${a.x}" y="${a.y-10}" class="map-label">${r.start.label}</text>
+          `;
+          svg.appendChild(start);
+
+          const end = document.createElementNS("http://www.w3.org/2000/svg", "g");
+          end.innerHTML = `
+            <circle cx="${b.x}" cy="${b.y}" r="3" fill="${LINE_COLOR}" class="point-glow"/>
+            <text x="${b.x}" y="${b.y-10}" class="map-label">${r.end.label}</text>
+          `;
+          svg.appendChild(end);
+        });
+      }
+
+      await loadDottedBackground();
+      buildOverlay();
     </script>
   </body>
 </html>
