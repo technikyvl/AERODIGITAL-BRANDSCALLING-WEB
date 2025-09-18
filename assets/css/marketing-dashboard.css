@@ -23,22 +23,23 @@
 .marketing-dashboard-container::before {
   content: '';
   position: absolute;
-  bottom: -300px; /* Much larger - increased from -200px */
-  left: -250px; /* Much larger - increased from -150px */
-  right: -250px; /* Much larger - increased from -150px */
-  height: 600px; /* Much larger - increased from 400px */
+  bottom: -200px; /* Positioned to better cover dashboard */
+  left: -200px; /* Better coverage of dashboard width */
+  right: -200px; /* Better coverage of dashboard width */
+  height: 500px; /* Height to better cover dashboard */
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.4) 10%, /* Much more intense */
-    rgba(255, 255, 255, 0.7) 30%, /* Much more intense */
-    rgba(255, 255, 255, 0.8) 50%, /* Much more intense */
-    rgba(255, 255, 255, 0.7) 70%, /* Much more intense */
-    rgba(255, 255, 255, 0.4) 90%, /* Much more intense */
+    rgba(255, 255, 255, 0.6) 5%, /* Much more intense at start */
+    rgba(255, 255, 255, 0.9) 20%, /* Very intense */
+    rgba(255, 255, 255, 1.0) 40%, /* Maximum intensity */
+    rgba(255, 255, 255, 0.9) 60%, /* Very intense */
+    rgba(255, 255, 255, 0.6) 80%, /* Much more intense */
+    rgba(255, 255, 255, 0.3) 95%, /* Still visible */
     transparent 100%
   );
   border-radius: 50%;
-  filter: blur(120px); /* Much larger blur for dramatic spread */
+  filter: blur(100px); /* Large blur for spread but not too much */
   z-index: -1;
   pointer-events: none;
   opacity: 0; /* Start hidden for animation */
@@ -53,7 +54,7 @@
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1.1); /* Slightly larger for better coverage */
   }
 }
 
@@ -61,13 +62,50 @@
   animation: glareFadeInUp 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* Additional glare animation for the overlay */
+@keyframes glareOverlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.marketing-dashboard-container.glare-animate::after {
+  animation: glareOverlayFadeIn 1000ms cubic-bezier(0.22, 1, 0.36, 1) 200ms forwards;
+}
+
 /* Additional glare effect on dashboard itself for more intensity */
 .marketing-dashboard-container.glare-animate {
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.4),
     0 0 60px rgba(255, 255, 255, 0.08),
-    0 0 120px rgba(255, 255, 255, 0.15), /* Additional white glow */
-    0 0 200px rgba(255, 255, 255, 0.1); /* Even larger outer glow */
+    0 0 120px rgba(255, 255, 255, 0.25), /* Much stronger white glow */
+    0 0 200px rgba(255, 255, 255, 0.2), /* Even stronger outer glow */
+    0 0 300px rgba(255, 255, 255, 0.15); /* Additional very large glow */
+}
+
+/* Additional glare overlay directly on dashboard */
+.marketing-dashboard-container.glare-animate::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.2) 70%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 1rem;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0; /* Start hidden for animation */
 }
 
 /* Dashboard fade-in-up animation - Slower version */
