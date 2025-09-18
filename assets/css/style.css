@@ -6799,7 +6799,7 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
   box-shadow:0 20px 60px rgba(0,0,0,.45), 0 0 20px rgba(255,255,255,0.1);
 }
 
-/* Gradient polish effect on hover */
+/* Gradient polish effect on hover - Applied to ALL cards */
 .hcard::after{
   content:"";position:absolute;inset:0;border-radius:18px;
   background:linear-gradient(135deg, 
@@ -6821,6 +6821,33 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
 .hcard:hover::after{
   opacity:1;
   transform:translateX(100%) skewX(-15deg);
+}
+
+/* Ensure all cards have identical hover effects */
+.hcard:hover {
+  transform:rotate(-1deg) scale(1.05);
+}
+.hcard:hover::before {
+  border:2px solid rgba(255,255,255,0.4);
+  box-shadow:0 20px 60px rgba(0,0,0,.45), 0 0 20px rgba(255,255,255,0.1);
+}
+.hcard:hover .icon {
+  transform:rotate(12deg) scale(1.10);
+  box-shadow:0 16px 40px rgba(255,255,255,.2) inset;
+}
+.hcard:hover .desc p {
+  color:#e5e7eb;
+  transition:color .3s;
+}
+.hcard:hover .bar {
+  width:50%;
+  height:4px;
+}
+.hcard:hover .dots {
+  opacity:1;
+}
+.hcard:hover .corner {
+  opacity:1;
 }
 
 .hcard__bg{position:absolute;inset:0;z-index:0;overflow:hidden}
