@@ -67,24 +67,31 @@ class MarketingDashboard {
       // Remove any existing animation classes and reset color
       itemElement.classList.remove('highlight-green', 'highlight-red');
       itemElement.style.color = '#ffffff';
+      itemElement.style.textShadow = 'none';
       
       if (currentValue > previousValue) {
         // Add green color and animation to entire stat item
         itemElement.classList.add('highlight-green');
+        itemElement.style.color = '#22c55e';
+        itemElement.style.textShadow = 'none';
         itemElement.style.animation = 'numberIncrease 1s ease-in-out';
         setTimeout(() => {
           itemElement.style.animation = '';
           itemElement.classList.remove('highlight-green');
           itemElement.style.color = '#ffffff';
+          itemElement.style.textShadow = 'none';
         }, 1000);
       } else if (currentValue < previousValue) {
         // Add red color and animation to entire stat item
         itemElement.classList.add('highlight-red');
+        itemElement.style.color = '#ef4444';
+        itemElement.style.textShadow = '0 0 15px rgba(239, 68, 68, 0.8)';
         itemElement.style.animation = 'numberDecrease 1s ease-in-out';
         setTimeout(() => {
           itemElement.style.animation = '';
           itemElement.classList.remove('highlight-red');
           itemElement.style.color = '#ffffff';
+          itemElement.style.textShadow = 'none';
         }, 1000);
       }
     });
