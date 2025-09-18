@@ -6816,6 +6816,12 @@ h1.revealed, h2.revealed, h3.revealed, h4.revealed, h5.revealed, h6.revealed {
 .hcard:hover::after{
   opacity:1;
   transform:translateX(100%) skewX(-15deg);
+  transition:opacity 0.4s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hcard:not(:hover)::after{
+  opacity:0;
+  transform:translateX(-100%) skewX(-15deg);
+  transition:opacity 0.2s ease, transform 0s ease;
 }
 
 .hcard__bg{position:absolute;inset:0;z-index:0;overflow:hidden}
