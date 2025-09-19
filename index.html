@@ -30,7 +30,7 @@
     </div>
     <!-- End Preloader -->
     <!-- Start New Header Component -->
-    <header class="new-header">
+    <header class="new-header site-header">
       <nav class="new-nav" data-state="closed">
         <div class="new-nav-container">
           <div class="new-nav-content">
@@ -605,6 +605,27 @@
     });
     </script>
     
+
+    <!-- Glassmorphism Header Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('.site-header');
+        
+        function handleScroll() {
+          if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        }
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+        
+        // Check initial scroll position
+        handleScroll();
+      });
+    </script>
 
     <!-- Reveal Animation Script -->
     <script>
