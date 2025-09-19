@@ -7096,21 +7096,16 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
 
 
 /* === GLASSMORPHISM HEADER === */
-.glass-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
+.glass-header .new-nav {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(0);
 }
 
-.glass-header.hidden {
+.glass-header.hidden .new-nav {
   transform: translateY(-100%);
 }
 
-.glass-header.scrolled {
+.glass-header.scrolled .new-nav {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -7126,18 +7121,6 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
   right: 0;
 }
 
-.glass-header.scrolled .new-nav {
-  background: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-  position: static;
-  width: 100%;
-  left: auto;
-  right: auto;
-  top: auto;
-}
-
 .glass-header.scrolled .new-nav-container {
   background: transparent;
   border: none;
@@ -7148,7 +7131,7 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
 
 /* Responsive glassmorphism header */
 @media (max-width: 768px) {
-  .glass-header.scrolled {
+  .glass-header.scrolled .new-nav {
     margin: 8px;
     width: calc(100% - 16px);
     border-radius: 12px;
@@ -7160,7 +7143,7 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
 }
 
 @media (max-width: 480px) {
-  .glass-header.scrolled {
+  .glass-header.scrolled .new-nav {
     margin: 6px;
     width: calc(100% - 12px);
     border-radius: 10px;
