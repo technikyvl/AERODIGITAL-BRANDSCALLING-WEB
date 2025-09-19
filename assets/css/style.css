@@ -7095,6 +7095,72 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
 
 
 
+/* === GLASSMORPHISM HEADER === */
+.glass-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.glass-header.scrolled {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin: 12px;
+  width: calc(100% - 24px);
+}
+
+/* Ensure header content is properly positioned */
+.glass-header .new-nav-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Adjust header positioning for glassmorphism effect */
+.glass-header.scrolled .new-nav-container {
+  padding: 12px 0;
+}
+
+/* Responsive glassmorphism header */
+@media (max-width: 768px) {
+  .glass-header.scrolled {
+    margin: 8px;
+    width: calc(100% - 16px);
+    border-radius: 12px;
+  }
+  
+  .glass-header.scrolled .new-nav-container {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-header.scrolled {
+    margin: 6px;
+    width: calc(100% - 12px);
+    border-radius: 10px;
+  }
+  
+  .glass-header.scrolled .new-nav-container {
+    padding: 8px 0;
+  }
+}
+
 /* === REVEAL ANIMATION === */
 .reveal {
   opacity: 0;
