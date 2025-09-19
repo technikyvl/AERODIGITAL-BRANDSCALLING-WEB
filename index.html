@@ -881,25 +881,5 @@
       document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
     </script>
     
-    <!-- Header Glass Effect Script -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('.new-header');
-        
-        function updateHeader() {
-          if (window.scrollY > 10) {
-            header.classList.add('scrolled');
-          } else {
-            header.classList.remove('scrolled');
-          }
-        }
-        
-        // Initial check
-        updateHeader();
-        
-        // Listen for scroll events
-        window.addEventListener('scroll', updateHeader);
-      });
-    </script>
   </body>
 </html>
