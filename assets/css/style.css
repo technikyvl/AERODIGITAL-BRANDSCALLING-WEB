@@ -7106,6 +7106,11 @@ a[class*="btn"]:not(.btn--plain):focus-visible {
   border: none;
   border-radius: 0;
   box-shadow: none;
+  transform: translateY(0);
+}
+
+.site-header.hidden {
+  transform: translateY(-100%);
 }
 
 .site-header.scrolled {
