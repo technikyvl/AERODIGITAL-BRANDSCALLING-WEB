@@ -606,37 +606,6 @@
     </script>
     
 
-    <!-- Glassmorphism Header Script -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('.glass-header');
-        let ticking = false;
-        
-        function handleScroll() {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              const scrollY = window.scrollY;
-              
-              if (scrollY > 50) {
-                header.classList.add('scrolled');
-              } else {
-                header.classList.remove('scrolled');
-              }
-              
-              ticking = false;
-            });
-            ticking = true;
-          }
-        }
-        
-        // Add scroll event listener
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        
-        // Check initial scroll position
-        handleScroll();
-      });
-    </script>
-
     <!-- Reveal Animation Script -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {

@@ -22,16 +22,29 @@ class NewHeader {
 
   setupScrollEffect() {
     let ticking = false;
+    let lastScrollY = window.scrollY;
     
     const updateHeader = () => {
-      const scrolled = window.scrollY > 50;
+      const currentScrollY = window.scrollY;
+      const scrolled = currentScrollY > 50;
       
+      // Add glassmorphism effect when scrolled
       if (scrolled) {
         this.header.classList.add('scrolled');
       } else {
         this.header.classList.remove('scrolled');
       }
       
+      // Hide/show header based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide header
+        this.header.classList.add('hidden');
+      } else {
+        // Scrolling up - show header
+        this.header.classList.remove('hidden');
+      }
+      
+      lastScrollY = currentScrollY;
       ticking = false;
     };
 
